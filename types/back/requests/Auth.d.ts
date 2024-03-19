@@ -24,6 +24,10 @@ declare interface LoginRequestShapeI {
 	body: UserLoginI;
 	query: any;
 }
+declare interface LoginOAuthRequestShapeI {
+	body: any;
+	query: UserOAuthI;
+}
 declare interface RegisterRequestShapeI {
 	body: UserRegistrationI;
 	query: any;

@@ -3,6 +3,9 @@ declare interface UserLogInI {
 	password: string;
 	stay?: boolean;
 }
+declare interface UserOAuthI {
+	token: string;
+}
 declare interface UserAuthI {
 	user: UserI;
 	new?: boolean;

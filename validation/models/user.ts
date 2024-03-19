@@ -39,6 +39,13 @@ export const userLoginSchema = ({
 export const oauthRequestQuerySchema = z.object<MyZodType<OAuthRequestQueryI>>({
 	issFor: A9raAppsSchema().optional(),
 });
+export const LoginOAuthRequestSchema = z.object<MyZodType<UserOAuthI>>({
+	token: z.string({
+		description: 'The token received from the OAuth provider',
+		invalid_type_error: 'Invalid token',
+		required_error: 'Token is required',
+	}),
+});
 /* --------------------------------- User Register Schema --------------------------------- */
 export const userRegisterSchema = ({
 	username,
