@@ -2,15 +2,15 @@
 
 ## Introduction
 
-This repository contains the data types and validators used in the A9ra projects.
+This repository contains the data types, components and validators used in the A9ra projects.
 
 ## 🛠️ Getting Started
 
 ### 🚀 Initial Setup
 
--   Clone the repository you want to add this submodule to. example:`git clone https://github.com/a9ra/store-manager-back.git`
--   Add submodule: `git submodule add https://github.com/a9ra/a9ra-data-types.git src/a9ra-components`
--   Commit the changes `git commit -m "Add a9ra-data-types submodule"`
+-   Clone the repository you want to add this submodule to. example:`git clone https://github.com/a9ra/a9ra-accounts.git`
+-   Add submodule: `git submodule add https://github.com/a9ra/a9ra-components.git src/a9ra-components`
+-   Commit the changes `git commit -m "Add a9ra-components submodule"`
 -   Push the changes `git push`
 
 ## 📁 Project Structure

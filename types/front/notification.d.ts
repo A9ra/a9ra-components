@@ -1,4 +1,4 @@
-declare type NotificationReferenceType = 'Product' | 'Order' | 'Issue' | 'Notification' | 'Ad';
+declare type NotificationReferenceType = 'Issue' | 'Notification' | 'Ad';
 
 declare interface NotificationI {
 	_id: string;
