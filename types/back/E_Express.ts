@@ -6,7 +6,7 @@ import { UserHydratedDocument } from './models/user';
 
 type RequestExtends = UserDocumentI;
 
-interface RequestExtendsMap<T extends RequestExtends | null> {
+interface RequestExtendsMap<T extends RequestExtends | null = null> {
 	records?: { user: T extends UserDocumentI ? UserHydratedDocument : null };
 }
 

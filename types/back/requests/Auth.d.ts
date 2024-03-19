@@ -2,6 +2,10 @@ declare interface CheckAuthShapeI {
 	body: any;
 	query: any;
 }
+declare interface CheckOAuthShapeI {
+	body: any;
+	query: OAuthRequestQueryI;
+}
 declare interface CheckUsernameShapeI {
 	body: any;
 	query: any;

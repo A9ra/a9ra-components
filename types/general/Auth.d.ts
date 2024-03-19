@@ -3,11 +3,12 @@ declare interface UserLogInI {
 	password: string;
 	stay?: boolean;
 }
-interface UserAuthI {
+declare interface UserAuthI {
 	user: UserI;
 	new?: boolean;
 	token?: string;
 }
+declare type UserTokenI = string;
 
 declare interface UserRegistrationI extends Omit<UserLogInI, 'stay'> {
 	email: string;
@@ -26,6 +27,9 @@ declare type ValidatedElementsI<T extends Omit<ValidationI, 'updatedAt'> = Omit<
 	ValidationKeysI,
 	T
 >;
+declare interface OAuthRequestQueryI {
+	issFor?: A9raAppsI;
+}
 /* ----------------------- Google auth -----------------------*/
 declare interface GoogleAuthorizationUrlRequestI {}
 declare interface GoogleLogOnI {

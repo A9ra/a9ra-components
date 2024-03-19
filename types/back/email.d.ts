@@ -12,7 +12,7 @@ declare type EmailTemplates = keyof EmailContexts;
 declare type EmailAccounts = 'info' | 'support' | 'noReply';
 
 declare interface QueuedEmail<T extends EmailTemplates = EmailTemplates> {
-	by: A9raApps;
+	by: A9raAppsI;
 	from: EmailAccounts;
 	to: string | string[];
 	cc?: string | string[];

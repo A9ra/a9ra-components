@@ -172,63 +172,6 @@ export const urlSchema = (msg?: ErrorsSchemaMsgI) =>
 			description: msg?.description || 'A url',
 			format: 'url',
 		});
-/* example of use
-arraySchema<UserAuthI>(
-	z.object<MyZodType<UserAuthI>>({
-		password: passwordSchema(),
-		username: usernameSchema(),
-	})
-); */
-
-export const statusProductSchema = (msg?: ErrorsSchemaMsgI) =>
-	z
-		.enum(['active', 'inactive'], {
-			invalid_type_error: msg?.invalid || 'Invalid product status',
-			required_error: msg?.required || 'Product status is required',
-			description: msg?.description || 'The status of the product',
-		})
-		.openapi('Product_Status', {
-			description: msg?.description || 'The status of the product',
-			format: 'active | inactive',
-		});
-
-export const weightUnitSchema = (msg?: ErrorsSchemaMsgI) =>
-	z
-		.enum(['kg', 'g', 'lb', 'oz'], {
-			invalid_type_error: msg?.invalid || 'Invalid weight unit',
-			required_error: msg?.required || 'Weight unit is required',
-			description: msg?.description || 'The unit of the weight',
-		})
-		.openapi('Weight_Unit', {
-			description: msg?.description || 'The unit of the weight',
-			format: 'kg | g | lb | oz',
-		});
-
-export const priceSchema = (msg?: ErrorsSchemaMsgI) =>
-	z
-		.string({
-			invalid_type_error: msg?.invalid || 'Not a string',
-			required_error: msg?.required || 'Price is required',
-			description: msg?.description || 'A price in string format',
-		})
-		.refine((data) => !isNaN(Number(data)), msg?.invalid || 'Price should be a numeric string')
-		.openapi('Price', {
-			description: msg?.description || 'A price in string format',
-			format: 'price',
-		});
-
-export const weightSchema = (msg?: ErrorsSchemaMsgI) =>
-	z
-		.string({
-			invalid_type_error: msg?.invalid || 'Not a string',
-			required_error: msg?.required || 'Weight is required',
-			description: msg?.description || 'A weight in string format',
-		})
-		.refine((data) => !isNaN(Number(data)), msg?.invalid || 'Weight should be a numeric string')
-		.openapi('Weight', {
-			description: msg?.description || 'A weight in string format',
-			format: 'weight',
-		});
 
 export const dateSchema = (msg?: ErrorsSchemaMsgI) =>
 	z
@@ -242,58 +185,14 @@ export const dateSchema = (msg?: ErrorsSchemaMsgI) =>
 			format: 'date',
 		});
 
-export const descriptionSchema = (msg?: ErrorsSchemaMsgI) =>
-	z
-		.string({
-			required_error: msg?.required || 'Description is required',
-			invalid_type_error: msg?.invalid || 'Invalid description',
-			description: msg?.description || 'A description',
-		})
-		.openapi('Description', {
-			description: msg?.description || 'A description',
-			format: 'description',
-		});
-
-export const quantitySchema = (msg?: ErrorsSchemaMsgI) =>
-	z
-		.number({
-			required_error: msg?.required || 'Number is required',
-			invalid_type_error: msg?.invalid || 'Invalid number',
-			description: msg?.description || 'A number',
-		})
-		.refine((data) => data > 0, msg?.invalid || 'Number must be positive')
-		.openapi('Quantity', {
-			description: msg?.description || 'A number',
-			format: 'quantity',
-		});
-
-export const imageSchema = (msg?: ImageErrorsSchemaMsgI) =>
-	z.object<MyZodType<ImageI>>({
-		src: urlSchema(msg?.src),
-		alt: z
-			.string({
-				required_error: msg?.alt?.required || 'Image alt is required',
-				invalid_type_error: msg?.alt?.invalid || 'Invalid image alt',
-				description: msg?.alt?.description || 'The alt of the image',
-			})
-			.optional(),
-		width: z
-			.number({
-				required_error: msg?.width?.required || 'Image width is required',
-				invalid_type_error: msg?.width?.invalid || 'Invalid image width',
-				description: msg?.width?.description || 'The width of the image',
-			})
-			.optional(),
-		height: z
-			.number({
-				required_error: msg?.height?.required || 'Image height is required',
-				invalid_type_error: msg?.height?.invalid || 'Invalid image height',
-				description: msg?.height?.description || 'The height of the image',
-			})
-			.optional(),
-	});
-
 export const validationSchema = () =>
 	z.object<MyZodType<Omit<ValidationI, 'updatedAt'>>>({
 		value: booleanSchema(),
+	});
+export const A9raApp: readonly A9raAppsI[] = ['AMQ', 'AB', 'AF', 'ASSO'];
+export const A9raAppsSchema = (msg?: ErrorsSchemaMsgI) =>
+	z.enum(['AMQ', 'AB', 'AF', 'ASSO'], {
+		description: msg?.description || 'The app for which the token is issued',
+		invalid_type_error: msg?.invalid || 'Invalid app',
+		required_error: msg?.required || 'App is required',
 	});

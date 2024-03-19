@@ -1,5 +1,6 @@
 import { MyZodType, z } from '../defaultZod';
 import {
+	A9raAppsSchema,
 	booleanSchema,
 	dateSchema,
 	emailSchema,
@@ -34,6 +35,10 @@ export const userLoginSchema = ({
 			}
 		)
 		.openapi('User_Login_Request', { description: 'User Login Schema' });
+
+export const oauthRequestQuerySchema = z.object<MyZodType<OAuthRequestQueryI>>({
+	issFor: A9raAppsSchema().optional(),
+});
 /* --------------------------------- User Register Schema --------------------------------- */
 export const userRegisterSchema = ({
 	username,

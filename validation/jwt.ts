@@ -31,3 +31,16 @@ export const A9RA_JWT_PayloadSchema = ({
 			description: issBy?.description || 'The issuer of the token',
 		}),
 	});
+export const A9RA_OAUTH_JWT_PayloadSchema = ({
+	issFor,
+	...rest
+}: Partial<Record<keyof A9RA_OAUTH_JWT_Payload, ErrorsSchemaMsgI>> = {}) =>
+	A9RA_JWT_PayloadSchema({
+		...rest,
+	}).extend({
+		issFor: z.string({
+			required_error: issFor?.required || 'issFor is required',
+			invalid_type_error: issFor?.invalid || 'issFor must be a string',
+			description: issFor?.description || 'The app for which the token is issued',
+		}),
+	});

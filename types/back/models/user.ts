@@ -15,9 +15,10 @@ export interface UserVirtuals {
 }
 export interface UserInstanceMethods {
 	comparePassword: (this: UserHydratedDocument, password: string) => Promise<boolean>;
-	comparePublicKey: (this: UserHydratedDocument, publicKey: string) => Promise<boolean>;
-	generatePublicKey: (this: UserHydratedDocument) => Promise<string>;
+	comparePublicKey: (this: UserHydratedDocument, publicKey: string, issAt: number) => Promise<boolean>;
+	generatePublicKey: (this: UserHydratedDocument, dateInSeconds: number) => Promise<string>;
 	generateAuthToken: (this: UserHydratedDocument) => Promise<string>;
+	generateOAuthToken: (this: UserHydratedDocument, issFor?: A9raAppsI) => Promise<string>;
 	toOptimizedObject: <T extends false | true = false>(
 		this: UserHydratedDocument,
 		convertDate?: T
@@ -49,6 +50,7 @@ export interface UserStaticMethods {
 	findByUsername: (this: UserModel, username: string) => Promise<UserHydratedDocument | null>;
 	findByEmail: (this: UserModel, email: string) => Promise<UserHydratedDocument | null>;
 	findUnique: (this: UserModel, username: string) => Promise<UserHydratedDocument>;
+	getUserFromToken: (this: UserModel, payload: A9RA_JWT_Payload) => Promise<UserHydratedDocument>;
 }
 export interface UserSchemaOptions {
 	timestamps: true;

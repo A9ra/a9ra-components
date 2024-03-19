@@ -12,3 +12,6 @@ declare interface A9RA_JWT_Payload {
 	issBy: string;
 	pk: string;
 }
+declare interface A9RA_OAUTH_JWT_Payload extends A9RA_JWT_Payload {
+	issFor: A9raAppsI;
+}
