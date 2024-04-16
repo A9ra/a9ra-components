@@ -8,8 +8,8 @@ import {
 	UserSchemaOptions,
 	UserStaticMethods,
 	UserVirtuals,
-} from '!common/back/models/user';
-import { ValidationHydratedDocument } from '!common/back/models/validation';
+} from '!common/models/user';
+import { ValidationHydratedDocument } from '!common/models/validation';
 import { passwordSchema } from '^common/elements';
 
 import { replaceEmail, replacePhone } from '@server/utils';

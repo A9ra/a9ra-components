@@ -8,7 +8,7 @@ import {
 	ValidationSchemaOptions,
 	ValidationStaticMethods,
 	ValidationVirtuals,
-} from '!common/back/models/validation';
+} from '!common/models/validation';
 
 /* --------------------- Schema --------------------- */
 const ValidationSchema = new Schema<

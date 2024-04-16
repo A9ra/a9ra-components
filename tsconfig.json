@@ -5,10 +5,11 @@
 		"lib": ["ES2020", "DOM", "DOM.Iterable", "webworker"],
 		"module": "ESNext",
 		"skipLibCheck": true,
+		"baseUrl": ".",
 		"paths": {
-			"!common/*": ["./a9ra-components/types/*"],
-			"^common/*": ["./a9ra-components/validation/*"],
-			"#common/*": ["./a9ra-components/components/*"]
+			"!common/*": ["types/*"],
+			"^common/*": ["validation/*"],
+			"#common/*": ["components/*"]
 		},
 		/* Bundler mode */
 		"moduleResolution": "bundler",
