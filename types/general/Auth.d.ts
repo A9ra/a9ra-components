@@ -69,3 +69,6 @@ declare interface GoogleAuthorizationUrlRequestI {}
 declare interface GoogleLogOnI {
 	code: string;
 }
+declare interface UserOAuthI {
+	token: string;
+}

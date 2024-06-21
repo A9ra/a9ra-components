@@ -1,5 +1,5 @@
-import { MyZodType, z } from './defaultZod';
-import { mongoIDSchema } from './elements';
+import { MyZodType, z } from '../defaultZod';
+import { mongoIDSchema } from '../elements';
 
 export const A9RA_JWT_PayloadSchema = ({
 	id,

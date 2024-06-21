@@ -1,3 +1,4 @@
+import { replaceEmail, replacePhone } from '@server/utils';
 import bcrypt from 'bcrypt';
 import { model, Schema } from 'mongoose';
 
@@ -10,10 +11,8 @@ import {
 	UserVirtuals,
 } from '!common/models/user';
 import { ValidationHydratedDocument } from '!common/models/validation';
-import { passwordSchema } from '^common/elements';
-
-import { replaceEmail, replacePhone } from '@server/utils';
 import { Jwt, JwtOAuth, tokenExpirationTime } from '&server/jwt';
+import { passwordSchema } from '^common/elements';
 
 import { ValidationMongooseSchema } from './validation.model';
 
