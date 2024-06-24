@@ -130,6 +130,7 @@ export const PublicUserSchema = ({
 				phone: phoneSchema(phone).optional(),
 				id: mongoIDSchema(id),
 				personalInformation: PersonalInformationSchema(),
+				emailValidated: booleanSchema(),
 			},
 			{
 				description: 'Public User Schema',
