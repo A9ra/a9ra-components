@@ -172,7 +172,19 @@ export const urlSchema = (msg?: ErrorsSchemaMsgI) =>
 			description: msg?.description || 'A url',
 			format: 'url',
 		});
-
+export const otpSchema = (msg?: ErrorsSchemaMsgI) =>
+	z
+		.string({
+			required_error: msg?.required || 'OTP est requis',
+			invalid_type_error: msg?.invalid || 'OTP invalide',
+			description: msg?.description || 'OTP',
+		})
+		.refine((val) => val.match(/^\d{6}$/), msg?.invalid || 'OTP invalide')
+		.openapi('OTP', {
+			description: msg?.description || 'OTP',
+			example: '123456',
+			format: 'otp',
+		});
 export const dateSchema = (msg?: ErrorsSchemaMsgI) =>
 	z
 		.date({
