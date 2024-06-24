@@ -1,21 +1,21 @@
 import { MyZodType, z } from '../../defaultZod';
 import { careersEnumSchema } from '../enums/careers';
-import { hoobiesEnumSchema } from '../enums/hoobies';
+import { interestsEnumSchema } from '../enums/interests';
 import { learningDurationEnumSchema, learningStyleEnumSchema, learningTimesEnumSchema } from '../enums/learningStyle';
 import { levelsEnumSchema } from '../enums/levels';
 import { subjectsEnumSchema } from '../enums/subjects';
 import { FocusedChoiceSchema } from '../FocusedChoice';
 
-export const IntrestsSchema = () =>
+export const InterestsSchema = () =>
 	z
-		.object<MyZodType<IntrestsI>>({
-			hobbies: FocusedChoiceSchema(hoobiesEnumSchema()),
+		.object<MyZodType<InterestsI>>({
+			interests: FocusedChoiceSchema(interestsEnumSchema()),
 			subjects: FocusedChoiceSchema(subjectsEnumSchema()),
 			careers: FocusedChoiceSchema(careersEnumSchema()),
 		})
-		.openapi('Intrests', { description: 'Intrests Schema' });
-export const PrefrencesSchema = () =>
-	z.object<MyZodType<PrefrencesI>>({
+		.openapi('Interests', { description: 'Interests Schema' });
+export const PreferencesSchema = () =>
+	z.object<MyZodType<PreferencesI>>({
 		learningStyle: FocusedChoiceSchema(learningStyleEnumSchema()),
 		learningTimes: FocusedChoiceSchema(learningTimesEnumSchema()),
 		learningDuration: FocusedChoiceSchema(learningDurationEnumSchema()),
@@ -24,8 +24,8 @@ export const PrefrencesSchema = () =>
 export const StudentProfileSchema = () =>
 	z
 		.object<MyZodType<StudentProfileI>>({
-			intrests: IntrestsSchema(),
-			prefrences: PrefrencesSchema(),
+			interests: InterestsSchema(),
+			preferences: PreferencesSchema(),
 			level: levelsEnumSchema(),
 		})
 		.openapi('Student_Profile', { description: 'Student Profile Schema' });

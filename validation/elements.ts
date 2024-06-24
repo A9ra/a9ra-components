@@ -197,10 +197,6 @@ export const dateSchema = (msg?: ErrorsSchemaMsgI) =>
 			format: 'date',
 		});
 
-export const validationSchema = () =>
-	z.object<MyZodType<Omit<ValidationI, 'updatedAt'>>>({
-		value: booleanSchema(),
-	});
 export const A9raApp: readonly A9raAppsI[] = ['AMQ', 'AB', 'AF', 'ASSO'];
 export const A9raAppsSchema = (msg?: ErrorsSchemaMsgI) =>
 	z.enum(['AMQ', 'AB', 'AF', 'ASSO'], {

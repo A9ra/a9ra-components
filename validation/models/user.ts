@@ -13,7 +13,7 @@ import {
 import { levelsEnumSchema } from './enums/levels';
 import { ContactInformationSchema } from './generals.ts/ContactInformation';
 import { PersonalInformationSchema } from './generals.ts/PersonalInformation';
-import { IntrestsSchema, PrefrencesSchema } from './profiles/students';
+import { InterestsSchema, PreferencesSchema } from './profiles/students';
 
 /* --------------------------------- User Login Schema --------------------------------- */
 export const userLoginSchema = ({
@@ -145,13 +145,13 @@ export const AuthUserSchema = (userMsgs: Partial<Record<keyof UserI, ErrorsSchem
 		.object<MyZodType<UserAuthI>>(
 			{
 				user: PublicUserSchema(userMsgs),
-				/* 	token: z
+				token: z
 					.string({
 						description: 'User token',
 						invalid_type_error: 'Invalid token',
 						required_error: 'Token is required',
 					})
-					.optional(), */
+					.optional(),
 				new: booleanSchema({
 					description: 'If the user is new',
 					invalid: 'Invalid new',
@@ -195,8 +195,8 @@ export const userRegisterSchema = ({
 			{
 				...GeneralUserSchema({ username, email, phone, password }).shape,
 				confirmPassword: passwordSchema(confirmPasswordMsg),
-				intrests: IntrestsSchema(),
-				prefrences: PrefrencesSchema(),
+				interests: InterestsSchema(),
+				preferences: PreferencesSchema(),
 				level: levelsEnumSchema(),
 			},
 			{

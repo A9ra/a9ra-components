@@ -6,7 +6,7 @@ declare interface UserLogInI {
 declare interface UserAuthI {
 	user: PublicUserI;
 	new?: boolean;
-	// token?: string;
+	token?: string;
 }
 declare type UserTokenI = string;
 

@@ -1,6 +1,6 @@
 import { z } from '^common/defaultZod';
 
-export const hoobiesMap: Record<hobbiesEnumT, EnumsDetailsI> = {
+export const interestsMap: Record<interestsEnumT, EnumsDetailsI> = {
 	Reading: {
 		name: 'Reading',
 		icon: 'Reading',
@@ -398,9 +398,9 @@ export const hoobiesMap: Record<hobbiesEnumT, EnumsDetailsI> = {
 		icon: 'Aerial',
 	},
 };
-export const hoobiesList = Object.keys(hoobiesMap) as unknown as MyEnum<hobbiesEnumT>;
+export const interestsList = Object.keys(interestsMap) as unknown as MyEnum<interestsEnumT>;
 
-export const hoobiesEnumSchema = (error?: ErrorsSchemaMsgI) =>
+export const interestsEnumSchema = (error?: ErrorsSchemaMsgI) =>
 	z
-		.enum<hobbiesEnumT, MyEnum<hobbiesEnumT>>(hoobiesList, error)
-		.openapi('hobbiesEnum', { description: 'hobbies Enum' });
+		.enum<interestsEnumT, MyEnum<interestsEnumT>>(interestsList, error)
+		.openapi('interestsEnum', { description: 'interests Enum' });

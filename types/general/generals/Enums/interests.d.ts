@@ -1,4 +1,4 @@
-declare type hobbiesEnumT =
+declare type interestsEnumT =
 	| 'Reading'
 	| 'Writing'
 	| 'Drawing'
