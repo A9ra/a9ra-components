@@ -1,0 +1,15 @@
+declare type subjectsEnumT =
+	| 'Math'
+	| 'Science'
+	| 'English'
+	| 'History'
+	| 'Islamic Studies'
+	| 'Art'
+	| 'Music'
+	| 'Physical Education'
+	| 'Computer Science'
+	| 'Social Studies'
+	| 'Arabic'
+	| 'French'
+	| 'German'
+	| 'Spanish';

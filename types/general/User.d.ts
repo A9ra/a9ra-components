@@ -1,29 +1,21 @@
-declare interface UserI<UserID = string, TimeT extends string | Date = string>
-	extends Omit<UserRegistrationI, 'password' | 'confirmPassword' | 'terms'>,
-		TimeStampI<TimeT> {
-	fullName: string;
-	profilePicture?: string;
-	id: UserID;
-	validated: ValidatedElementsI;
-}
-declare interface UserDocumentI<T extends Omit<ValidationI, 'updatedAt'> = Omit<ValidationI, 'updatedAt'>>
-	extends Omit<UserRegistrationI, 'confirmPassword' | 'terms'> {
-	profilePicture?: string;
-	enabled: boolean;
-	lastLogin?: Date;
-	validated: ValidatedElementsI<T>;
-	apps: UserAppsI;
-}
-declare interface NecessaryUserI {
-	fullName: string;
-	firstName: string;
-	lastName: string;
-	phone?: string;
-	profilePicture?: string;
+declare interface UserI {
+	personalInformation: PersonalInformationI;
+	username: string;
 	email: string;
+	phone?: string;
+	password: string;
 }
+declare interface PublicUserI extends Omit<UserI, 'password'> {
+	id: string;
+	emailValidated: boolean;
+}
+declare interface NecessaryUserI extends PublicUserI {}
 declare interface UserAppsI {
-	google: {
-		id: string;
-	};
+	google: string;
+}
+interface UserDocumentI extends UserI {
+	contactInformation: ContactInformationI;
+	enabled: boolean;
+	lastLogin: Date;
+	apps: UserAppsI;
 }

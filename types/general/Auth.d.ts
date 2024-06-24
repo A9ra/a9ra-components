@@ -4,9 +4,9 @@ declare interface UserLogInI {
 	stay?: boolean;
 }
 declare interface UserAuthI {
-	user: UserI;
+	user: PublicUserI;
 	new?: boolean;
-	token?: string;
+	// token?: string;
 }
 declare type UserTokenI = string;
 
@@ -28,32 +28,11 @@ declare type TAveragePerformance = '<10' | '10-12' | '12-14' | '14-16' | '>16';
 declare type TFormLSTime = 'morning' | 'afternoon' | 'evening' | 'night';
 declare type TFormLSDuration = '<1' | '1-3' | '>3';
 
-declare interface UserRegistrationI extends Omit<UserLogInI, 'stay'> {
-	email: string;
-	firstName: string;
-	lastName: string;
+declare interface UserRegistrationI extends UserI, StudentProfileI {
 	confirmPassword: string;
-	gender: TGender;
-	birthday: Date;
-	birthplace: string;
-	phone: string;
-	residency: TResidency;
-	language: TLanguage;
-	educationLevel: TEducationLevel;
-	averagePerformance: TAveragePerformance;
-	interests: {
-		hobbies: string[];
-		subjects: string[];
-		career: string;
-	};
-	learningStyle: {
-		type: string[];
-		time: TFormLSTime[];
-		duration: TFormLSDuration;
-	};
 }
-declare interface UserGoogleRegistrationI extends Omit<UserRegistrationI, 'stay' | 'terms' | 'confirmPassword'> {
-	profilePicture?: string;
+
+declare interface UserGoogleRegistrationI {
 	googleId: string;
 }
 declare type ValidationKeysI = 'email' | 'phone';

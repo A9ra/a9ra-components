@@ -1,17 +1,18 @@
-declare interface RecoverySessionI {
+declare interface OTPSessionI {
 	// username or email
-	username: string;
+	email: string;
 }
-declare interface RecoverySessionSendI {
+declare interface OTPSessionSendI {
 	sessionId: string;
+	otpCode: string;
 }
 declare interface ResetPasswordI {
 	sessionId: string;
-	secretKey: string;
+	otpCode: string;
 	password: string;
 	confirmPassword: string;
 }
-declare interface RecoverySessionResponseI {
+declare interface OTPSessionResponseI {
 	sessionId: string;
 	user: NecessaryUserI;
 }
