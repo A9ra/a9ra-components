@@ -1,8 +1,10 @@
 declare interface EmailContexts {
 	resetPassword: ResetPasswordEmailContext;
+	validateEmail: ResetPasswordEmailContext;
 }
 declare interface AdditionalContext {
 	resetPassword: ResetPasswordEmailAdditionalContext;
+	validateEmail: ResetPasswordEmailAdditionalContext;
 }
 
 declare type EmailTemplates = keyof EmailContexts;

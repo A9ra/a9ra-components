@@ -38,6 +38,7 @@ const otpSessionSchema = new Schema<
 			enum: kindEnum,
 			required,
 		},
+		toValidate: { type: String },
 	},
 	{ timestamps: true }
 );
@@ -72,6 +73,21 @@ otpSessionSchema.statics.createRecoverySession = async function (email) {
 		kind: 'resetPassword',
 	};
 	const newOTPSession = await this.create(otpObject);
+	console.log({ otp });
+	return [otp, newOTPSession, user];
+};
+otpSessionSchema.statics.createValidationSession = async function (email) {
+	const user = await userModel.findByEmail(email);
+	if (!user) throw new Error('User not found');
+	const otp = generateOTP();
+	const otpObject: OTPSessionDocumentI = {
+		userId: user._id,
+		hashedOtp: otp,
+		kind: 'emailVerification',
+		toValidate: email,
+	};
+	console.log({ otp });
+	const newOTPSession = await this.create(otpObject);
 	return [otp, newOTPSession, user];
 };
 
@@ -90,8 +106,14 @@ otpSessionSchema.statics.getNecessarySession = async function (sessionId, OTPCod
 otpSessionSchema.statics.resetPassword = async function (sessionId, password, OTPCode) {
 	const [session, user] = await this.getSession(sessionId, OTPCode);
 	user.password = password;
-	await user.save();
-	await session.deleteOne();
+	await Promise.all([user.save(), session.deleteOne()]);
+};
+otpSessionSchema.statics.validateEmail = async function (sessionId, OTPCode) {
+	const [session, user] = await this.getSession(sessionId, OTPCode);
+	if (!session.toValidate) throw new Error('No email to validate');
+	user.contactInformation.validatedEmails.push(session.toValidate);
+	await Promise.all([user.save(), session.deleteOne()]);
+	return user.toOptimizedObject();
 };
 
 /* --------------------- Generate Model --------------------- */

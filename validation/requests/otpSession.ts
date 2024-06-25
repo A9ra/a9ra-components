@@ -25,6 +25,13 @@ export const SendOTPSessionGetSchema = () =>
 			message: 'Body doit être vide',
 		}),
 	});
+export const ValidateEmailSchema = () =>
+	z.object<MyZodType<OTPSessionSendShapeI>>({
+		query: z.any().refine((query) => !query || Object.keys(query).length === 0, {
+			message: 'Query doit être vide',
+		}),
+		body: OTPSessionSendSchema(),
+	});
 export const ResetPasswordRequestSchema = () =>
 	z.object<MyZodType<ResetPasswordShapeI>>({
 		body: ResetPasswordSchema(),

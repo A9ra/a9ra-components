@@ -17,6 +17,7 @@ export interface OTPSessionDocumentI {
 	userId: Types.ObjectId;
 	hashedOtp: string;
 	kind: OTPSessionKindsI;
+	toValidate?: string;
 }
 
 export interface OTPSessionVirtual {}
@@ -45,6 +46,11 @@ export interface OTPSessionStaticMethods {
 		email: string,
 		replaceUser?: boolean
 	) => Promise<[string, OTPSessionHydratedDocument, UserHydratedDocument]>;
+	createValidationSession: (
+		this: OTPSessionModel,
+		email: string,
+		replaceUser?: boolean
+	) => Promise<[string, OTPSessionHydratedDocument, UserHydratedDocument]>;
 
 	getNecessarySession: (
 		this: OTPSessionModel,
@@ -58,6 +64,7 @@ export interface OTPSessionStaticMethods {
 		OTPCode: string
 	) => Promise<[OTPSessionHydratedDocument, UserHydratedDocument]>;
 	resetPassword: (this: OTPSessionModel, sessionId: string, password: string, OTPCode: string) => Promise<void>;
+	validateEmail: (this: OTPSessionModel, sessionId: string, OTPCode: string) => Promise<PublicUserI>;
 }
 export interface OTPSessionSchemaOptions {
 	timestamps: true;
