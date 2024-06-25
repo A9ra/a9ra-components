@@ -1,0 +1,27 @@
+import { useEffect, useState } from 'react';
+// TODO: USE PWA STORAGE INSTEAD OF LOCAL STORAGE
+export default function useLocalStorage<T extends object | null>(
+	itemName: string,
+	initialValue: T
+): [T, (value: T) => void] {
+	const item = localStorage.getItem(itemName);
+	const [storage, setStorage] = useState<T>(item ? JSON.parse(item) : initialValue);
+	function setLocalStorage(value: T) {
+		setStorage(value);
+		if (value === null) localStorage.removeItem(itemName);
+		else localStorage.setItem(itemName, JSON.stringify(value));
+	}
+	useEffect(() => {
+		const item = localStorage.getItem(itemName);
+		if (item) {
+			setStorage(JSON.parse(item));
+		} else {
+			localStorage.setItem(itemName, JSON.stringify(initialValue));
+			setStorage(initialValue);
+		}
+	}, [itemName]);
+	useEffect(() => {
+		if (storage !== undefined) localStorage.setItem(itemName, JSON.stringify(storage));
+	}, [storage]);
+	return [storage, setLocalStorage];
+}
