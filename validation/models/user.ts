@@ -2,11 +2,11 @@ import { MyZodType, z } from '../defaultZod';
 import {
 	A9raAppsSchema,
 	booleanSchema,
-	dateSchema,
 	emailSchema,
 	mongoIDSchema,
 	passwordSchema,
 	phoneSchema,
+	stringDateSchema,
 	urlSchema,
 	usernameSchema,
 } from '../elements';
@@ -81,7 +81,7 @@ export const UserDocumentSchema = (
 				password: passwordSchema(password),
 				phone: phoneSchema(phone).optional(),
 				enabled: booleanSchema(enabled),
-				lastLogin: dateSchema(lastLogin),
+				lastLogin: stringDateSchema(lastLogin),
 				apps: UserAppsSchema(),
 				contactInformation: ContactInformationSchema(),
 				profilePicture: urlSchema().optional(),

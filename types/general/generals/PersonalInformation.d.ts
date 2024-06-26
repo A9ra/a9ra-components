@@ -4,7 +4,7 @@ declare interface PersonalInformationI {
 	firstName: string;
 	lastName: string;
 	gender: GendersT;
-	birthday?: Date;
+	birthday?: Date | string;
 	birthplace?: AddressI;
 	residence?: AddressI;
 }

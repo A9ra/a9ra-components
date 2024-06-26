@@ -1,5 +1,5 @@
 import { MyZodType, z } from '^common/defaultZod';
-import { dateSchema, nameSchema } from '^common/elements';
+import { nameSchema, stringDateSchema } from '^common/elements';
 
 import { AddressSchema } from './Address';
 export const gendersMap: Record<GendersNamesT, GendersT> = { Male: 'M', Female: 'F' };
@@ -23,7 +23,7 @@ export const PersonalInformationSchema = (
 			{
 				firstName: nameSchema(firstName, 'firstName'),
 				lastName: nameSchema(lastName, 'lastName'),
-				birthday: dateSchema(birthday),
+				birthday: stringDateSchema(birthday),
 				birthplace: AddressSchema(birthplace).optional(),
 				residence: AddressSchema(residence).optional(),
 				gender: z.enum<GendersT, MyEnum<GendersT>>(gendersList, gender), // <1>

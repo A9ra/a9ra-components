@@ -17,6 +17,6 @@ declare interface UserAppsI {
 interface UserDocumentI extends UserI {
 	contactInformation: ContactInformationI;
 	enabled: boolean;
-	lastLogin: Date;
+	lastLogin: Date | string;
 	apps: UserAppsI;
 }

@@ -185,7 +185,7 @@ export const otpSchema = (msg?: ErrorsSchemaMsgI) =>
 			example: '123456',
 			format: 'otp',
 		});
-export const dateSchema = (msg?: ErrorsSchemaMsgI) =>
+/* export const dateSchema = (msg?: ErrorsSchemaMsgI) =>
 	z
 		.date({
 			required_error: msg?.required || 'Date is required',
@@ -196,7 +196,7 @@ export const dateSchema = (msg?: ErrorsSchemaMsgI) =>
 			description: msg?.description || 'A date',
 			format: 'date',
 		});
-
+ */
 export const A9raApp: readonly A9raAppsI[] = ['AMQ', 'AB', 'AF', 'ASSO'];
 export const A9raAppsSchema = (msg?: ErrorsSchemaMsgI) =>
 	z.enum(['AMQ', 'AB', 'AF', 'ASSO'], {
