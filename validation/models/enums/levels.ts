@@ -2,18 +2,21 @@ import { z } from '^common/defaultZod';
 
 export const kindergartenLevels: Record<KindergartenLevelsT, LevelDetailsI> = {
 	K1: {
+		id: 'K1',
 		name: 'Kindergarten 1',
 		icon: 'K1',
 		school: 'Kindergarten',
 		year: 1,
 	},
 	K2: {
+		id: 'K2',
 		name: 'Kindergarten 2',
 		icon: 'K2',
 		school: 'Kindergarten',
 		year: 2,
 	},
 	K3: {
+		id: 'K3',
 		name: 'Kindergarten 3',
 		icon: 'K3',
 		school: 'Kindergarten',
@@ -22,84 +25,24 @@ export const kindergartenLevels: Record<KindergartenLevelsT, LevelDetailsI> = {
 };
 export const kindergartenLevelsList = Object.keys(kindergartenLevels) as unknown as MyEnum<KindergartenLevelsT>;
 export const elementaryLevels: Record<ElementaryLevelsT, LevelDetailsI> = {
-	P1: {
-		name: 'Primary 1',
-		icon: 'P1',
-		school: 'Primary',
-		year: 1,
-	},
-	P2: {
-		name: 'Primary 2',
-		icon: 'P2',
-		school: 'Primary',
-		year: 2,
-	},
-	P3: {
-		name: 'Primary 3',
-		icon: 'P3',
-		school: 'Primary',
-		year: 3,
-	},
-	P4: {
-		name: 'Primary 4',
-		icon: 'P4',
-		school: 'Primary',
-		year: 4,
-	},
-	P5: {
-		name: 'Primary 5',
-		icon: 'P5',
-		school: 'Primary',
-		year: 5,
-	},
+	P1: { id: 'P1', name: 'Primary 1', icon: 'P1', school: 'Primary', year: 1 },
+	P2: { id: 'P2', name: 'Primary 2', icon: 'P2', school: 'Primary', year: 2 },
+	P3: { id: 'P3', name: 'Primary 3', icon: 'P3', school: 'Primary', year: 3 },
+	P4: { id: 'P4', name: 'Primary 4', icon: 'P4', school: 'Primary', year: 4 },
+	P5: { id: 'P5', name: 'Primary 5', icon: 'P5', school: 'Primary', year: 5 },
 };
 export const elementaryLevelsList = Object.keys(elementaryLevels) as unknown as MyEnum<ElementaryLevelsT>;
 export const middleSchoolLevels: Record<MiddleSchoolLevelsT, LevelDetailsI> = {
-	M1: {
-		name: 'Middle 1',
-		icon: 'M1',
-		school: 'Middle',
-		year: 1,
-	},
-	M2: {
-		name: 'Middle 2',
-		icon: 'M2',
-		school: 'Middle',
-		year: 2,
-	},
-	M3: {
-		name: 'Middle 3',
-		icon: 'M3',
-		school: 'Middle',
-		year: 3,
-	},
-	M4: {
-		name: 'Middle 4',
-		icon: 'M4',
-		school: 'Middle',
-		year: 4,
-	},
+	M1: { id: 'M1', name: 'Middle 1', icon: 'M1', school: 'Middle', year: 1 },
+	M2: { id: 'M2', name: 'Middle 2', icon: 'M2', school: 'Middle', year: 2 },
+	M3: { id: 'M3', name: 'Middle 3', icon: 'M3', school: 'Middle', year: 3 },
+	M4: { id: 'M4', name: 'Middle 4', icon: 'M4', school: 'Middle', year: 4 },
 };
 export const middleSchoolLevelsList = Object.keys(middleSchoolLevels) as unknown as MyEnum<MiddleSchoolLevelsT>;
 export const secondarySchoolLevels: Record<SecondarySchoolLevelsT, LevelDetailsI> = {
-	S1: {
-		name: 'Secondary 1',
-		icon: 'S1',
-		school: 'Secondary',
-		year: 1,
-	},
-	S2: {
-		name: 'Secondary 2',
-		icon: 'S2',
-		school: 'Secondary',
-		year: 2,
-	},
-	S3: {
-		name: 'Secondary 3',
-		icon: 'S3',
-		school: 'Secondary',
-		year: 3,
-	},
+	S1: { id: 'S1', name: 'Secondary 1', icon: 'S1', school: 'Secondary', year: 1 },
+	S2: { id: 'S2', name: 'Secondary 2', icon: 'S2', school: 'Secondary', year: 2 },
+	S3: { id: 'S3', name: 'Secondary 3', icon: 'S3', school: 'Secondary', year: 3 },
 };
 export const secondarySchoolLevelsList = Object.keys(
 	secondarySchoolLevels
@@ -181,91 +124,27 @@ export const secondarySpecialtiesByLevel: Record<SecondarySchoolLevelsT, Special
 );
 
 export const universityLevels: Record<University_levelsT, LevelDetailsI> = {
-	L1: {
-		name: 'License 1',
-		icon: 'L1',
-		school: 'License',
-		year: 1,
-	},
-	L2: {
-		name: 'License 2',
-		icon: 'L2',
-		school: 'License',
-		year: 2,
-	},
-	L3: {
-		name: 'License 3',
-		icon: 'L3',
-		school: 'License',
-		year: 3,
-	},
-	M1: {
-		name: 'Master 1',
-		icon: 'M1',
-		school: 'Master',
-		year: 1,
-	},
-	M2: {
-		name: 'Master 2',
-		icon: 'M2',
-		school: 'Master',
-		year: 2,
-	},
-	D1: {
-		name: 'Doctorate 1',
-		icon: 'D1',
-		school: 'Doctorate',
-		year: 1,
-	},
-	D2: {
-		name: 'Doctorate 2',
-		icon: 'D2',
-		school: 'Doctorate',
-		year: 2,
-	},
-	D3: {
-		name: 'Doctorate 3',
-		icon: 'D3',
-		school: 'Doctorate',
-		year: 3,
-	},
+	L1: { id: 'L1', name: 'License 1', icon: 'L1', school: 'License', year: 1 },
+	L2: { id: 'L2', name: 'License 2', icon: 'L2', school: 'License', year: 2 },
+	L3: { id: 'L3', name: 'License 3', icon: 'L3', school: 'License', year: 3 },
+	M1: { id: 'M1', name: 'Master 1', icon: 'M1', school: 'Master', year: 1 },
+	M2: { id: 'M2', name: 'Master 2', icon: 'M2', school: 'Master', year: 2 },
+	D1: { id: 'D1', name: 'Doctorate 1', icon: 'D1', school: 'Doctorate', year: 1 },
+	D2: { id: 'D2', name: 'Doctorate 2', icon: 'D2', school: 'Doctorate', year: 2 },
+	D3: { id: 'D3', name: 'Doctorate 3', icon: 'D3', school: 'Doctorate', year: 3 },
 };
 export const universityLevelsList = Object.keys(universityLevels) as unknown as MyEnum<University_levelsT>;
 export const highEducationLevels: Record<HighEducation_levelsT, LevelDetailsI> = {
-	E1: {
-		name: 'Engineer 1',
-		icon: 'E1',
-		school: 'Engineer',
-		year: 1,
-	},
-	E2: {
-		name: 'Engineer 2',
-		icon: 'E2',
-		school: 'Engineer',
-		year: 2,
-	},
-	E3: {
-		name: 'Engineer 3',
-		icon: 'E3',
-		school: 'Engineer',
-		year: 3,
-	},
-	E4: {
-		name: 'Engineer 4',
-		icon: 'E4',
-		school: 'Engineer',
-		year: 4,
-	},
-	E5: {
-		name: 'Engineer 5',
-		icon: 'E5',
-		school: 'Engineer',
-		year: 5,
-	},
+	E1: { id: 'E1', name: 'Engineer 1', icon: 'E1', school: 'Engineer', year: 1 },
+	E2: { id: 'E2', name: 'Engineer 2', icon: 'E2', school: 'Engineer', year: 2 },
+	E3: { id: 'E3', name: 'Engineer 3', icon: 'E3', school: 'Engineer', year: 3 },
+	E4: { id: 'E4', name: 'Engineer 4', icon: 'E4', school: 'Engineer', year: 4 },
+	E5: { id: 'E5', name: 'Engineer 5', icon: 'E5', school: 'Engineer', year: 5 },
 };
 export const highEducationLevelsList = Object.keys(highEducationLevels) as unknown as MyEnum<HighEducation_levelsT>;
 export const professionalLevels: Record<Professional_levels, LevelDetailsI> = {
 	PI: {
+		id: 'PI',
 		name: 'Professional',
 		icon: 'PI',
 		school: 'Professional',
