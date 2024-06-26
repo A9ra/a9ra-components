@@ -1,8 +1,10 @@
 /* K12 levels */
-declare type ElementaryLevelsT = 'K1' | 'K2' | 'P1' | 'P2' | 'P3' | 'P4' | 'P5';
+type InstitutionEnumI = 'K' | 'P' | 'S' | 'M';
+declare type KindergartenLevelsT = 'K1' | 'K2' | 'K3';
+declare type ElementaryLevelsT = 'P1' | 'P2' | 'P3' | 'P4' | 'P5';
 declare type MiddleSchoolLevelsT = 'M1' | 'M2' | 'M3' | 'M4';
 declare type SecondarySchoolLevelsT = 'S1' | 'S2' | 'S3';
-declare type K12LevelsT = ElementaryLevelsT | MiddleSchoolLevelsT | SecondarySchoolLevelsT;
+declare type K12LevelsT = KindergartenLevelsT | ElementaryLevelsT | MiddleSchoolLevelsT | SecondarySchoolLevelsT;
 /* University levels */
 declare type University_License_levelsT = 'L1' | 'L2' | 'L3';
 declare type University_Master_levelsT = 'M1' | 'M2';
@@ -16,3 +18,15 @@ declare type Professional_levels = 'PI';
 declare type HighLevelsT = University_levelsT | HighEducation_levelsT | Professional_levels;
 /* Levels */
 declare type levelsEnumT = K12LevelsT | HighLevelsT;
+/* K12 specialty */
+declare type SecondarySpecialtiesT =
+	| 'M' // Mathematic
+	| 'T' // Technical Math
+	| 'S' // Science
+	| 'F' // Finance
+	| 'A' // Arts
+	| 'L' // Literature
+	| 'P' // Philosophy
+	| 'Fs' // Foreign language (spanish)
+	| 'Fg' // Foreign language (german)
+	| 'Fi'; // Foreign language (italian)

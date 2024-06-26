@@ -51,15 +51,15 @@ export const learningTimesEnumSchema = (error?: ErrorsSchemaMsgI) =>
 
 export const learningDurationMap: Record<learningDurationEnumT, EnumsDetailsI> = {
 	'<1': {
-		name: 'Short',
+		name: 'Less than 1 hour',
 		icon: 'Short',
 	},
 	'1-3': {
-		name: 'Medium',
+		name: 'Between 1 and 3 hours',
 		icon: 'Medium',
 	},
 	'>3': {
-		name: 'Long',
+		name: 'More than 3 hours',
 		icon: 'Long',
 	},
 };

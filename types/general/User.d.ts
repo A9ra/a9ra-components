@@ -1,4 +1,5 @@
 declare interface UserI {
+	profilePicture?: string;
 	personalInformation: PersonalInformationI;
 	username: string;
 	email: string;

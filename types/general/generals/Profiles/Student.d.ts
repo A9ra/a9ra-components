@@ -14,4 +14,5 @@ declare interface StudentProfileI {
 	interests: InterestsI;
 	preferences: PreferencesI;
 	level: levelsEnumT;
+	specialty?: SecondarySpecialtiesT;
 }
