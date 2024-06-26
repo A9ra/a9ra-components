@@ -7,10 +7,11 @@ import {
 	mongoIDSchema,
 	passwordSchema,
 	phoneSchema,
+	urlSchema,
 	usernameSchema,
 } from '../elements';
 
-import { levelsEnumSchema } from './enums/levels';
+import { levelsEnumSchema, secondarySpecialtiesSchema } from './enums/levels';
 import { ContactInformationSchema } from './generals.ts/ContactInformation';
 import { PersonalInformationSchema } from './generals.ts/PersonalInformation';
 import { InterestsSchema, PreferencesSchema } from './profiles/students';
@@ -83,6 +84,7 @@ export const UserDocumentSchema = (
 				lastLogin: dateSchema(lastLogin),
 				apps: UserAppsSchema(),
 				contactInformation: ContactInformationSchema(),
+				profilePicture: urlSchema().optional(),
 			},
 			{
 				description: DocumentUserMsg.description || 'User document Schema',
@@ -108,6 +110,7 @@ export const GeneralUserSchema = ({
 				phone: phoneSchema(phone).optional(),
 				personalInformation: PersonalInformationSchema(),
 				password: passwordSchema(password),
+				profilePicture: urlSchema().optional(),
 			},
 			{
 				description: 'General User Schema',
@@ -131,6 +134,7 @@ export const PublicUserSchema = ({
 				id: mongoIDSchema(id),
 				personalInformation: PersonalInformationSchema(),
 				emailValidated: booleanSchema(),
+				profilePicture: urlSchema().optional(),
 			},
 			{
 				description: 'Public User Schema',
@@ -188,16 +192,16 @@ export const userRegisterSchema = ({
 	email,
 	password,
 	phone,
-	confirmPassword: confirmPasswordMsg = { description: 'The password confirmation' },
+	/* confirmPassword: confirmPasswordMsg = { description: 'The password confirmation' }, */
 }: Partial<Record<Exclude<keyof UserRegistrationI, 'personalInformation'>, ErrorsSchemaMsgI>> = {}) => {
 	const schema = z
 		.object<MyZodType<UserRegistrationI>>(
 			{
 				...GeneralUserSchema({ username, email, phone, password }).shape,
-				confirmPassword: passwordSchema(confirmPasswordMsg),
 				interests: InterestsSchema(),
 				preferences: PreferencesSchema(),
 				level: levelsEnumSchema(),
+				specialty: secondarySpecialtiesSchema().optional(),
 			},
 			{
 				description: 'User Registration Schema',
@@ -206,13 +210,13 @@ export const userRegisterSchema = ({
 			}
 		)
 		.openapi('User_Registration_Request', { description: 'User Registration Schema' });
-	schema.superRefine(({ confirmPassword, password }, ctx) => {
+	/* schema.superRefine(({ confirmPassword, password }, ctx) => {
 		if (confirmPassword !== password) {
 			ctx.addIssue({
 				code: 'custom',
 				message: confirmPasswordMsg?.invalid || 'The passwords did not match',
 			});
 		}
-	});
+	}); */
 	return schema;
 };

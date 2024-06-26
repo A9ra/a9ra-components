@@ -170,3 +170,7 @@ export const levelsList = Object.keys(levelsMap) as unknown as MyEnum<levelsEnum
 
 export const levelsEnumSchema = (error?: ErrorsSchemaMsgI) =>
 	z.enum<levelsEnumT, MyEnum<levelsEnumT>>(levelsList, error).openapi('LevelsEnum', { description: 'Levels Enum' });
+export const secondarySpecialtiesSchema = (error?: ErrorsSchemaMsgI) =>
+	z
+		.enum<SecondarySpecialtiesT, MyEnum<SecondarySpecialtiesT>>(secondarySpecialtiesList, error)
+		.openapi('SecondarySpecialtiesEnum', { description: 'Secondary Specialties Enum' });

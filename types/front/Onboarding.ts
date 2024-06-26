@@ -1,6 +1,8 @@
 import { Dispatch } from 'react';
 export type StepIds =
 	| 'FullName'
+	| 'Email'
+	| 'Password'
 	| 'Gender'
 	| 'BirthDayPlace'
 	| 'Username'
@@ -19,8 +21,8 @@ export interface StepI {
 	id: StepIds;
 	title: string;
 	subtitle?: string;
-	/* description?: string;
-    type: string; */
+	description?: string;
+	/* type: string; */
 }
 export interface OnboardingContextType {
 	currentStep: number;
