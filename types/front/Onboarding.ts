@@ -22,6 +22,7 @@ export interface StepI {
 	title: string;
 	subtitle?: string;
 	description?: string;
+	validator?: (form: UserRegistrationI) => Promise<boolean>;
 	/* type: string; */
 }
 export interface OnboardingContextType {
