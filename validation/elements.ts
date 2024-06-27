@@ -14,7 +14,7 @@ export const usernameSchema = (usernameMsg?: ErrorsSchemaMsgI) =>
 		.min(4, usernameMsg?.small || 'Username must be at least 4 characters long')
 		.max(35, usernameMsg?.big || 'Username cannot be longer than 35 characters')
 		.regex(
-			/^[a-zA-Z0-9_.-]+$/,
+			/^[a-z0-9_.-]+$/,
 			usernameMsg?.invalid || 'Username can only contain letters, numbers, underscores, periods, and hyphens'
 		)
 		.openapi('Username', {

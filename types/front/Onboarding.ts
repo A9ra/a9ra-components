@@ -37,6 +37,9 @@ export interface OnboardingContextType {
 	isSuccessRegistering: boolean;
 	isChecking: boolean;
 
+	isValidating: boolean;
+	isValid: boolean;
+
 	setForm: Dispatch<React.SetStateAction<UserRegistrationI>>;
 	nextStep: () => void;
 	prevStep: () => void;
