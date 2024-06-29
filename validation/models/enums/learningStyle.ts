@@ -11,7 +11,7 @@ export const learningStyleMap: Record<learningStyleEnumT, EnumsDetailsI<learning
 	Auditory: {
 		id: 'Auditory',
 		name: 'Auditory',
-		icon: 'icon-[mdi--ear]',
+		icon: 'icon-[mdi--ear-hearing]',
 	},
 	'R/W': {
 		id: 'R/W',
@@ -44,17 +44,17 @@ export const learningTimesMap: Record<learningTimesEnumT, EnumsDetailsI<learning
 	A: {
 		id: 'A',
 		name: 'Afternoon',
-		icon: 'icon-[mdi--sun]',
+		icon: 'icon-[mdi--white-balance-sunny]',
 	},
 	E: {
 		id: 'E',
 		name: 'Evening',
-		icon: 'icon-[mdi--sunset]',
+		icon: 'icon-[mdi--weather-sunset]',
 	},
 	N: {
 		id: 'N',
 		name: 'Night',
-		icon: 'icon-[mdi--moon]',
+		icon: 'icon-[mdi--moon-and-stars]',
 	},
 };
 

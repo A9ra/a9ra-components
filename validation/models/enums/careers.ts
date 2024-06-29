@@ -14,7 +14,7 @@ export const careersMap: Record<careersEnumT, EnumsDetailsI<careersEnumT>> = {
 	Teacher: {
 		id: 'Teacher',
 		name: 'Teacher',
-		icon: 'icon-[mdi--chalkboard-teacher]',
+		icon: 'icon-[mdi--teacher]',
 	},
 	Pilot: {
 		id: 'Pilot',
@@ -39,7 +39,7 @@ export const careersMap: Record<careersEnumT, EnumsDetailsI<careersEnumT>> = {
 	Nurse: {
 		id: 'Nurse',
 		name: 'Nurse',
-		icon: 'icon-[mdi--nurse]',
+		icon: 'icon-[mdi--mother-nurse]',
 	},
 	Farmer: {
 		id: 'Farmer',

@@ -101,7 +101,7 @@ export const interestsMap: Record<interestsEnumT, EnumsDetailsI<interestsEnumT>>
 	Comics: {
 		id: 'Comics',
 		name: 'Comics',
-		icon: 'icon-[mdi--comic-strip]',
+		icon: 'icon-[mdi--comic-bubble]',
 	},
 	'Video Games': {
 		id: 'Video Games',
@@ -132,21 +132,6 @@ export const interestsMap: Record<interestsEnumT, EnumsDetailsI<interestsEnumT>>
 		id: 'Yoga',
 		name: 'Yoga',
 		icon: 'icon-[mdi--yoga]',
-	},
-	Meditation: {
-		id: 'Meditation',
-		name: 'Meditation',
-		icon: 'icon-[mdi--meditation]',
-	},
-	Mindfulness: {
-		id: 'Mindfulness',
-		name: 'Mindfulness',
-		icon: 'icon-[mdi--brain]',
-	},
-	Spirituality: {
-		id: 'Spirituality',
-		name: 'Spirituality',
-		icon: 'icon-[mdi--leaf]',
 	},
 	Religion: {
 		id: 'Religion',
@@ -271,7 +256,7 @@ export const interestsMap: Record<interestsEnumT, EnumsDetailsI<interestsEnumT>>
 	Surfing: {
 		id: 'Surfing',
 		name: 'Surfing',
-		icon: 'icon-[mdi--surf]',
+		icon: 'icon-[mdi--surfing]',
 	},
 	Skateboarding: {
 		id: 'Skateboarding',
@@ -371,7 +356,7 @@ export const interestsMap: Record<interestsEnumT, EnumsDetailsI<interestsEnumT>>
 	Darts: {
 		id: 'Darts',
 		name: 'Darts',
-		icon: 'icon-[mdi--darts]',
+		icon: 'icon-[mdi--target]',
 	},
 	Boxing: {
 		id: 'Boxing',
@@ -396,7 +381,7 @@ export const interestsMap: Record<interestsEnumT, EnumsDetailsI<interestsEnumT>>
 	Cheerleading: {
 		id: 'Cheerleading',
 		name: 'Cheerleading',
-		icon: 'icon-[mdi--cheerleading]',
+		icon: 'icon-[mdi--megaphone]',
 	},
 	Dance: {
 		id: 'Dance',
@@ -408,95 +393,11 @@ export const interestsMap: Record<interestsEnumT, EnumsDetailsI<interestsEnumT>>
 		name: 'Ballet',
 		icon: 'icon-[mdi--ballet]',
 	},
-	Tap: {
-		id: 'Tap',
-		name: 'Tap',
-		icon: 'icon-[mdi--dance-tap]',
-	},
-	Jazz: {
-		id: 'Jazz',
-		name: 'Jazz',
-		icon: 'icon-[mdi--dance-jazz]',
-	},
-	'Hip Hop': {
-		id: 'Hip Hop',
-		name: 'Hip Hop',
-		icon: 'icon-[mdi--dance-hiphop]',
-	},
-	Breakdance: {
-		id: 'Breakdance',
-		name: 'Breakdance',
-		icon: 'icon-[mdi--dance-breakdance]',
-	},
+
 	Ballroom: {
 		id: 'Ballroom',
 		name: 'Ballroom',
 		icon: 'icon-[mdi--dance-ballroom]',
-	},
-	Latin: {
-		id: 'Latin',
-		name: 'Latin',
-		icon: 'icon-[mdi--dance-salsa]',
-	},
-	Swing: {
-		id: 'Swing',
-		name: 'Swing',
-		icon: 'icon-[mdi--dance-swing]',
-	},
-	Country: {
-		id: 'Country',
-		name: 'Country',
-		icon: 'icon-[mdi--dance-country]',
-	},
-	Folk: {
-		id: 'Folk',
-		name: 'Folk',
-		icon: 'icon-[mdi--dance-folk]',
-	},
-	Line: {
-		id: 'Line',
-		name: 'Line',
-		icon: 'icon-[mdi--dance-line]',
-	},
-	Square: {
-		id: 'Square',
-		name: 'Square',
-		icon: 'icon-[mdi--dance-square]',
-	},
-	Contra: {
-		id: 'Contra',
-		name: 'Contra',
-		icon: 'icon-[mdi--dance-contra]',
-	},
-	Social: {
-		id: 'Social',
-		name: 'Social',
-		icon: 'icon-[mdi--dance-social]',
-	},
-	Modern: {
-		id: 'Modern',
-		name: 'Modern',
-		icon: 'icon-[mdi--dance-modern]',
-	},
-	Contemporary: {
-		id: 'Contemporary',
-		name: 'Contemporary',
-		icon: 'icon-[mdi--dance-contemporary]',
-	},
-	Lyrical: {
-		id: 'Lyrical',
-		name: 'Lyrical',
-		icon: 'icon-[mdi--dance-lyrical]',
-	},
-	Acrobatic: {
-		id: 'Acrobatic',
-		name: 'Acrobatic',
-		icon: 'icon-[mdi--dance-acrobatic]',
-	},
-	Aerial: {
-		id: 'Aerial',
-		name: 'Aerial',
-		icon: 'icon-[mdi--dance-aerial]',
 	},
 };
 export const interestsList = Object.keys(interestsMap) as unknown as MyEnum<interestsEnumT>;
