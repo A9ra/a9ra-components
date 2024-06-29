@@ -2,7 +2,7 @@ import { MyZodType, z } from '../../defaultZod';
 import { careersEnumSchema } from '../enums/careers';
 import { interestsEnumSchema } from '../enums/interests';
 import { learningDurationEnumSchema, learningStyleEnumSchema, learningTimesEnumSchema } from '../enums/learningStyle';
-import { levelsEnumSchema } from '../enums/levels';
+import { levelsEnumSchema, secondarySpecialtiesSchema } from '../enums/levels';
 import { subjectsEnumSchema } from '../enums/subjects';
 import { FocusedChoiceSchema } from '../FocusedChoice';
 
@@ -27,5 +27,6 @@ export const StudentProfileSchema = () =>
 			interests: InterestsSchema(),
 			preferences: PreferencesSchema(),
 			level: levelsEnumSchema(),
+			specialty: secondarySpecialtiesSchema(),
 		})
 		.openapi('Student_Profile', { description: 'Student Profile Schema' });

@@ -1,6 +1,5 @@
 import {
 	booleanSchema,
-	dateSchema,
 	emailSchema,
 	errorSchema,
 	mongoIDSchema,
@@ -33,4 +32,3 @@ export const defaultNullElementSchema = nullElementSchema();
 export const defaultErrorSchema = errorSchema();
 export const defaultBooleanSchema = booleanSchema();
 export const defaultUrlSchema = urlSchema();
-export const defaultDateSchema = dateSchema();

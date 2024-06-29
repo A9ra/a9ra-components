@@ -3,6 +3,7 @@ import { nameSchema, stringDateSchema } from '^common/elements';
 
 import { AddressSchema } from './Address';
 export const gendersMap: Record<GendersT, GendersNamesT> = { M: 'Male', F: 'Female' };
+export const gendersMapToValue: Record<GendersNamesT, GendersT> = { Male: 'M', Female: 'F' };
 export const gendersList = Object.keys(gendersMap) as unknown as MyEnum<GendersT>;
 export const PersonalInformationSchema = (
 	{
