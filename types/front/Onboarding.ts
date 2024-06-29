@@ -1,4 +1,6 @@
 import { Dispatch } from 'react';
+import { RegisterFormI } from '@client/providers/OnboardingProvider/formDefault';
+
 export type StepIds =
 	| 'FullName'
 	| 'Email'
@@ -22,13 +24,13 @@ export interface StepI {
 	title: string;
 	subtitle?: string;
 	description?: string;
-	validator?: (form: UserRegistrationI) => Promise<boolean>;
+	validator?: (form: RegisterFormI) => Promise<boolean>;
 	/* type: string; */
 }
 export interface OnboardingContextType {
 	currentStep: number;
-	form: UserRegistrationI;
-	formDefault: UserRegistrationI;
+	form: RegisterFormI;
+	formDefault: RegisterFormI;
 
 	isRegistering: boolean;
 	isErrorRegistering: boolean;
@@ -40,7 +42,7 @@ export interface OnboardingContextType {
 	isValidating: boolean;
 	isValid: boolean;
 
-	setForm: Dispatch<React.SetStateAction<UserRegistrationI>>;
+	setForm: Dispatch<React.SetStateAction<RegisterFormI>>;
 	nextStep: () => void;
 	prevStep: () => void;
 	goToStep: (step: number) => void;
