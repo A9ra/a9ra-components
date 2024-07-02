@@ -2,8 +2,8 @@ type MainLanguagesI = 'EN';
 type SecondaryLanguagesI = 'FR' | 'AR';
 
 type LanguagesI = MainLanguagesI | SecondaryLanguagesI;
-declare type LanguagesContentI = {
-	[key in MainLanguagesI]: string;
+declare type LanguagesContentI<T = string> = {
+	[key in MainLanguagesI]: T;
 } & {
-	[key in SecondaryLanguagesI]?: string;
+	[key in SecondaryLanguagesI]?: T;
 };

@@ -1,5 +1,5 @@
 declare interface UserLogInI {
-	username: string;
+	email: string;
 	password: string;
 	stay?: boolean;
 }

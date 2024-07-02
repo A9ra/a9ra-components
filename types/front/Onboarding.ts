@@ -21,9 +21,9 @@ export type StepIds =
 	| 'LearningStyleDuration';
 export interface StepI {
 	id: StepIds;
-	title: string;
-	subtitle?: string;
-	description?: string;
+	title: LanguagesContentI;
+	subtitle?: LanguagesContentI;
+	description?: LanguagesContentI;
 	validator?: (form: RegisterFormI) => Promise<boolean>;
 	/* type: string; */
 }

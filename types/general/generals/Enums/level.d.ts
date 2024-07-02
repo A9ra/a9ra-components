@@ -22,10 +22,11 @@ declare type levelsEnumT = K12LevelsT | HighLevelsT;
 declare type SecondarySpecialtiesT =
 	| 'M' // Mathematic
 	| 'T' // Technical Math
-	| 'S' // Science
+	| 'S' // Science of nature and life
 	| 'F' // Finance
 	| 'A' // Arts
-	| 'L' // Literature
+	| 's' // Science
+	| 'l' // Literature
 	| 'P' // Philosophy
 	| 'Fs' // Foreign language (spanish)
 	| 'Fg' // Foreign language (german)

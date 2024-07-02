@@ -9,3 +9,6 @@ declare interface MyFile {
 }
 
 type MyEnum<U extends string> = Readonly<[U, ...U[]]>;
+type Optional<T> = {
+	[P in keyof T]?: T[P];
+};

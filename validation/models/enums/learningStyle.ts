@@ -5,22 +5,38 @@ import { generateRandomColor } from './tools';
 export const learningStyleMap: Record<learningStyleEnumT, EnumsDetailsI<learningStyleEnumT>> = {
 	Visual: {
 		id: 'Visual',
-		name: 'Visual',
+		name: {
+			EN: 'Visual',
+			AR: 'بصري',
+			FR: 'Visuel',
+		},
 		icon: 'icon-[mdi--eye]',
 	},
 	Auditory: {
 		id: 'Auditory',
-		name: 'Auditory',
+		name: {
+			EN: 'Auditory',
+			AR: 'سمعي',
+			FR: 'Auditif',
+		},
 		icon: 'icon-[mdi--ear-hearing]',
 	},
 	'R/W': {
 		id: 'R/W',
-		name: 'Reading/Writing',
+		name: {
+			EN: 'Reading/Writing',
+			AR: 'قراءة/كتابة',
+			FR: 'Lecture/Écriture',
+		},
 		icon: 'icon-[mdi--book]',
 	},
 	Kinesthetic: {
 		id: 'Kinesthetic',
-		name: 'Kinesthetic',
+		name: {
+			EN: 'Kinesthetic',
+			AR: 'حركي',
+			FR: 'Kinesthésique',
+		},
 		icon: 'icon-[mdi--run]',
 	},
 };
@@ -38,22 +54,38 @@ export const learningStyleEnumSchema = (error?: ErrorsSchemaMsgI) =>
 export const learningTimesMap: Record<learningTimesEnumT, EnumsDetailsI<learningTimesEnumT>> = {
 	M: {
 		id: 'M',
-		name: 'Morning',
+		name: {
+			EN: 'Morning',
+			AR: 'صباحاً',
+			FR: 'Matin',
+		},
 		icon: 'icon-[mdi--sunrise]',
 	},
 	A: {
 		id: 'A',
-		name: 'Afternoon',
+		name: {
+			EN: 'Afternoon',
+			AR: 'بعد الظهر',
+			FR: 'Après-midi',
+		},
 		icon: 'icon-[mdi--white-balance-sunny]',
 	},
 	E: {
 		id: 'E',
-		name: 'Evening',
+		name: {
+			EN: 'Evening',
+			AR: 'مساءً',
+			FR: 'Soirée',
+		},
 		icon: 'icon-[mdi--weather-sunset]',
 	},
 	N: {
 		id: 'N',
-		name: 'Night',
+		name: {
+			EN: 'Night',
+			AR: 'ليلاً',
+			FR: 'Nuit',
+		},
 		icon: 'icon-[mdi--moon-and-stars]',
 	},
 };
@@ -68,17 +100,25 @@ export const learningTimesEnumSchema = (error?: ErrorsSchemaMsgI) =>
 export const learningDurationMap: Record<learningDurationEnumT, EnumsDetailsI<learningDurationEnumT>> = {
 	'<1': {
 		id: '<1',
-		name: 'Less than 1 hour',
+		name: {
+			EN: 'Less than 1 hour',
+			AR: 'أقل من ساعة',
+			FR: "Moins d'une heure",
+		},
 		icon: 'icon-[mdi--timer-sand-empty]',
 	},
 	'1-3': {
 		id: '1-3',
-		name: 'Between 1 and 3 hours',
+		name: { EN: 'Between 1 and 3 hours', AR: 'بين 1 و 3 ساعات', FR: 'Entre 1 et 3 heures' },
 		icon: 'icon-[mdi--timer-sand]',
 	},
 	'>3': {
 		id: '>3',
-		name: 'More than 3 hours',
+		name: {
+			EN: 'More than 3 hours',
+			AR: 'أكثر من 3 ساعات',
+			FR: 'Plus de 3 heures',
+		},
 		icon: 'icon-[mdi--timer-sand-complete]',
 	},
 };

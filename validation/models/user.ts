@@ -17,16 +17,11 @@ import { PersonalInformationSchema } from './generals.ts/PersonalInformation';
 import { InterestsSchema, PreferencesSchema } from './profiles/students';
 
 /* --------------------------------- User Login Schema --------------------------------- */
-export const userLoginSchema = ({
-	email,
-	password,
-	username,
-	stay,
-}: Partial<Record<keyof UserLogInI | 'email', ErrorsSchemaMsgI>> = {}) =>
+export const userLoginSchema = ({ email, password, stay }: Partial<Record<keyof UserLogInI, ErrorsSchemaMsgI>> = {}) =>
 	z
 		.object<MyZodType<UserLogInI>>(
 			{
-				username: z.union([usernameSchema(username), emailSchema(email)]),
+				email: emailSchema(email),
 				password: passwordSchema(password),
 				stay: booleanSchema(stay).optional(),
 			},
