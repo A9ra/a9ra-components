@@ -11,6 +11,9 @@ declare interface UserAuthI {
 declare type UserTokenI = string;
 
 declare interface UserRegistrationI extends UserI, StudentProfileI {}
+declare interface RegisterFormI extends UserRegistrationI {
+	confirmPassword: string;
+}
 
 declare interface UserGoogleRegistrationI {
 	googleId: string;

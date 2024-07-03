@@ -31,3 +31,9 @@ declare type SecondarySpecialtiesT =
 	| 'Fs' // Foreign language (spanish)
 	| 'Fg' // Foreign language (german)
 	| 'Fi'; // Foreign language (italian)
+
+declare interface InstitutionLevelI {
+	label: LanguagesContentI;
+	value: InstitutionEnumI;
+	maxYears: number;
+}

@@ -514,7 +514,54 @@ export const levelsList = Object.keys(levelsMap) as unknown as MyEnum<levelsEnum
 
 export const levelsEnumSchema = (error?: ErrorsSchemaMsgI) =>
 	z.enum<levelsEnumT, MyEnum<levelsEnumT>>(levelsList, error).openapi('LevelsEnum', { description: 'Levels Enum' });
+
 export const secondarySpecialtiesSchema = (error?: ErrorsSchemaMsgI) =>
 	z
 		.enum<SecondarySpecialtiesT, MyEnum<SecondarySpecialtiesT>>(secondarySpecialtiesList, error)
 		.openapi('SecondarySpecialtiesEnum', { description: 'Secondary Specialties Enum' });
+
+export const institutionLevelChoices: InstitutionLevelI[] = [
+	{
+		label: {
+			EN: 'Kindergarten school',
+			FR: 'École maternelle',
+			AR: 'روضة',
+		},
+		value: 'K',
+		maxYears: 3,
+	},
+	{
+		label: {
+			EN: 'Elementary school',
+			FR: 'École primaire',
+			AR: 'ابتدائي',
+		},
+		value: 'P',
+		maxYears: 5,
+	},
+	{
+		label: {
+			EN: 'Middle school',
+			FR: 'Collège',
+			AR: 'متوسط',
+		},
+		value: 'M',
+		maxYears: 4,
+	},
+	{
+		label: {
+			EN: 'Secondary school',
+			FR: 'Lycée',
+			AR: 'ثانوي',
+		},
+		value: 'S',
+		maxYears: 3,
+	},
+];
+export const institutionMap: Record<string, InstitutionLevelI> = institutionLevelChoices.reduce(
+	(acc, curr) => {
+		acc[curr.value] = curr;
+		return acc;
+	},
+	{} as Record<string, InstitutionLevelI>
+);

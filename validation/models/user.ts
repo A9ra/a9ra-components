@@ -12,8 +12,8 @@ import {
 } from '../elements';
 
 import { levelsEnumSchema, secondarySpecialtiesSchema } from './enums/levels';
-import { ContactInformationSchema } from './generals.ts/ContactInformation';
-import { PersonalInformationSchema } from './generals.ts/PersonalInformation';
+import { ContactInformationSchema } from './generals/ContactInformation';
+import { PersonalInformationSchema } from './generals/PersonalInformation';
 import { InterestsSchema, PreferencesSchema } from './profiles/students';
 
 /* --------------------------------- User Login Schema --------------------------------- */

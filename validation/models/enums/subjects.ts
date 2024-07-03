@@ -116,7 +116,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT>
 		name: {
 			EN: 'Arabic',
 			FR: 'Arabe',
-			AR: 'عربي',
+			AR: 'العربية',
 		},
 		icon: 'icon-[mdi--translate]',
 		levels: ['P1', 'P2', 'P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
@@ -126,7 +126,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT>
 		name: {
 			EN: 'Amazight',
 			FR: 'Amazight',
-			AR: 'أمازيغية',
+			AR: 'الأمازيغية',
 		},
 		icon: 'icon-[mdi--translate]',
 		levels: ['P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
@@ -136,7 +136,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT>
 		name: {
 			EN: 'French',
 			FR: 'Français',
-			AR: 'فرنسي',
+			AR: 'الفرنسية',
 		},
 		icon: 'icon-[mdi--translate]',
 		levels: ['P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
@@ -146,7 +146,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT>
 		name: {
 			EN: 'English',
 			FR: 'Anglais',
-			AR: 'إنجليزي',
+			AR: 'الإنجليزية',
 		},
 		icon: 'icon-[mdi--translate]',
 		levels: ['P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
@@ -156,7 +156,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT>
 		name: {
 			EN: 'German',
 			FR: 'Allemand',
-			AR: 'ألماني',
+			AR: 'الألمانية',
 		},
 		icon: 'icon-[mdi--translate]',
 		levels: ['P1', 'P2', 'P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
@@ -166,7 +166,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT>
 		name: {
 			EN: 'Spanish',
 			FR: 'Espagnol',
-			AR: 'إسباني',
+			AR: 'الإسبانية',
 		},
 		icon: 'icon-[mdi--translate]',
 		levels: ['S2', 'S3'],
@@ -176,7 +176,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT>
 		name: {
 			EN: 'Italian',
 			FR: 'Italien',
-			AR: 'إيطالي',
+			AR: 'الإيطالية',
 		},
 		icon: 'icon-[mdi--translate]',
 		levels: ['S2', 'S3'],

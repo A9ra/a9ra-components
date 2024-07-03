@@ -1,5 +1,4 @@
 import { Dispatch } from 'react';
-import { RegisterFormI } from '@client/providers/OnboardingProvider/formDefault';
 
 export type StepIds =
 	| 'FullName'
@@ -24,6 +23,7 @@ export interface StepI {
 	title: LanguagesContentI;
 	subtitle?: LanguagesContentI;
 	description?: LanguagesContentI;
+	icon?: string;
 	validator?: (form: RegisterFormI) => Promise<boolean>;
 	/* type: string; */
 }
