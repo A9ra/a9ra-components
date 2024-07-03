@@ -25,6 +25,7 @@ export interface StepI {
 	description?: LanguagesContentI;
 	icon?: string;
 	validator?: (form: RegisterFormI) => Promise<boolean>;
+	color: string;
 	/* type: string; */
 }
 export interface OnboardingContextType {
@@ -41,6 +42,7 @@ export interface OnboardingContextType {
 
 	isValidating: boolean;
 	isValid: boolean;
+	validationError: LanguagesContentI | null;
 
 	setForm: Dispatch<React.SetStateAction<RegisterFormI>>;
 	nextStep: () => void;
