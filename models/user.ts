@@ -155,8 +155,8 @@ userSchema.statics.createUser = async function (user) {
 	return newUser;
 };
 
-userSchema.statics.findByCredentials = async function (username, password) {
-	const user = await this.findUnique(username);
+userSchema.statics.findByCredentials = async function (email, password) {
+	const user = await this.findUnique(email);
 	const isMatch = await user.comparePassword(password);
 	if (!isMatch) throw new Error('Invalid credentials');
 	return user;
