@@ -1,15 +1,15 @@
 declare interface EmailContexts {
 	resetPassword: ResetPasswordEmailContext;
-	validateEmail: ResetPasswordEmailContext;
+	validateEmail: ValidateEmailEmailContext;
 }
 declare interface AdditionalContext {
 	resetPassword: ResetPasswordEmailAdditionalContext;
-	validateEmail: ResetPasswordEmailAdditionalContext;
+	validateEmail: ValidateEmailEmailAdditionalContext;
 }
 
 declare type EmailTemplates = keyof EmailContexts;
 
-declare type EmailAccounts = 'info' | 'support' | 'noReply';
+declare type EmailAccounts = /* 'info' | 'support' | */ 'noReply';
 
 declare interface QueuedEmail<T extends EmailTemplates = EmailTemplates> {
 	by: A9raAppsI;
