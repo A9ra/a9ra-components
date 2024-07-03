@@ -155,6 +155,12 @@ userSchema.statics.createUser = async function (user) {
 	return newUser;
 };
 
+userSchema.statics.loginGoogleUser = async function (googleId) {
+	const user = await this.findOne({ 'apps.google': googleId });
+	if (!user) throw new Error('User not found');
+	if (!user.enabled) throw new Error('User is not enabled');
+	return user;
+};
 userSchema.statics.findByCredentials = async function (email, password) {
 	const user = await this.findUnique(email);
 	const isMatch = await user.comparePassword(password);
