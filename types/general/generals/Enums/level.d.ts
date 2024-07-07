@@ -21,7 +21,10 @@ declare type levelsEnumT = K12LevelsT | HighLevelsT;
 /* K12 specialty */
 declare type SecondarySpecialtiesT =
 	| 'M' // Mathematic
-	| 'T' // Technical Math
+	| 'TCe' // Technical Math civil engineering
+	| 'TEe' // Technical Math electrical engineering
+	| 'TMc' // Technical Math mechanical engineering
+	| 'TMe' // Technical Math Methods engineering
 	| 'S' // Science of nature and life
 	| 'F' // Finance
 	| 'A' // Arts

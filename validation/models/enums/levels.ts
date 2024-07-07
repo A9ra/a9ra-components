@@ -246,17 +246,47 @@ export const secondarySpecialties: Record<
 			FR: 'Mathématiques',
 			AR: 'رياضيات',
 		},
-		icon: 'M',
+		icon: 'icon-[mdi--math-integral]',
 		levels: ['S2', 'S3'],
 	},
-	T: {
-		id: 'T',
+	TCe: {
+		id: 'TCe',
 		name: {
-			AR: 'تقني رياضي',
-			EN: 'Technical Mathematics',
-			FR: 'Mathématiques techniques',
+			EN: 'Technical Mathematics (civil engineering)',
+			AR: 'تقني رياضي (هندسة مدنية)',
+			FR: 'Mathématiques techniques (génie civil)',
 		},
-		icon: 'T',
+		icon: 'icon-[mdi--building]',
+		levels: ['S2', 'S3'],
+	},
+	TMc: {
+		id: 'TMc',
+		name: {
+			EN: 'Technical Mathematics (mechanical engineering)',
+			AR: 'تقني رياضي (هندسة ميكانيكية)',
+			FR: 'Mathématiques techniques (génie mécanique)',
+		},
+		icon: 'icon-[mdi--mechanic]',
+		levels: ['S2', 'S3'],
+	},
+	TEe: {
+		id: 'TEe',
+		name: {
+			EN: 'Technical Mathematics (electrical engineering)',
+			AR: 'تقني رياضي (هندسة كهربائية)',
+			FR: 'Mathématiques techniques (génie électrique)',
+		},
+		icon: 'icon-[mdi--electric]',
+		levels: ['S2', 'S3'],
+	},
+	TMe: {
+		id: 'TMe',
+		name: {
+			EN: 'Technical Mathematics (Methods engineering)',
+			AR: 'تقني رياضي (هندسة الطرائق)',
+			FR: 'Mathématiques techniques (génie des méthodes)',
+		},
+		icon: 'icon-[mdi--chemical-weapon]',
 		levels: ['S2', 'S3'],
 	},
 	s: {
