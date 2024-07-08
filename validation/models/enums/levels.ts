@@ -276,7 +276,7 @@ export const secondarySpecialties: Record<
 			AR: 'تقني رياضي (هندسة كهربائية)',
 			FR: 'Mathématiques techniques (génie électrique)',
 		},
-		icon: 'icon-[mdi--electric]',
+		icon: 'icon-[mdi--electricity]',
 		levels: ['S2', 'S3'],
 	},
 	TMe: {

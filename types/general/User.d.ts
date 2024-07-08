@@ -10,7 +10,9 @@ declare interface PublicUserI extends Omit<UserI, 'password'> {
 	id: string;
 	emailValidated: boolean;
 }
-declare interface NecessaryUserI extends PublicUserI {}
+declare interface NecessaryUserI extends Omit<UserI, 'password'> {
+	id: string;
+}
 declare interface UserAppsI {
 	google: string;
 }
