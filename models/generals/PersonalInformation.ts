@@ -27,7 +27,8 @@ const personalInformationSchema = new Schema<
 		lastName: { type: String, required },
 		gender: { type: String, required, enum: ['M', 'F'] },
 		birthday: { type: Date },
-		birthplace: { type: addressSchema },
+		residence: { type: addressSchema, required },
+		note: { type: String, default: '' },
 	},
 	{ timestamps: false, _id: false }
 );

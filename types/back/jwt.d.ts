@@ -7,7 +7,6 @@
  */
 declare interface A9RA_JWT_Payload {
 	id: string;
-	exp: number;
 	issAt: number;
 	issBy: string;
 	pk: string;

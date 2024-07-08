@@ -40,9 +40,7 @@ const contactInformationSchema = new Schema<
 		websites: {
 			type: [String],
 		},
-		note: {
-			type: String,
-		},
+
 		socialMediaUrls: {
 			type: socialMediaUrlsSchema,
 		},
