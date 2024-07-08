@@ -14,12 +14,21 @@ declare interface PublicUserI extends Omit<UserI, 'password'> {
 declare interface NecessaryUserI extends Omit<UserI, 'password'> {
 	id: string;
 }
-declare interface UserAppsI {
-	google: string;
-}
+declare type EnabledUserAppsEnum = 'google';
+declare type DisabledUserAppsEnum = 'facebook' | 'twitter' | 'github';
+declare type UserAppsEnum = EnabledUserAppsEnum | DisabledUserAppsEnum;
+declare type EnabledUserAppsI = Record<EnabledUserAppsEnum, string>;
+declare type DisabledUserAppsI = Record<DisabledUserAppsEnum, string>;
+declare type UserAppsI = EnabledUserAppsI & DisabledUserAppsI;
 interface UserDocumentI extends UserI {
 	contactInformation: ContactInformationI;
 	enabled: boolean;
 	lastLogin: Date | string;
-	apps: UserAppsI;
+	apps: EnabledUserAppsI;
+}
+
+interface ChangePasswordI {
+	oldPassword: string;
+	newPassword: string;
+	confirmPassword: string;
 }

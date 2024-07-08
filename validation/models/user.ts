@@ -45,8 +45,28 @@ export const LoginOAuthRequestSchema = z.object<MyZodType<UserOAuthI>>({
 });
 
 /* --------------------------------- User Apps Schema --------------------------------- */
-export const UserAppsSchema = () =>
-	z.object<MyZodType<UserAppsI>>({
+export const EnabledUserAppsMap: EnabledUserAppsI = {
+	google: 'google',
+};
+export const EnabledUserAppsList = Object.keys(EnabledUserAppsMap) as EnabledUserAppsEnum[];
+
+export const DisabledUserAppsMap: DisabledUserAppsI = {
+	facebook: 'facebook',
+	twitter: 'twitter',
+	github: 'github',
+};
+
+export const DisabledUserAppsList = Object.keys(DisabledUserAppsMap) as DisabledUserAppsEnum[];
+
+export const UserAppsMap: UserAppsI = {
+	...EnabledUserAppsMap,
+	...DisabledUserAppsMap,
+};
+export const UserAppsList = Object.keys(UserAppsMap) as UserAppsEnum[];
+export const isDisabledUserApp = (app: UserAppsEnum): app is DisabledUserAppsEnum =>
+	DisabledUserAppsList.includes(app as DisabledUserAppsEnum);
+export const EnabledUserAppsSchema = () =>
+	z.object<MyZodType<EnabledUserAppsI>>({
 		google: z.string({
 			description: 'Google ID',
 			invalid_type_error: 'Invalid Google ID',
@@ -77,7 +97,7 @@ export const UserDocumentSchema = (
 				phone: phoneSchema(phone).optional(),
 				enabled: booleanSchema(enabled),
 				lastLogin: stringDateSchema(lastLogin),
-				apps: UserAppsSchema(),
+				apps: EnabledUserAppsSchema(),
 				contactInformation: ContactInformationSchema(),
 				profilePicture: urlSchema().optional(),
 			},
@@ -214,5 +234,50 @@ export const userRegisterSchema = ({
 			});
 		}
 	}); */
+	return schema;
+};
+
+export const changePasswordSchema = ({
+	confirmPassword,
+	newPassword,
+	oldPassword,
+}: Partial<Record<keyof ChangePasswordI, ErrorsSchemaMsgI>> = {}) => {
+	const schema = z
+		.object<MyZodType<ChangePasswordI>>(
+			{
+				oldPassword: passwordSchema(
+					oldPassword || {
+						description: 'The old password',
+						invalid: 'Invalid old password',
+						required: 'Old password is required',
+					}
+				),
+				newPassword: passwordSchema(
+					newPassword || {
+						description: 'The new password',
+						invalid: 'Invalid new password',
+						required: 'New password is required',
+					}
+				),
+				confirmPassword: passwordSchema(
+					confirmPassword || {
+						description: 'The password confirmation',
+						invalid: 'Invalid password confirmation',
+						required: 'Password confirmation is required',
+					}
+				),
+			},
+			{
+				description: 'Change Password Schema',
+				invalid_type_error: 'Invalid Change Password Schema',
+				required_error: 'Change Password Schema is required',
+			}
+		)
+		.refine(({ confirmPassword, newPassword }) => confirmPassword === newPassword, {
+			message: 'The passwords did not match',
+			path: ['confirmPassword'],
+		})
+		.openapi('Change_Password_Request', { description: 'Change Password Schema' });
+
 	return schema;
 };
