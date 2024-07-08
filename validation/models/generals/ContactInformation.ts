@@ -1,5 +1,5 @@
 import { MyZodType, z } from '^common/defaultZod';
-import { arraySchema } from '^common/elements';
+import { arraySchema, emailSchema, urlSchema } from '^common/elements';
 
 /* Social media  schema */
 export const SocialMediaSchema = (
@@ -59,9 +59,9 @@ export const ContactInformationSchema = (
 	return z
 		.object<MyZodType<ContactInformationI>>(
 			{
-				emails: arraySchema(z.string(), emails),
-				validatedEmails: arraySchema(z.string(), validatedEmails),
-				websites: arraySchema(z.string(), websites),
+				emails: arraySchema(emailSchema(), emails),
+				validatedEmails: arraySchema(emailSchema(), validatedEmails),
+				websites: arraySchema(urlSchema(), websites),
 				faxes: arraySchema(PhoneSchema(), faxes),
 				phones: arraySchema(PhoneSchema(), phones),
 				socialMediaUrls: SocialMediaSchema(socialMediaUrls),
