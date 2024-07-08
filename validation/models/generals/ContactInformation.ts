@@ -48,7 +48,6 @@ export const ContactInformationSchema = (
 		emails,
 		faxes,
 		phones,
-		note,
 		socialMediaUrls,
 		validatedEmails,
 		websites,
@@ -61,7 +60,6 @@ export const ContactInformationSchema = (
 		.object<MyZodType<ContactInformationI>>(
 			{
 				emails: arraySchema(z.string(), emails),
-				note: z.string(note),
 				validatedEmails: arraySchema(z.string(), validatedEmails),
 				websites: arraySchema(z.string(), websites),
 				faxes: arraySchema(PhoneSchema(), faxes),

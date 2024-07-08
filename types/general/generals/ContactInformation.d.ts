@@ -5,7 +5,6 @@ declare interface ContactInformationI {
 	faxes?: PhoneI[];
 	websites?: string[];
 	socialMediaUrls?: SocialMediaUrlsI;
-	note?: string;
 }
 declare interface PhoneI {
 	number: string;

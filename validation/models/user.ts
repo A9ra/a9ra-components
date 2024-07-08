@@ -130,6 +130,7 @@ export const PublicUserSchema = ({
 				personalInformation: PersonalInformationSchema(),
 				emailValidated: booleanSchema(),
 				profilePicture: urlSchema().optional(),
+				contactInformation: ContactInformationSchema(),
 			},
 			{
 				description: 'Public User Schema',
