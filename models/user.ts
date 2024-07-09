@@ -40,7 +40,13 @@ const userSchema = new Schema<
 			type: contactInformationSchema,
 		},
 		apps: {
-			google: { type: String },
+			google: {
+				type: {
+					id: { type: String },
+					username: { type: String },
+				},
+				default: undefined,
+			},
 		},
 	},
 	{ timestamps: true }
@@ -154,7 +160,7 @@ userSchema.statics.createUser = async function (user) {
 };
 
 userSchema.statics.loginGoogleUser = async function (googleId) {
-	const user = await this.findOne({ 'apps.google': googleId });
+	const user = await this.findOne({ 'apps.google.id': googleId });
 	if (!user) throw new Error('User not found');
 	if (!user.enabled) throw new Error('User is not enabled');
 	return user;
@@ -170,7 +176,7 @@ userSchema.statics.registerGoogleUser = async function (userID, user) {
 	const existingUser = await this.findById(userID);
 	if (!existingUser) throw new Error('User not found');
 	if (existingUser.apps.google) throw new Error('Google account already linked');
-	existingUser.apps.google = user.googleId;
+	existingUser.apps.google = user;
 	await existingUser.save();
 	return existingUser;
 };

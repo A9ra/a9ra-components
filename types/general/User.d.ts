@@ -15,7 +15,7 @@ declare interface NecessaryUserI extends Omit<UserI, 'password'> {
 }
 declare interface AppDetailsI {
 	id: string;
-	username: string;
+	username?: string;
 }
 declare type EnabledUserAppsEnum = 'google';
 declare type DisabledUserAppsEnum = 'facebook' | 'twitter' | 'github';
