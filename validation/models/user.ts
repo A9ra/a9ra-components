@@ -65,13 +65,23 @@ export const UserAppsMap: UserAppsI = {
 export const UserAppsList = Object.keys(UserAppsMap) as UserAppsEnum[];
 export const isDisabledUserApp = (app: UserAppsEnum): app is DisabledUserAppsEnum =>
 	DisabledUserAppsList.includes(app as DisabledUserAppsEnum);
+
+export const AppDetailsSchema = z.object<MyZodType<AppDetailsI>>({
+	id: z.string({
+		description: 'App ID',
+		invalid_type_error: 'Invalid App ID',
+		required_error: 'App ID is required',
+	}),
+	username: z.string({
+		description: 'App username',
+		invalid_type_error: 'Invalid App username',
+		required_error: 'App username is required',
+	}),
+});
+
 export const EnabledUserAppsSchema = () =>
-	z.object<MyZodType<EnabledUserAppsI>>({
-		google: z.string({
-			description: 'Google ID',
-			invalid_type_error: 'Invalid Google ID',
-			required_error: 'Google ID is required',
-		}),
+	z.object<MyZodType<EnabledUserAppsI<AppDetailsI>>>({
+		google: AppDetailsSchema,
 	});
 
 /* --------------------------------- User Document Schema --------------------------------- */
@@ -150,7 +160,6 @@ export const PublicUserSchema = ({
 				personalInformation: PersonalInformationSchema(),
 				emailValidated: booleanSchema(),
 				profilePicture: urlSchema().optional(),
-				contactInformation: ContactInformationSchema(),
 			},
 			{
 				description: 'Public User Schema',
