@@ -9,7 +9,6 @@ declare interface UserI {
 declare interface PublicUserI extends Omit<UserI, 'password'> {
 	id: string;
 	emailValidated: boolean;
-	contactInformation: ContactInformationI;
 }
 declare interface NecessaryUserI extends Omit<UserI, 'password'> {
 	id: string;

@@ -84,7 +84,6 @@ userSchema.methods.toOptimizedObject = function () {
 		personalInformation: this.personalInformation,
 		phone: this.phone,
 		id: this._id.toString(),
-		contactInformation: this.contactInformation,
 		emailValidated: this.contactInformation.validatedEmails.includes(this.email),
 	};
 };
