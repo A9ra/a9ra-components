@@ -24,7 +24,7 @@ interface UserDocumentI extends UserI {
 	contactInformation: ContactInformationI;
 	enabled: boolean;
 	lastLogin: Date | string;
-	apps: EnabledUserAppsI;
+	apps: Partial<EnabledUserAppsI>;
 }
 
 interface ChangePasswordI {
