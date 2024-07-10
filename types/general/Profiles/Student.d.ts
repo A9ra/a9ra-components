@@ -16,3 +16,4 @@ declare interface StudentProfileI {
 	level: levelsEnumT;
 	specialty?: SecondarySpecialtiesT;
 }
+declare type StudentProfileDocumentI<T = string> = StudentProfileI & ProfileI<T>;
