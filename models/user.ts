@@ -36,6 +36,7 @@ const userSchema = new Schema<
 		phone: { type: String },
 		lastLogin: { type: Date, default: Date.now },
 		enabled: { type: Boolean, default: true },
+		profilePicture: { type: String },
 		contactInformation: {
 			type: contactInformationSchema,
 		},
@@ -90,6 +91,7 @@ userSchema.methods.toOptimizedObject = function () {
 		personalInformation: this.personalInformation,
 		phone: this.phone,
 		id: this._id.toString(),
+		profilePicture: this.profilePicture,
 		emailValidated: this.contactInformation.validatedEmails.includes(this.email),
 	};
 };
