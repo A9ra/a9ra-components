@@ -10,12 +10,12 @@ export const AddressSchema = (
 			{
 				province: z
 					.number(province)
-					.min(1, province?.small || 'province id must be at least 1')
+					.gte(1, province?.small || 'province id must be at least 1')
 					.max(58, province?.big || 'province id must be at most 58'),
 				city: z
 					.number(city)
-					.min(0, city?.small || 'city id must be at least 0')
-					.max(2000, city?.big || 'city id must be at most 2000'),
+					.gte(0, city?.small || 'city id must be at least 0')
+					.max(100000, city?.big || 'city id must be at most 2000'),
 				addresses: arraySchema(z.string(), addresses),
 			},
 			{
