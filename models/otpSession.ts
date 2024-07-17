@@ -73,7 +73,6 @@ otpSessionSchema.statics.createRecoverySession = async function (email) {
 		kind: 'resetPassword',
 	};
 	const newOTPSession = await this.create(otpObject);
-	console.log({ otp });
 	return [otp, newOTPSession, user];
 };
 otpSessionSchema.statics.createValidationSession = async function (email) {
@@ -86,7 +85,6 @@ otpSessionSchema.statics.createValidationSession = async function (email) {
 		kind: 'emailVerification',
 		toValidate: email,
 	};
-	console.log({ otp });
 	const newOTPSession = await this.create(otpObject);
 	return [otp, newOTPSession, user];
 };

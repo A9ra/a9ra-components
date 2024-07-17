@@ -1,5 +1,5 @@
 declare interface InterestsI {
-	interests: FocusedChoiceI<interestsEnumT>;
+	interests: FocusedChoiceI<interestsEnumT>; // in front side create an array: [main ...others]
 	subjects: FocusedChoiceI<subjectsEnumT>;
 	careers: FocusedChoiceI<careersEnumT>;
 }
