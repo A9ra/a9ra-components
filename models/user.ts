@@ -2,6 +2,9 @@ import { replaceEmail, replacePhone } from '@server/utils';
 import bcrypt from 'bcrypt';
 import { model, Schema } from 'mongoose';
 
+import { Jwt, JwtOAuth } from '&server/jwt';
+import { passwordSchema } from '^common/elements';
+
 import {
 	UserInstanceMethods,
 	UserModel,
@@ -10,8 +13,6 @@ import {
 	UserStaticMethods,
 	UserVirtual,
 } from '!common/models/user';
-import { Jwt, JwtOAuth, tokenExpirationTime } from '&server/jwt';
-import { passwordSchema } from '^common/elements';
 
 import { contactInformationSchema } from './generals/ContactInformation';
 import { personalInformationSchema } from './generals/PersonalInformation';
@@ -36,11 +37,18 @@ const userSchema = new Schema<
 		phone: { type: String },
 		lastLogin: { type: Date, default: Date.now },
 		enabled: { type: Boolean, default: true },
+		profilePicture: { type: String },
 		contactInformation: {
 			type: contactInformationSchema,
 		},
 		apps: {
-			google: { type: String },
+			google: {
+				type: {
+					id: { type: String },
+					username: { type: String },
+				},
+				default: undefined,
+			},
 		},
 	},
 	{ timestamps: true }
@@ -84,6 +92,7 @@ userSchema.methods.toOptimizedObject = function () {
 		personalInformation: this.personalInformation,
 		phone: this.phone,
 		id: this._id.toString(),
+		profilePicture: this.profilePicture,
 		emailValidated: this.contactInformation.validatedEmails.includes(this.email),
 	};
 };
@@ -103,7 +112,6 @@ userSchema.methods.generateAuthToken = async function () {
 	const nowDate = Math.floor(Date.now() / 1000);
 	return Jwt.sign({
 		id: this._id.toString(),
-		exp: nowDate + tokenExpirationTime,
 		issAt: nowDate,
 		issBy: 'a9ra',
 		pk: await this.generatePublicKey(),
@@ -113,7 +121,6 @@ userSchema.methods.generateOAuthToken = async function (issFor = 'AF') {
 	const nowDate = Math.floor(Date.now() / 1000);
 	return JwtOAuth.sign({
 		id: this._id.toString(),
-		exp: nowDate + 60000, // 1 minute
 		issAt: nowDate,
 		issBy: 'a9ra',
 		issFor,
@@ -156,7 +163,7 @@ userSchema.statics.createUser = async function (user) {
 };
 
 userSchema.statics.loginGoogleUser = async function (googleId) {
-	const user = await this.findOne({ 'apps.google': googleId });
+	const user = await this.findOne({ 'apps.google.id': googleId });
 	if (!user) throw new Error('User not found');
 	if (!user.enabled) throw new Error('User is not enabled');
 	return user;
@@ -172,13 +179,11 @@ userSchema.statics.registerGoogleUser = async function (userID, user) {
 	const existingUser = await this.findById(userID);
 	if (!existingUser) throw new Error('User not found');
 	if (existingUser.apps.google) throw new Error('Google account already linked');
-	existingUser.apps.google = user.googleId;
+	existingUser.apps.google = user;
 	await existingUser.save();
 	return existingUser;
 };
 userSchema.statics.getUserFromToken = async function (payload) {
-	// check if Date.now() is greater than the expiration date "payload.exp"
-	if (Date.now() > payload.exp * 1000) throw new Error('Token expired');
 	const user = await userModel.findById(payload.id);
 	// verify if user exists and the public key is correct
 	if (!user) throw new Error('User not found');

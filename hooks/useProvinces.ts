@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import toast from 'react-hot-toast';
+
 import { getError } from '@client/tools/error';
 
 import useLocalStorage from './useLocalStorage';
@@ -23,6 +24,7 @@ function useProvinces() {
 					toast.error(getError(e, 'Failed to get provinces'));
 				});
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [provinces]);
 	return provinces;
 }

@@ -19,13 +19,12 @@ export const gendersList = Object.keys(gendersMap) as unknown as MyEnum<GendersT
 export const PersonalInformationSchema = (
 	{
 		birthday,
-		birthplace,
 		firstName,
 		gender,
 		lastName,
 		residence,
+		note,
 	}: Partial<Record<Exclude<keyof PersonalInformationI, 'birthplace' | 'residence'>, ErrorsSchemaMsgI>> & {
-		birthplace?: Partial<Record<keyof AddressI, ErrorsSchemaMsgI>>;
 		residence?: Partial<Record<keyof AddressI, ErrorsSchemaMsgI>>;
 	} = {},
 	DocumentUserMsg: ErrorsSchemaMsgI = {}
@@ -36,8 +35,8 @@ export const PersonalInformationSchema = (
 				firstName: nameSchema(firstName, 'firstName'),
 				lastName: nameSchema(lastName, 'lastName'),
 				birthday: stringDateSchema(birthday),
-				birthplace: AddressSchema(birthplace).optional(),
-				residence: AddressSchema(residence).optional(),
+				residence: AddressSchema(residence),
+				note: z.string(note),
 				gender: z.enum<GendersT, MyEnum<GendersT>>(gendersList, gender), // <1>
 			},
 			{

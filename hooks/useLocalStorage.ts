@@ -19,9 +19,11 @@ export default function useLocalStorage<T extends object | null>(
 			localStorage.setItem(itemName, JSON.stringify(initialValue));
 			setStorage(initialValue);
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [itemName]);
 	useEffect(() => {
 		if (storage !== undefined) localStorage.setItem(itemName, JSON.stringify(storage));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [storage]);
 	return [storage, setLocalStorage];
 }

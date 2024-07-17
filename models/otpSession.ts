@@ -2,6 +2,8 @@ import { generateOTP } from '@server/utils';
 import bcrypt from 'bcrypt';
 import { model, Schema } from 'mongoose';
 
+import { A9RA_BSSO_EXPIRE_IN_SECONDS } from '&server/env';
+
 import {
 	OTPSessionDocumentI,
 	OTPSessionInstanceMethods,
@@ -12,7 +14,6 @@ import {
 	OTPSessionStaticMethods,
 	OTPSessionVirtual,
 } from '!common/models/OTPSession';
-import { A9RA_BSSO_EXPIRE_IN_SECONDS } from '&server/env';
 
 import userModel from './user';
 

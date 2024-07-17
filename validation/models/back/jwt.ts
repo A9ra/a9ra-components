@@ -3,17 +3,11 @@ import { mongoIDSchema } from '../../elements';
 
 export const A9RA_JWT_PayloadSchema = ({
 	id,
-	exp,
 	pk,
 	issAt,
 	issBy,
 }: Partial<Record<keyof A9RA_JWT_Payload, ErrorsSchemaMsgI>> = {}) =>
 	z.object<MyZodType<A9RA_JWT_Payload>>({
-		exp: z.number({
-			required_error: exp?.required || 'exp is required',
-			invalid_type_error: exp?.invalid || 'exp must be a number',
-			description: exp?.description || 'The expiration date of the token',
-		}),
 		id: mongoIDSchema(id),
 		issAt: z.number({
 			required_error: issAt?.required || 'issAt is required',

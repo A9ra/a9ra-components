@@ -8,7 +8,7 @@ export type StepIds =
 	| 'BirthDayPlace'
 	| 'Username'
 	| 'Phone'
-	// | 'Residency'
+	| 'Residency'
 	// | 'Language'
 	| 'EducationLevel'
 	// | 'AveragePerformance'
@@ -25,6 +25,7 @@ export interface StepI {
 	description?: LanguagesContentI;
 	icon?: string;
 	validator?: (form: RegisterFormI) => Promise<boolean>;
+	isDirty: (form: RegisterFormI, formDefault: RegisterFormI) => boolean;
 	color: string;
 	/* type: string; */
 }
@@ -42,6 +43,7 @@ export interface OnboardingContextType {
 
 	isValidating: boolean;
 	isValid: boolean;
+	isDirty: boolean;
 	validationError: LanguagesContentI | null;
 
 	setForm: Dispatch<React.SetStateAction<RegisterFormI>>;

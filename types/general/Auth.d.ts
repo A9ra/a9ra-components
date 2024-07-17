@@ -15,9 +15,7 @@ declare interface RegisterFormI extends UserRegistrationI {
 	confirmPassword: string;
 }
 
-declare interface UserGoogleRegistrationI {
-	googleId: string;
-}
+declare type UserGoogleRegistrationI = AppDetailsI;
 declare type ValidationKeysI = 'email' | 'phone';
 declare type ValidatedElementsI<T extends Omit<ValidationI, 'updatedAt'> = Omit<ValidationI, 'updatedAt'>> = Record<
 	ValidationKeysI,

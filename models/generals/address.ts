@@ -30,8 +30,8 @@ const addressSchema = new Schema<
 		city: {
 			type: Number,
 			required,
-			min: 1,
-			max: 2000,
+			min: 0,
+			max: 100000,
 		},
 		addresses: {
 			type: [String],

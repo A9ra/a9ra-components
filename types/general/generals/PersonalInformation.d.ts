@@ -5,6 +5,6 @@ declare interface PersonalInformationI {
 	lastName: string;
 	gender: GendersT;
 	birthday?: Date | string;
-	birthplace?: AddressI;
-	residence?: AddressI;
+	residence: AddressI;
+	note: string;
 }

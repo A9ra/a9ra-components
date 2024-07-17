@@ -37,20 +37,27 @@ export const emailSchema = (msg?: ErrorsSchemaMsgI) =>
 			format: 'email',
 		});
 // password
-export const passwordSchema = (msg?: ErrorsSchemaMsgI) =>
-	z
+export const passwordSchema = (msg?: ErrorsSchemaMsgI, addRegex = false) => {
+	const schema = z
 		.string({
 			description: msg?.description || 'A password in string format',
 			invalid_type_error: msg?.invalid || 'Not a string',
 			required_error: msg?.required || 'Password is required',
 		})
 		.min(8, msg?.small || 'must be at least 8 characters long')
-		.max(40, msg?.big || 'cannot be longer than 40 characters')
-		.openapi('Password', {
-			description: msg?.description || 'A password in string format',
-			example: 'password',
-			format: 'password',
-		});
+		.max(35, msg?.big || 'cannot be longer than 35 characters');
+	if (addRegex)
+		schema.regex(
+			/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+			'Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character'
+		);
+	schema.openapi('Password', {
+		description: msg?.description || 'A password in string format',
+		example: 'password',
+		format: 'password',
+	});
+	return schema;
+};
 // phone
 export const phoneSchema = (msg?: ErrorsSchemaMsgI) =>
 	z
