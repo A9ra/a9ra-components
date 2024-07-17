@@ -5,19 +5,12 @@ import useLang from ':common/useLang';
 import Fallback from '#common/Fallback';
 import Error500 from '#common/pages/Errors/Error500';
 
+import defaultDictionaries from '@client/dictionaries';
 import { DEFAULT_LANGUAGE } from '&client/web';
 
 export default function DictionariesProvider({ children }: { children: ReactNode }) {
 	const { language } = useLang();
-	const [dictionaries, setDictionaries] = useState<Optional<DictionariesI>>({
-		Auth: undefined,
-		Errors: undefined,
-		Language: undefined,
-		Temp: undefined,
-		Validate: undefined,
-		Settings: undefined,
-		Applications: undefined,
-	});
+	const [dictionaries, setDictionaries] = useState<Optional<DictionariesI>>(defaultDictionaries);
 	const [dictionariesToBeLoaded, setDictionariesToBeLoaded] = useState<DictionariesKeys[]>([]);
 	const [isLoadingDictionary, setIsLoadingDictionary] = useState<boolean>(false);
 	const [errorInLoading, setErrorInLoading] = useState<boolean>(false);
