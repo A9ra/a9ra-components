@@ -1,6 +1,6 @@
 import { removeUser, setProfilePicture, setUser } from '@common/contexts/user';
 
-import { useAppDispatch, useAppSelector } from '../../src/hooks/redux';
+import { useAppDispatch, useAppSelector } from ':common/redux';
 
 function useUser<T extends PublicUserI | null = PublicUserI | null>() {
 	const dispatch = useAppDispatch();
