@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from ':common/redux';
 function useUser<T extends PublicUserI | null = PublicUserI | null>() {
 	const dispatch = useAppDispatch();
 	return {
-		user: useAppSelector((state) => state.user) as T,
+		user: useAppSelector((state) => state.user).user as T,
 		setUser: (user: PublicUserI) => {
 			dispatch(setUser(user));
 		},

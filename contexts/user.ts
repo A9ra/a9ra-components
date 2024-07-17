@@ -1,7 +1,29 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { format } from 'date-fns';
 
-const initial_state: PublicUserI | null = JSON.parse(localStorage.getItem('User') || 'null');
+const initial_state: { user: PublicUserI | null } = {
+	user: {
+		id: '0',
+		email: 'mail@mail.com',
+		emailValidated: true,
+		phone: '0000000000',
+		username: 'jesuph',
+		profilePicture: '',
+		personalInformation: {
+			firstName: '',
+			lastName: '',
+			birthday: format(new Date(), 'yyyy-MM-dd'),
+			gender: 'M',
+			note: '',
+			residence: {
+				addresses: ['default'],
+				city: 1,
+				province: 1,
+			},
+		},
+	},
+	//JSON.parse(localStorage.getItem('User') || 'null');
+};
 const user = createSlice({
 	name: 'user',
 	initialState: initial_state,
@@ -17,17 +39,17 @@ const user = createSlice({
 				},
 			};
 			localStorage.setItem('User', JSON.stringify(user));
-			state = user;
+			state.user = user;
 			return state;
 		},
 		removeUser: (state) => {
 			localStorage.removeItem('User');
-			state = null;
+			state.user = null;
 			return state;
 		},
 		setProfilePicture: (state, action: { type: string; payload: string }) => {
-			if (state) {
-				state.profilePicture = action.payload;
+			if (state.user) {
+				state.user.profilePicture = action.payload;
 			}
 		},
 	},
