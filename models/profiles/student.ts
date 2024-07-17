@@ -1,5 +1,13 @@
 import { Schema, Types } from 'mongoose';
 
+import { generateFocusedChoiceSchema } from '#common/generals/focusedChoice';
+import userModel from '#common/user';
+import { careersList } from '^common/models/enums/careers';
+import { interestsList } from '^common/models/enums/interests';
+import { learningDurationList, learningStyleList, learningTimesList } from '^common/models/enums/learningStyle';
+import { levelsList, secondarySpecialtiesList } from '^common/models/enums/levels';
+import { subjectsList } from '^common/models/enums/subjects';
+
 import {
 	StudentProfileInstanceMethods,
 	StudentProfileModel,
@@ -8,13 +16,6 @@ import {
 	StudentProfileStaticMethods,
 	StudentProfileVirtual,
 } from '!common/models/profiles/student';
-import { generateFocusedChoiceSchema } from '#common/generals/focusedChoice';
-import userModel from '#common/user';
-import { careersList } from '^common/models/enums/careers';
-import { interestsList } from '^common/models/enums/interests';
-import { learningDurationList, learningStyleList, learningTimesList } from '^common/models/enums/learningStyle';
-import { levelsList, secondarySpecialtiesList } from '^common/models/enums/levels';
-import { subjectsList } from '^common/models/enums/subjects';
 
 import profileModel, { profileOptions } from '.';
 

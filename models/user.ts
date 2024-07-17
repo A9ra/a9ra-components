@@ -2,6 +2,9 @@ import { replaceEmail, replacePhone } from '@server/utils';
 import bcrypt from 'bcrypt';
 import { model, Schema } from 'mongoose';
 
+import { Jwt, JwtOAuth } from '&server/jwt';
+import { passwordSchema } from '^common/elements';
+
 import {
 	UserInstanceMethods,
 	UserModel,
@@ -10,8 +13,6 @@ import {
 	UserStaticMethods,
 	UserVirtual,
 } from '!common/models/user';
-import { Jwt, JwtOAuth } from '&server/jwt';
-import { passwordSchema } from '^common/elements';
 
 import { contactInformationSchema } from './generals/ContactInformation';
 import { personalInformationSchema } from './generals/PersonalInformation';
