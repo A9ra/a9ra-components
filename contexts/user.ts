@@ -1,43 +1,47 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { format } from 'date-fns';
 
-const initial_state: { user: PublicUserI | null } = {
-	user: JSON.parse(localStorage.getItem('User') || 'null'),
-	/* {
-		id: '0',
-		email: 'mail@mail.com',
-		emailValidated: true,
-		phone: '0000000000',
-		username: 'jesuph',
-		profilePicture: '',
-		personalInformation: {
-			firstName: '',
-			lastName: '',
-			birthday: format(new Date(), 'yyyy-MM-dd'),
-			gender: 'M',
-			note: '',
-			residence: {
-				addresses: ['default'],
-				city: 1,
-				province: 1,
-			},
+import { DISABLE_AUTH } from '&client/web';
+const defaultUser: PublicUserI = {
+	id: '0',
+	email: 'mail@mail.com',
+	emailValidated: true,
+	phone: '0000000000',
+	username: 'username',
+	profilePicture: '',
+	personalInformation: {
+		firstName: '',
+		lastName: '',
+		birthday: new Date(),
+		gender: 'M',
+		note: '',
+		residence: {
+			addresses: ['default'],
+			city: 1,
+			province: 1,
 		},
-	}, */
+	},
 };
+const initial_state: { user: PublicUserI | null } = {
+	user: DISABLE_AUTH ? processUser(defaultUser) : JSON.parse(localStorage.getItem('User') || 'null'),
+};
+function processUser(user: PublicUserI): PublicUserI {
+	return {
+		...user,
+		personalInformation: {
+			...user.personalInformation,
+			birthday: user.personalInformation.birthday
+				? format(user.personalInformation.birthday, 'yyyy-MM-dd')
+				: undefined,
+		},
+	};
+}
 const user = createSlice({
 	name: 'user',
 	initialState: initial_state,
 	reducers: {
 		setUser: (state, action: { type: string; payload: PublicUserI }) => {
-			const user: PublicUserI = {
-				...action.payload,
-				personalInformation: {
-					...action.payload.personalInformation,
-					birthday: action.payload.personalInformation.birthday
-						? format(action.payload.personalInformation.birthday, 'yyyy-MM-dd')
-						: undefined,
-				},
-			};
+			const user: PublicUserI = processUser(action.payload);
 			localStorage.setItem('User', JSON.stringify(user));
 			state.user = user;
 			return state;
