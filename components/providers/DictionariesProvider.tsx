@@ -1,12 +1,12 @@
 import { ReactNode, useCallback, useEffect, useState } from 'react';
-import { DictionariesContext } from '@common/contexts/DictionariesContext';
-
-import useLang from ':common/useLang';
-import Fallback from '#common/Fallback';
-import Error500 from '#common/pages/Errors/Error500';
 
 import defaultDictionaries from '@client/dictionaries';
 import { DEFAULT_LANGUAGE } from '&client/web';
+
+import useLang from ':common/useLang';
+import { DictionariesContext } from '@common/contexts/DictionariesContext';
+import Fallback from '#common/Fallback';
+import Error500 from '#common/pages/Errors/Error500';
 
 export default function DictionariesProvider({ children }: { children: ReactNode }) {
 	const { language } = useLang();

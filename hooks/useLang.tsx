@@ -1,6 +1,5 @@
-import { languages, setLang } from '@common/contexts/language';
-
 import { useAppDispatch, useAppSelector } from ':common/redux';
+import { languages, setLang } from '@common/contexts/language';
 export const AppLanguages: Record<LanguagesI, string> = {
 	EN: 'English (🇺🇸)',
 	FR: 'Français (🇫🇷)',

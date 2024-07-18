@@ -2,8 +2,9 @@ import React, { useCallback } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
-import useUser from ':common/useUser';
 import { useResendValidationMutation } from '$client/hooks/auth';
+
+import useUser from ':common/useUser';
 
 import CountDownValidationButton from './CountDownValidationButton';
 

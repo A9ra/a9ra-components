@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+
 import { DictionariesContext } from '@common/contexts/DictionariesContext';
 
 export default function useDictionary() {
