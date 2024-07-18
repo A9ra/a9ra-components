@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import { format } from 'date-fns';
 
 const initial_state: { user: PublicUserI | null } = {
-	user: {
+	user: JSON.parse(localStorage.getItem('User') || 'null'),
+	/* {
 		id: '0',
 		email: 'mail@mail.com',
 		emailValidated: true,
@@ -21,8 +22,7 @@ const initial_state: { user: PublicUserI | null } = {
 				province: 1,
 			},
 		},
-	},
-	//JSON.parse(localStorage.getItem('User') || 'null');
+	}, */
 };
 const user = createSlice({
 	name: 'user',

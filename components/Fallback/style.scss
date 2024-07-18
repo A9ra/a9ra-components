@@ -1,6 +1,10 @@
 .Loading-Container {
+	--loading-bg:#0677ff;
+	--loading-color:#fff;
+	--loading-element-color:#e4e4e4;
+	--loading-element-border:rgba(255, 255, 255, 0.274);
 	width: 100%;
-	background-color: #0677ff;
+	background-color: var(--loading-bg);
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -22,13 +26,13 @@
 			height: 60px;
 			z-index: 20;
 			border-radius: 0 0 10px 10px;
-			border: 1px solid rgba(255, 255, 255, 0.274);
+			border: 1px solid var(--loading-element-border);
 			border-top: none;
 			box-shadow: 0 15px 20px rgba(0, 0, 0, 0.082);
 			animation: anim2 1.5s infinite;
 		}
 		& div {
-			background: rgb(228, 228, 228);
+			background: var(--loading-element-color);
 			border-radius: 50%;
 			width: 30px;
 			height: 30px;
@@ -49,6 +53,13 @@
 		& div:nth-child(4) {
 			--i: 4;
 		}
+	}
+	&.secondary{
+		--loading-bg:#fff;
+		--loading-color:#0677ff;
+		--loading-element-color:#0677ff;
+		--loading-element-border:rgba(6, 119, 255, 0.274);
+	
 	}
 }
 
