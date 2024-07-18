@@ -21,12 +21,14 @@ setLanguage(initial);
 
 const Language = createSlice({
 	name: 'Language',
-	initialState: initial,
+	initialState: { language: initial },
 	reducers: {
 		setLang: (state, action) => {
-			state = action.payload ?? DEFAULT_LANGUAGE;
-			setLanguage(state);
-			return state;
+			const lang = (action.payload ?? DEFAULT_LANGUAGE).toLocaleUpperCase();
+			if (languages.includes(lang)) {
+				state.language = lang;
+				setLanguage(lang);
+			}
 		},
 	},
 });

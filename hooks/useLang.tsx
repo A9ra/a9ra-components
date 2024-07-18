@@ -8,7 +8,7 @@ export const AppLanguages: Record<LanguagesI, string> = {
 };
 export default function useLang() {
 	const dispatch = useAppDispatch();
-	const language = useAppSelector((state) => state.language);
+	const language = useAppSelector((state) => state.language).language;
 	const set = (lang: LanguagesI) => {
 		if (languages.includes(lang)) dispatch(setLang(lang));
 	};
