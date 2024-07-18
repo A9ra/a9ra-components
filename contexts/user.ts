@@ -10,8 +10,8 @@ const defaultUser: PublicUserI = {
 	username: 'username',
 	profilePicture: '',
 	personalInformation: {
-		firstName: '',
-		lastName: '',
+		firstName: 'first',
+		lastName: 'last',
 		birthday: new Date(),
 		gender: 'M',
 		note: '',
