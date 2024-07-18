@@ -1,7 +1,7 @@
-import { generateOTP } from '@server/utils';
 import bcrypt from 'bcrypt';
 import { model, Schema } from 'mongoose';
 
+import { generateOTP } from '@server/utils';
 import { A9RA_BSSO_EXPIRE_IN_SECONDS } from '&server/env';
 
 import {

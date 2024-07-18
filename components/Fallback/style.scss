@@ -1,8 +1,8 @@
 .Loading-Container {
-	--loading-bg:#0677ff;
-	--loading-color:#fff;
-	--loading-element-color:#e4e4e4;
-	--loading-element-border:rgba(255, 255, 255, 0.274);
+	--loading-bg: #0677ff;
+	--loading-color: #fff;
+	--loading-element-color: #e4e4e4;
+	--loading-element-border: rgba(255, 255, 255, 0.274);
 	width: 100%;
 	background-color: var(--loading-bg);
 	height: 100vh;
@@ -54,12 +54,11 @@
 			--i: 4;
 		}
 	}
-	&.secondary{
-		--loading-bg:#fff;
-		--loading-color:#0677ff;
-		--loading-element-color:#0677ff;
-		--loading-element-border:rgba(6, 119, 255, 0.274);
-	
+	&.secondary {
+		--loading-bg: #fff;
+		--loading-color: #0677ff;
+		--loading-element-color: #0677ff;
+		--loading-element-border: rgba(6, 119, 255, 0.274);
 	}
 }
 
