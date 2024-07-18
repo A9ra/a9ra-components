@@ -44,7 +44,6 @@ export interface UserStaticMethods {
 	findByEmail: (this: UserModel, email: string) => Promise<UserHydratedDocument | null>;
 	findUnique: (this: UserModel, username: string) => Promise<UserHydratedDocument>;
 	getUserFromToken: (this: UserModel, payload: A9RA_JWT_Payload) => Promise<UserHydratedDocument>;
-	getUserOAuthFromToken: (this: UserModel, payload: A9RA_OAUTH_JWT_Payload) => Promise<UserHydratedDocument>;
 }
 export interface UserSchemaOptions {
 	timestamps: true;
