@@ -4,6 +4,7 @@ import { CHANGE_DIRECTION, DEFAULT_LANGUAGE } from '&client/web';
 
 function setLanguage(lang: LanguagesI): void {
 	localStorage.setItem('Language', lang);
+	document.documentElement.setAttribute('lang', lang);
 	if (CHANGE_DIRECTION) {
 		if (lang === 'AR') {
 			document.dir = 'rtl';
