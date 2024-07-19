@@ -433,3 +433,32 @@ export const subjectsEnumSchema = (error?: ErrorsSchemaMsgI) =>
 	z
 		.enum<subjectsEnumT, MyEnum<subjectsEnumT>>(subjectsList, error)
 		.openapi('Subjects_Enum', { description: 'Subjects  Enum' });
+
+export const specialtyToGlobalSubjects: Record<
+	GenericSubjectsEnum,
+	Optional<Record<ExpendedSpecialtiesT, detailedSubjectsEnumT>>
+> = {
+	Tec: {
+		TCe: 'Ce',
+		TEe: 'Ee',
+		TMc: 'Mc',
+		TMe: 'Me',
+	},
+	A1: {
+		Af: 'Adf',
+		Am: 'Amt',
+		At: 'Aac',
+		Av: 'Avt',
+	},
+	A2: {
+		Af: 'Ade',
+		Am: 'Ami',
+		At: 'Apr',
+		Av: 'Acc',
+	},
+	Fl: {
+		Fg: 'Ge',
+		Fi: 'It',
+		Fs: 'Sp',
+	},
+};

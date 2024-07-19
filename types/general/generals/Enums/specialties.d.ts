@@ -11,10 +11,7 @@ declare type SecondaryBasicSpecialtiesT =
 	| 'A' // Arts
 	| 'P' // Philosophy
 	| 'Fl'; // Foreign languages
-
-declare type SecondarySpecialtiesT =
-	| SecondaryCommonSpecialtiesT
-	| Exclude<SecondaryBasicSpecialtiesT, 'Tec' | 'Fl' | 'A'> // specialties that are not technology or languages
+declare type ExpendedSpecialtiesT =
 	/* Technologies */
 	| 'TCe' // Technical Math civil engineering
 	| 'TEe' // Technical Math electrical engineering
@@ -29,3 +26,7 @@ declare type SecondarySpecialtiesT =
 	| 'At' // Arts (Theater and Performing)
 	| 'Am' // Arts (music)
 	| 'Af'; // Arts (Fine Arts)
+declare type SecondarySpecialtiesT =
+	| SecondaryCommonSpecialtiesT
+	| Exclude<SecondaryBasicSpecialtiesT, 'Tec' | 'Fl' | 'A'> // specialties that are not technology or languages
+	| ExpendedSpecialtiesT;

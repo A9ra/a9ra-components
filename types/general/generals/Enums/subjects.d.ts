@@ -1,3 +1,31 @@
+declare type Art1SubjectsEnum =
+	| 'Adf' // Drawing and fine expression
+	| 'Amt' // music theory
+	| 'Aac' // art of acting
+	| 'Avt'; // audio visual technics
+
+declare type Art2SubjectsEnum =
+	| 'Ade' // Design
+	| 'Ami' // music instrument
+	| 'Apr' // art of performing
+	| 'Acc'; // cinematographic culture
+declare type ArtSubjectsEnum = Art1SubjectsEnum | Art2SubjectsEnum;
+declare type TechnologySubjectsEnum =
+	| 'Ce' // civil engineering
+	| 'Mc' // Mechanical engineering
+	| 'Ee' // Electrical engineering
+	| 'Me'; // Methods engineering
+declare type ForeignLanguageSubjectsEnum =
+	| 'Ge' // German
+	| 'Sp' // Spanish
+	| 'It'; // Italian
+declare type GenericSubjectsEnum =
+	| 'Fl' // Foreign languages
+	/* Technologie */
+	| 'Tec' // Technology
+	/* Arts */
+	| 'A1' // art 1
+	| 'A2'; // art 2
 declare type basicSubjectsEnumT =
 	| 'M' // Mathematic
 	| 'S' // Science
@@ -17,37 +45,17 @@ declare type basicSubjectsEnumT =
 	/* | 'Ch' // Chemistry
 	| 'Bi' // Biology */
 	/* Languages */
-	| 'Fl' // Foreign languages
 	| 'Ar' // Arabic
 	| 'Am' // Amazight
 	| 'Fr' // French
 	| 'En' // English
 	| 'Em' // economy and management
-
-	/* Technologie */
-	| 'Tec' // Technology
-
-	/* Arts */
-	| 'A1' // art 1
-	| 'A2'; // art 2
-
-declare type subjectsEnumT =
-	| Exclude<basicSubjectsEnumT, 'A1' | 'A2' | 'Tec' | 'Fl'>
-	/* Art subjects */
-	| 'Adf' // Drawing and fine expression
-	| 'Ade' // Design
-	| 'Amt' // music theory
-	| 'Ami' // music instrument
-	| 'Aac' // art of acting
-	| 'Apr' // art of performing
-	| 'Avt' // audio visual technics
-	| 'Acc' // cinematographic culture
+	| GenericSubjectsEnum;
+declare type detailedSubjectsEnumT =
+	| ArtSubjectsEnum
 	/* Foreign languages */
-	| 'Ge' // German
-	| 'Sp' // Spanish
-	| 'It' // Italian
+	| ForeignLanguageSubjectsEnum
 	/*  Technologie */
-	| 'Ce' // civil engineering
-	| 'Mc' // Mechanical engineering
-	| 'Ee' // Electrical engineering
-	| 'Me'; // Methods engineering
+	| TechnologySubjectsEnum;
+declare type subjectsEnumT = Exclude<basicSubjectsEnumT, 'A1' | 'A2' | 'Tec' | 'Fl'> | detailedSubjectsEnumT;
+/* Art subjects */
