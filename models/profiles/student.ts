@@ -65,6 +65,7 @@ const studentProfileSchema = new Schema<
 /* --------------------- Methods ---------------------  */
 studentProfileSchema.methods.toOptimizedObject = function () {
 	return {
+		id: this._id.toString(),
 		user: this.user.toString(),
 		kind: this.kind,
 		interests: this.interests,

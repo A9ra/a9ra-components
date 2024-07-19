@@ -14,7 +14,7 @@ import { UserHydratedDocument } from '../user';
 export interface StudentProfileVirtual {}
 
 export interface StudentProfileInstanceMethods {
-	toOptimizedObject(): StudentProfileDocumentI;
+	toOptimizedObject(): PublicStudentProfileI;
 }
 /* QueryWithHelpers<StudentProfileHydratedDocument | null, StudentProfileHydratedDocument, StudentProfileQueryHelpers, StudentProfileDocumentI<Types.ObjectId>,'findOne' >; */
 export interface StudentProfileQueryHelpers {}
