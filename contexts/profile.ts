@@ -39,7 +39,7 @@ const defaultProfile: PublicStudentProfileI = {
 };
 interface StudentProfileSliceI {
 	profile: PublicStudentProfileI | null;
-	grades: SpecialtyDetailsI | null;
+	grades: Optional<Record<basicSubjectsEnumT, number>> | null;
 }
 const initial_state: StudentProfileSliceI = {
 	profile: DISABLE_AUTH ? defaultProfile : JSON.parse(localStorage.getItem('Profile') || 'null'),
