@@ -3,15 +3,15 @@ import { format } from 'date-fns';
 
 import { DISABLE_AUTH } from '&client/web';
 const defaultUser: PublicUserI = {
-	id: '0',
+	id: '6699638ef25ccc04551ac242',
 	email: 'mail@mail.com',
 	emailValidated: true,
 	phone: '0000000000',
-	username: 'username',
+	username: 'xemox',
 	profilePicture: '',
 	personalInformation: {
-		firstName: 'first',
-		lastName: 'last',
+		firstName: 'Abdelhak',
+		lastName: 'Ihadjadene',
 		birthday: new Date(),
 		gender: 'M',
 		note: '',

@@ -16,4 +16,7 @@ declare interface StudentProfileI {
 	level: levelsEnumT;
 	specialty?: SecondarySpecialtiesT;
 }
-declare type StudentProfileDocumentI<T = string> = StudentProfileI & ProfileI<T>;
+declare interface StudentProfileDocumentI<T = string> extends StudentProfileI, ProfileI<T> {}
+declare interface PublicStudentProfileI<IDS = string> extends StudentProfileDocumentI<IDS> {
+	id: IDS;
+}
