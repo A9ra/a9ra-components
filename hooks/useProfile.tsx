@@ -2,7 +2,7 @@ import { useAppDispatch, useAppSelector } from ':common/redux';
 import { clearGrades, removeProfile, setGrades, setProfile } from '@common/contexts/profile';
 export default function useProfile<
 	Profile extends PublicStudentProfileI | null = PublicStudentProfileI | null,
-	Grades extends SpecialtyDetailsI | null = SpecialtyDetailsI | null,
+	Grades extends StudentGradesI | null = StudentGradesI | null,
 >() {
 	const dispatch = useAppDispatch();
 	return {
@@ -14,7 +14,7 @@ export default function useProfile<
 		removeProfile: () => {
 			dispatch(removeProfile());
 		},
-		setGrades: (grades: SpecialtyDetailsI) => {
+		setGrades: (grades: StudentGradesI) => {
 			dispatch(setGrades(grades));
 		},
 		clearGrades: () => {

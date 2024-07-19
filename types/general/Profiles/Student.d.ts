@@ -20,3 +20,4 @@ declare interface StudentProfileDocumentI<T = string> extends StudentProfileI, P
 declare interface PublicStudentProfileI<IDS = string> extends StudentProfileDocumentI<IDS> {
 	id: IDS;
 }
+declare type StudentGradesI = Optional<Record<basicSubjectsEnumT, number>>;
