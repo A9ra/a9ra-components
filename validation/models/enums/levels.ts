@@ -237,7 +237,7 @@ export const secondarySchoolLevelsList = Object.keys(
 ) as unknown as MyEnum<SecondarySchoolLevelsT>;
 export const secondarySpecialties: Record<
 	SecondarySpecialtiesT,
-	ForLevelsDetailsI<SecondarySpecialtiesT, SecondarySchoolLevelsT>
+	ForLevelsDetailsWithCommonSubjectI<SecondarySpecialtiesT, SecondarySchoolLevelsT>
 > = {
 	M: {
 		id: 'M',
@@ -248,6 +248,8 @@ export const secondarySpecialties: Record<
 		},
 		icon: 'icon-[mdi--math-integral]',
 		levels: ['S2', 'S3'],
+		commonSpecialty: 's',
+		mainSpecialty: 'M',
 	},
 	TCe: {
 		id: 'TCe',
@@ -258,6 +260,8 @@ export const secondarySpecialties: Record<
 		},
 		icon: 'icon-[mdi--building]',
 		levels: ['S2', 'S3'],
+		commonSpecialty: 's',
+		mainSpecialty: 'Tec',
 	},
 	TMc: {
 		id: 'TMc',
@@ -268,6 +272,8 @@ export const secondarySpecialties: Record<
 		},
 		icon: 'icon-[mdi--mechanic]',
 		levels: ['S2', 'S3'],
+		commonSpecialty: 's',
+		mainSpecialty: 'Tec',
 	},
 	TEe: {
 		id: 'TEe',
@@ -278,6 +284,8 @@ export const secondarySpecialties: Record<
 		},
 		icon: 'icon-[mdi--electricity]',
 		levels: ['S2', 'S3'],
+		commonSpecialty: 's',
+		mainSpecialty: 'Tec',
 	},
 	TMe: {
 		id: 'TMe',
@@ -288,6 +296,8 @@ export const secondarySpecialties: Record<
 		},
 		icon: 'icon-[mdi--chemical-weapon]',
 		levels: ['S2', 'S3'],
+		commonSpecialty: 's',
+		mainSpecialty: 'Tec',
 	},
 	s: {
 		id: 's',
@@ -298,6 +308,8 @@ export const secondarySpecialties: Record<
 		},
 		icon: 'icon-[mdi--atom]',
 		levels: ['S1'],
+		commonSpecialty: 's',
+		mainSpecialty: 's',
 	},
 	S: {
 		id: 'S',
@@ -308,12 +320,16 @@ export const secondarySpecialties: Record<
 		},
 		icon: 'icon-[mdi--leaf]',
 		levels: ['S2', 'S3'],
+		commonSpecialty: 's',
+		mainSpecialty: 'S',
 	},
 	F: {
 		id: 'F',
 		name: { EN: 'Management and economics', FR: 'Gestion et économie', AR: 'تسيير واقتصاد' },
 		icon: 'icon-[mdi--finance]',
 		levels: ['S2', 'S3'],
+		commonSpecialty: 's',
+		mainSpecialty: 'F',
 	},
 	Af: {
 		id: 'Af',
@@ -324,6 +340,8 @@ export const secondarySpecialties: Record<
 		},
 		icon: 'icon-[mdi--palette]',
 		levels: ['S2', 'S3'],
+		commonSpecialty: 'l',
+		mainSpecialty: 'A',
 	},
 	Am: {
 		id: 'Am',
@@ -334,6 +352,8 @@ export const secondarySpecialties: Record<
 		},
 		icon: 'icon-[mdi--music-note]',
 		levels: ['S2', 'S3'],
+		commonSpecialty: 'l',
+		mainSpecialty: 'A',
 	},
 	At: {
 		id: 'At',
@@ -344,6 +364,8 @@ export const secondarySpecialties: Record<
 		},
 		icon: 'icon-[mdi--theater]',
 		levels: ['S2', 'S3'],
+		commonSpecialty: 'l',
+		mainSpecialty: 'A',
 	},
 	Av: {
 		id: 'Av',
@@ -354,6 +376,8 @@ export const secondarySpecialties: Record<
 		},
 		icon: 'icon-[mdi--video]',
 		levels: ['S2', 'S3'],
+		commonSpecialty: 'l',
+		mainSpecialty: 'A',
 	},
 	l: {
 		id: 'l',
@@ -364,6 +388,8 @@ export const secondarySpecialties: Record<
 		},
 		icon: 'icon-[mdi--book-open]',
 		levels: ['S1'],
+		commonSpecialty: 'l',
+		mainSpecialty: 'l',
 	},
 	P: {
 		id: 'P',
@@ -374,6 +400,8 @@ export const secondarySpecialties: Record<
 		},
 		icon: 'icon-[mdi--brain]',
 		levels: ['S2', 'S3'],
+		commonSpecialty: 'l',
+		mainSpecialty: 'P',
 	},
 	Fs: {
 		id: 'Fs',
@@ -384,12 +412,16 @@ export const secondarySpecialties: Record<
 		},
 		icon: 'icon-[mdi--translate]',
 		levels: ['S2', 'S3'],
+		commonSpecialty: 'l',
+		mainSpecialty: 'Fl',
 	},
 	Fg: {
 		id: 'Fg',
 		name: { EN: 'Foreign language (German)', AR: 'لغة أجنبية (ألمانية)', FR: 'Langue étrangère (allemande)' },
 		icon: 'icon-[mdi--translate]',
 		levels: ['S2', 'S3'],
+		commonSpecialty: 'l',
+		mainSpecialty: 'Fl',
 	},
 	Fi: {
 		id: 'Fi',
@@ -400,6 +432,8 @@ export const secondarySpecialties: Record<
 		},
 		icon: 'icon-[mdi--translate]',
 		levels: ['S2', 'S3'],
+		commonSpecialty: 'l',
+		mainSpecialty: 'Fl',
 	},
 };
 export const secondarySpecialtiesList = Object.keys(secondarySpecialties) as unknown as MyEnum<SecondarySpecialtiesT>;
