@@ -15,6 +15,7 @@ const colorList = [
 	'#6680B3',
 	'#66991A',
 ];
+
 export function generateRandomColor(idx: number) {
 	return colorList[idx % colorList.length];
 }

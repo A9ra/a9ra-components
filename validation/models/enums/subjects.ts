@@ -462,3 +462,30 @@ export const specialtyToGlobalSubjects: Record<
 		Fs: 'Sp',
 	},
 };
+
+export const genericSubjects: GenericSubjectsEnum[] = ['A1', 'A2', 'Fl', 'Tec'];
+export const expandedSpecialties: ExpendedSpecialtiesT[] = [
+	'TCe', // Technical Math civil engineering
+	'TEe', // Technical Math electrical engineering
+	'TMc', // Technical Math mechanical engineering
+	'TMe', // Technical Math Methods engineering
+	/* foreign languages */
+	'Fs', // Foreign language (spanish)
+	'Fg', // Foreign language (german)
+	'Fi', // Foreign language (italian)
+	/* foreign languages */
+	'Av', // Arts (audio visual)
+	'At', // Arts (Theater and Performing)
+	'Am', // Arts (music)
+	'Af', // Arts (Fine Arts)
+];
+
+export const getActualSubject = (subject: basicSubjectsEnumT, specialty: SecondarySpecialtiesT): subjectsEnumT => {
+	if (
+		genericSubjects.includes(subject as GenericSubjectsEnum) &&
+		expandedSpecialties.includes(specialty as ExpendedSpecialtiesT)
+	) {
+		return specialtyToGlobalSubjects[subject as GenericSubjectsEnum][specialty as ExpendedSpecialtiesT]!;
+	}
+	return subject as subjectsEnumT;
+};
