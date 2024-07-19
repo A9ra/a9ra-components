@@ -1,4 +1,4 @@
-declare type subjectsEnumT =
+declare type basicSubjectsEnumT =
 	| 'M' // Mathematic
 	| 'S' // Science
 	| 'P' // Physics
@@ -22,19 +22,18 @@ declare type subjectsEnumT =
 	| 'Am' // Amazight
 	| 'Fr' // French
 	| 'En' // English
-	| 'Ge' // German
-	| 'Sp' // Spanish
-	| 'It' // Italian
+	| 'Em' // economy and management
+
 	/* Technologie */
 	| 'Tec' // Technology
-	| 'Ce' // civil engineering
-	| 'Mc' // Mechanical engineering
-	| 'Ee' // Electrical engineering
-	| 'Em' // economy and management
-	| 'Me' // Methods engineering
+
 	/* Arts */
 	| 'A1' // art 1
-	| 'A2' // art 2
+	| 'A2'; // art 2
+
+declare type subjectsEnumT =
+	| Exclude<basicSubjectsEnumT, 'A1' | 'A2' | 'Tec' | 'Fl'>
+	/* Art subjects */
 	| 'Adf' // Drawing and fine expression
 	| 'Ade' // Design
 	| 'Amt' // music theory
@@ -42,4 +41,13 @@ declare type subjectsEnumT =
 	| 'Aac' // art of acting
 	| 'Apr' // art of performing
 	| 'Avt' // audio visual technics
-	| 'Acc'; // cinematographic culture
+	| 'Acc' // cinematographic culture
+	/* Foreign languages */
+	| 'Ge' // German
+	| 'Sp' // Spanish
+	| 'It' // Italian
+	/*  Technologie */
+	| 'Ce' // civil engineering
+	| 'Mc' // Mechanical engineering
+	| 'Ee' // Electrical engineering
+	| 'Me'; // Methods engineering

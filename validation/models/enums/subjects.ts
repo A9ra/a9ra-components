@@ -2,7 +2,7 @@ import { z } from '^common/defaultZod';
 
 import { generateRandomColor } from './tools';
 
-export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT, K12LevelsT>> = {
+export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basicSubjectsEnumT, K12LevelsT>> = {
 	M: {
 		id: 'M',
 		name: { EN: 'Math', FR: 'Mathématiques', AR: 'رياضيات' },
@@ -151,77 +151,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT,
 		icon: 'icon-[mdi--translate]',
 		levels: ['P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
 	},
-	Ge: {
-		id: 'Ge',
-		name: {
-			EN: 'German',
-			FR: 'Allemand',
-			AR: 'الألمانية',
-		},
-		icon: 'icon-[mdi--translate]',
-		levels: ['P1', 'P2', 'P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
-	},
-	Sp: {
-		id: 'Sp',
-		name: {
-			EN: 'Spanish',
-			FR: 'Espagnol',
-			AR: 'الإسبانية',
-		},
-		icon: 'icon-[mdi--translate]',
-		levels: ['S2', 'S3'],
-	},
-	It: {
-		id: 'It',
-		name: {
-			EN: 'Italian',
-			FR: 'Italien',
-			AR: 'الإيطالية',
-		},
-		icon: 'icon-[mdi--translate]',
-		levels: ['S2', 'S3'],
-	},
-	/* Technology */
-	Ce: {
-		id: 'Ce',
-		name: {
-			EN: 'Civil Engineering',
-			FR: 'Génie civil',
-			AR: 'هندسة مدنية',
-		},
-		icon: 'icon-[mdi--engine]',
-		levels: ['S1', 'S2', 'S3'],
-	},
-	Mc: {
-		id: 'Mc',
-		name: {
-			EN: 'Mechanical Engineering',
-			FR: 'Génie mécanique',
-			AR: 'هندسة ميكانيكية',
-		},
-		icon: 'icon-[mdi--engine]',
-		levels: ['S1', 'S2', 'S3'],
-	},
-	Ee: {
-		id: 'Ee',
-		name: {
-			EN: 'Electrical Engineering',
-			FR: 'Génie électrique',
-			AR: 'هندسة كهربائية',
-		},
-		icon: 'icon-[mdi--engine]',
-		levels: ['S1', 'S2', 'S3'],
-	},
-	Me: {
-		id: 'Me',
-		name: {
-			EN: 'Methods Engineering',
-			FR: 'Génie des méthodes',
-			AR: 'هندسة الطرائق',
-		},
-		icon: 'icon-[mdi--engine]',
-		levels: ['S1', 'S2', 'S3'],
-	},
+
 	Em: {
 		id: 'Em',
 		name: {
@@ -302,6 +232,95 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT,
 		icon: 'icon-[mdi--palette]',
 		levels: ['S2', 'S3'],
 	},
+};
+const {
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	A1,
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	A2,
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	Fl,
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	Tec,
+	...restSubjects
+} = basicSubjectsMap;
+export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT, K12LevelsT>> = {
+	...(restSubjects as Record<
+		Exclude<basicSubjectsEnumT, 'A1' | 'A2' | 'Tec' | 'Fl'>,
+		ForLevelsDetailsI<Exclude<basicSubjectsEnumT, 'A1' | 'A2' | 'Tec' | 'Fl'>, K12LevelsT>
+	>),
+	Ge: {
+		id: 'Ge',
+		name: {
+			EN: 'German',
+			FR: 'Allemand',
+			AR: 'الألمانية',
+		},
+		icon: 'icon-[mdi--translate]',
+		levels: ['P1', 'P2', 'P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
+	},
+	Sp: {
+		id: 'Sp',
+		name: {
+			EN: 'Spanish',
+			FR: 'Espagnol',
+			AR: 'الإسبانية',
+		},
+		icon: 'icon-[mdi--translate]',
+		levels: ['S2', 'S3'],
+	},
+	It: {
+		id: 'It',
+		name: {
+			EN: 'Italian',
+			FR: 'Italien',
+			AR: 'الإيطالية',
+		},
+		icon: 'icon-[mdi--translate]',
+		levels: ['S2', 'S3'],
+	},
+	/* Technology */
+	Ce: {
+		id: 'Ce',
+		name: {
+			EN: 'Civil Engineering',
+			FR: 'Génie civil',
+			AR: 'هندسة مدنية',
+		},
+		icon: 'icon-[mdi--engine]',
+		levels: ['S1', 'S2', 'S3'],
+	},
+	Mc: {
+		id: 'Mc',
+		name: {
+			EN: 'Mechanical Engineering',
+			FR: 'Génie mécanique',
+			AR: 'هندسة ميكانيكية',
+		},
+		icon: 'icon-[mdi--engine]',
+		levels: ['S1', 'S2', 'S3'],
+	},
+	Ee: {
+		id: 'Ee',
+		name: {
+			EN: 'Electrical Engineering',
+			FR: 'Génie électrique',
+			AR: 'هندسة كهربائية',
+		},
+		icon: 'icon-[mdi--engine]',
+		levels: ['S1', 'S2', 'S3'],
+	},
+	Me: {
+		id: 'Me',
+		name: {
+			EN: 'Methods Engineering',
+			FR: 'Génie des méthodes',
+			AR: 'هندسة الطرائق',
+		},
+		icon: 'icon-[mdi--engine]',
+		levels: ['S1', 'S2', 'S3'],
+	},
+	/* Arts */
 	Adf: {
 		id: 'Adf',
 		name: {
@@ -383,6 +402,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT,
 		levels: ['S2', 'S3'],
 	},
 };
+
 export const subjectsList = Object.keys(subjectsMap) as unknown as MyEnum<subjectsEnumT>;
 export const subjectsWithColorsList = subjectsList.map((elm, i) => ({
 	...subjectsMap[elm],
