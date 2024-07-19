@@ -37,9 +37,10 @@ const defaultProfile: PublicStudentProfileI = {
 	level: 'S3',
 	specialty: 'M',
 };
+
 interface StudentProfileSliceI {
 	profile: PublicStudentProfileI | null;
-	grades: Optional<Record<basicSubjectsEnumT, number>> | null;
+	grades: StudentGradesI | null;
 }
 const initial_state: StudentProfileSliceI = {
 	profile: DISABLE_AUTH ? defaultProfile : JSON.parse(localStorage.getItem('Profile') || 'null'),
@@ -61,7 +62,7 @@ const profile = createSlice({
 			state.profile = null;
 			return state;
 		},
-		setGrades: (state, action: { type: string; payload: SpecialtyDetailsI }) => {
+		setGrades: (state, action: { type: string; payload: StudentGradesI }) => {
 			state.grades = action.payload;
 			return state;
 		},
