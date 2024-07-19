@@ -22,15 +22,15 @@ declare interface ForLevelsDetailsWithCommonSubjectI<ID, Levels extends K12Level
 }
 
 declare interface SpecialtyDetailsI<
-	Subjects extends subjectsEnumT = subjectsEnumT,
-	OptionalSubjects extends subjectsEnumT = subjectsEnumT,
+	Subjects extends basicSubjectsEnumT = basicSubjectsEnumT,
+	OptionalSubjects extends basicSubjectsEnumT = basicSubjectsEnumT,
 > {
 	subjects: Subjects[]; // subjects that are taught in this specialty
 	optionalSubjects: OptionalSubjects[]; // subjects that are optional in this specialty
 	subjectsCof: SubjectsCof<Subjects, OptionalSubjects>;
 }
 
-declare interface SubjectsCof<Subjects extends subjectsEnumT, OptionalSubjects extends subjectsEnumT = 'Pe'> {
+declare interface SubjectsCof<Subjects extends basicSubjectsEnumT, OptionalSubjects extends basicSubjectsEnumT = 'Pe'> {
 	optionals: Optional<Record<OptionalSubjects, number>>;
 	mandatory: Optional<Record<Subjects, number>>;
 }
