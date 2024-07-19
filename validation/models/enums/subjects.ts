@@ -428,6 +428,7 @@ export const subjectsWithColorsList = subjectsList.map((elm, i) => ({
 	...subjectsMap[elm],
 	color: generateRandomColor(i),
 }));
+export const subjectsWithColors = subjectsWithColorsList.reduce((prev, curr) => ({ ...prev, [curr.id]: curr }), {});
 
 export const subjectsEnumSchema = (error?: ErrorsSchemaMsgI) =>
 	z
