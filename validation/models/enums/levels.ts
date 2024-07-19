@@ -368,9 +368,9 @@ export const secondarySpecialties: Record<
 	P: {
 		id: 'P',
 		name: {
-			EN: 'Philosophy',
-			AR: 'فلسفة',
-			FR: 'Philosophie',
+			EN: 'Philosophy and literature',
+			AR: 'فلسفة وأداب',
+			FR: 'Philosophie et littérature',
 		},
 		icon: 'icon-[mdi--brain]',
 		levels: ['S2', 'S3'],
