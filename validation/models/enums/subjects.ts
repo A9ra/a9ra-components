@@ -2,7 +2,7 @@ import { z } from '^common/defaultZod';
 
 import { generateRandomColor } from './tools';
 
-export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT>> = {
+export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT, K12LevelsT>> = {
 	M: {
 		id: 'M',
 		name: { EN: 'Math', FR: 'Mathématiques', AR: 'رياضيات' },
@@ -260,6 +260,126 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT>
 			AR: 'قانون',
 		},
 		icon: 'icon-[mdi--account-cash]',
+		levels: ['S2', 'S3'],
+	},
+	Tec: {
+		id: 'Tec',
+		name: {
+			EN: 'Technology',
+			FR: 'Technologie',
+			AR: 'تكنولوجيا',
+		},
+		icon: 'icon-[mdi--engine]',
+		levels: ['S1', 'S2', 'S3'],
+	},
+	Fl: {
+		id: 'Fl',
+		name: {
+			EN: 'Third Foreign languages',
+			FR: 'Troisième langue étrangère',
+			AR: 'اللغة الأجنبية الثالثة',
+		},
+		icon: 'icon-[mdi--translate]',
+		levels: ['S2', 'S3'],
+	},
+	A1: {
+		id: 'A1',
+		name: {
+			EN: 'Art 1',
+			FR: 'Art 1',
+			AR: 'فن 1',
+		},
+		icon: 'icon-[mdi--palette]',
+		levels: ['S2', 'S3'],
+	},
+	A2: {
+		id: 'A2',
+		name: {
+			EN: 'Art 2',
+			FR: 'Art 2',
+			AR: 'فن 2',
+		},
+		icon: 'icon-[mdi--palette]',
+		levels: ['S2', 'S3'],
+	},
+	Adf: {
+		id: 'Adf',
+		name: {
+			EN: 'Drawing and fine expression',
+			FR: 'Dessin et expression plastique',
+			AR: 'رسم وتعبير جمالي',
+		},
+		icon: 'icon-[mdi--palette]',
+		levels: ['S2', 'S3'],
+	},
+	Ade: {
+		id: 'Ade',
+		name: {
+			EN: 'Design',
+			FR: 'Design',
+			AR: 'تصميم',
+		},
+		icon: 'icon-[mdi--palette]',
+		levels: ['S2', 'S3'],
+	},
+	Amt: {
+		id: 'Amt',
+		name: {
+			EN: 'Music theory',
+			FR: 'Théorie musicale',
+			AR: 'نظرية الموسيقى',
+		},
+		icon: 'icon-[mdi--music]',
+		levels: ['S2', 'S3'],
+	},
+	Ami: {
+		id: 'Ami',
+		name: {
+			EN: 'Music instrument',
+			FR: 'Instrument de musique',
+			AR: 'آلة موسيقية',
+		},
+		icon: 'icon-[mdi--music]',
+		levels: ['S2', 'S3'],
+	},
+	Aac: {
+		id: 'Aac',
+		name: {
+			EN: 'Art of acting',
+			FR: 'Art dramatique',
+			AR: 'فن التمثيل',
+		},
+		icon: 'icon-[mdi--theater]',
+		levels: ['S2', 'S3'],
+	},
+	Apr: {
+		id: 'Apr',
+		name: {
+			EN: 'Art of performing',
+			FR: 'Art de la scène',
+			AR: 'فن الأداء',
+		},
+		icon: 'icon-[mdi--theater]',
+		levels: ['S2', 'S3'],
+	},
+	Avt: {
+		id: 'Avt',
+		name: {
+			EN: 'audio visual technics',
+			FR: 'Techniques audiovisuelles',
+			AR: 'تقنيات سمعية بصرية',
+		},
+		icon: 'icon-[mdi--camera]',
+		levels: ['S2', 'S3'],
+	},
+	Acc: {
+		id: 'Acc',
+		name: {
+			EN: 'cinematographic culture',
+			FR: 'Culture cinématographique',
+			AR: 'ثقافة سينمائية',
+		},
+		icon: 'icon-[mdi--camera]',
 		levels: ['S2', 'S3'],
 	},
 };

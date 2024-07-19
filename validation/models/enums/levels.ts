@@ -315,14 +315,44 @@ export const secondarySpecialties: Record<
 		icon: 'icon-[mdi--finance]',
 		levels: ['S2', 'S3'],
 	},
-	A: {
-		id: 'A',
+	Af: {
+		id: 'Af',
 		name: {
-			EN: 'Arts',
-			AR: 'فنون',
-			FR: 'Arts',
+			EN: 'Arts (Fine Arts)',
+			AR: 'فنون (فنون التشكيل)',
+			FR: 'Arts (Beaux-arts)',
 		},
 		icon: 'icon-[mdi--palette]',
+		levels: ['S2', 'S3'],
+	},
+	Am: {
+		id: 'Am',
+		name: {
+			EN: 'Arts (Music)',
+			AR: 'فنون (موسيقى)',
+			FR: 'Arts (Musique)',
+		},
+		icon: 'icon-[mdi--music-note]',
+		levels: ['S2', 'S3'],
+	},
+	At: {
+		id: 'At',
+		name: {
+			EN: 'Arts (Theater and Performing)',
+			AR: 'فنون (مسرح و تمثيل)',
+			FR: 'Arts (Théâtre et spectacle)',
+		},
+		icon: 'icon-[mdi--theater]',
+		levels: ['S2', 'S3'],
+	},
+	Av: {
+		id: 'Av',
+		name: {
+			EN: 'Arts (audio visual)',
+			AR: 'فنون (سمعي بصري)',
+			FR: 'Arts (audiovisuel)',
+		},
+		icon: 'icon-[mdi--video]',
 		levels: ['S2', 'S3'],
 	},
 	l: {
