@@ -244,11 +244,16 @@ const {
 	Tec,
 	...restSubjects
 } = basicSubjectsMap;
-export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT, K12LevelsT>> = {
-	...(restSubjects as Record<
-		Exclude<basicSubjectsEnumT, 'A1' | 'A2' | 'Tec' | 'Fl'>,
-		ForLevelsDetailsI<Exclude<basicSubjectsEnumT, 'A1' | 'A2' | 'Tec' | 'Fl'>, K12LevelsT>
-	>),
+export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsWithCommonSubjectsI<subjectsEnumT, K12LevelsT>> = {
+	...Object.entries(restSubjects)
+		.map(([, elm]) => ({ ...elm, mainSubject: elm.id }))
+		.reduce(
+			(acc, elm) => ({ ...acc, [elm.id]: elm }),
+			{} as Record<
+				Exclude<basicSubjectsEnumT, 'A1' | 'A2' | 'Tec' | 'Fl'>,
+				ForLevelsDetailsWithCommonSubjectsI<Exclude<basicSubjectsEnumT, 'A1' | 'A2' | 'Tec' | 'Fl'>, K12LevelsT>
+			>
+		),
 	Ge: {
 		id: 'Ge',
 		name: {
@@ -258,6 +263,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT,
 		},
 		icon: 'icon-[mdi--translate]',
 		levels: ['P1', 'P2', 'P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
+		mainSubject: 'Fl',
 	},
 	Sp: {
 		id: 'Sp',
@@ -268,6 +274,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT,
 		},
 		icon: 'icon-[mdi--translate]',
 		levels: ['S2', 'S3'],
+		mainSubject: 'Fl',
 	},
 	It: {
 		id: 'It',
@@ -278,6 +285,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT,
 		},
 		icon: 'icon-[mdi--translate]',
 		levels: ['S2', 'S3'],
+		mainSubject: 'Fl',
 	},
 	/* Technology */
 	Ce: {
@@ -289,6 +297,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT,
 		},
 		icon: 'icon-[mdi--engine]',
 		levels: ['S1', 'S2', 'S3'],
+		mainSubject: 'Tec',
 	},
 	Mc: {
 		id: 'Mc',
@@ -299,6 +308,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT,
 		},
 		icon: 'icon-[mdi--engine]',
 		levels: ['S1', 'S2', 'S3'],
+		mainSubject: 'Tec',
 	},
 	Ee: {
 		id: 'Ee',
@@ -309,6 +319,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT,
 		},
 		icon: 'icon-[mdi--engine]',
 		levels: ['S1', 'S2', 'S3'],
+		mainSubject: 'Tec',
 	},
 	Me: {
 		id: 'Me',
@@ -319,6 +330,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT,
 		},
 		icon: 'icon-[mdi--engine]',
 		levels: ['S1', 'S2', 'S3'],
+		mainSubject: 'Tec',
 	},
 	/* Arts */
 	Adf: {
@@ -326,10 +338,11 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT,
 		name: {
 			EN: 'Drawing and fine expression',
 			FR: 'Dessin et expression plastique',
-			AR: 'رسم وتعبير جمالي',
+			AR: 'رسم وتعبير التشكيلي',
 		},
 		icon: 'icon-[mdi--palette]',
 		levels: ['S2', 'S3'],
+		mainSubject: 'A1',
 	},
 	Ade: {
 		id: 'Ade',
@@ -340,6 +353,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT,
 		},
 		icon: 'icon-[mdi--palette]',
 		levels: ['S2', 'S3'],
+		mainSubject: 'A2',
 	},
 	Amt: {
 		id: 'Amt',
@@ -350,6 +364,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT,
 		},
 		icon: 'icon-[mdi--music]',
 		levels: ['S2', 'S3'],
+		mainSubject: 'A1',
 	},
 	Ami: {
 		id: 'Ami',
@@ -360,6 +375,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT,
 		},
 		icon: 'icon-[mdi--music]',
 		levels: ['S2', 'S3'],
+		mainSubject: 'A2',
 	},
 	Aac: {
 		id: 'Aac',
@@ -370,6 +386,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT,
 		},
 		icon: 'icon-[mdi--theater]',
 		levels: ['S2', 'S3'],
+		mainSubject: 'A1',
 	},
 	Apr: {
 		id: 'Apr',
@@ -380,6 +397,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT,
 		},
 		icon: 'icon-[mdi--theater]',
 		levels: ['S2', 'S3'],
+		mainSubject: 'A2',
 	},
 	Avt: {
 		id: 'Avt',
@@ -390,6 +408,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT,
 		},
 		icon: 'icon-[mdi--camera]',
 		levels: ['S2', 'S3'],
+		mainSubject: 'A1',
 	},
 	Acc: {
 		id: 'Acc',
@@ -400,6 +419,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsI<subjectsEnumT,
 		},
 		icon: 'icon-[mdi--camera]',
 		levels: ['S2', 'S3'],
+		mainSubject: 'A2',
 	},
 };
 

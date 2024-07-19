@@ -15,7 +15,12 @@ declare interface LevelDetailsI<ICON = string> extends EnumsDetailsI<levelsEnumT
 declare interface ForLevelsDetailsI<ID, Levels extends K12LevelsT, ICON = string> extends EnumsDetailsI<ID, ICON> {
 	levels: Levels[];
 }
-declare interface ForLevelsDetailsWithCommonSubjectI<ID, Levels extends K12LevelsT, ICON = string>
+
+declare interface ForLevelsDetailsWithCommonSubjectsI<ID, Levels extends K12LevelsT, ICON = string>
+	extends ForLevelsDetailsI<ID, Levels, ICON> {
+	mainSubject: basicSubjectsEnumT;
+}
+declare interface ForLevelsDetailsWithCommonSpecialtyI<ID, Levels extends K12LevelsT, ICON = string>
 	extends ForLevelsDetailsI<ID, Levels, ICON> {
 	mainSpecialty: SecondaryBasicSpecialtiesT | SecondaryCommonSpecialtiesT;
 	commonSpecialty: SecondaryCommonSpecialtiesT;

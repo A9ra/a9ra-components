@@ -237,7 +237,7 @@ export const secondarySchoolLevelsList = Object.keys(
 ) as unknown as MyEnum<SecondarySchoolLevelsT>;
 export const secondarySpecialties: Record<
 	SecondarySpecialtiesT,
-	ForLevelsDetailsWithCommonSubjectI<SecondarySpecialtiesT, SecondarySchoolLevelsT>
+	ForLevelsDetailsWithCommonSpecialtyI<SecondarySpecialtiesT, SecondarySchoolLevelsT>
 > = {
 	M: {
 		id: 'M',
