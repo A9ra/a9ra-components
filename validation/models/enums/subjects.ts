@@ -233,6 +233,7 @@ export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basi
 		levels: ['S2', 'S3'],
 	},
 };
+export const basicSubjectsList = Object.keys(basicSubjectsMap) as unknown as MyEnum<basicSubjectsEnumT>;
 const {
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	A1,
