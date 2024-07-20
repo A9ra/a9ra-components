@@ -52,6 +52,10 @@ const studentProfileSchema = new Schema<
 		},
 		level: { type: String, required, enum: levelsList },
 		specialty: { type: String, enum: secondarySpecialtiesList },
+		optionals: {
+			sports: { type: Boolean, default: true },
+			amazight: { type: Boolean, default: false },
+		},
 	},
 	{ timestamps: true, ...profileOptions }
 );
@@ -72,6 +76,7 @@ studentProfileSchema.methods.toOptimizedObject = function () {
 		level: this.level,
 		preferences: this.preferences,
 		specialty: this.specialty,
+		optionals: this.optionals,
 	};
 };
 
