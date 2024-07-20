@@ -428,7 +428,10 @@ export const subjectsWithColorsList = subjectsList.map((elm, i) => ({
 	...subjectsMap[elm],
 	color: generateRandomColor(i),
 }));
-export const subjectsWithColors = subjectsWithColorsList.reduce((prev, curr) => ({ ...prev, [curr.id]: curr }), {});
+export const subjectsWithColors = subjectsWithColorsList.reduce(
+	(prev, curr) => ({ ...prev, [curr.id]: curr }),
+	{} as Record<subjectsEnumT, ForLevelsDetailsWithCommonSubjectsI<subjectsEnumT, K12LevelsT> & { color: string }>
+);
 
 export const subjectsEnumSchema = (error?: ErrorsSchemaMsgI) =>
 	z

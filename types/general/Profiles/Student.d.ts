@@ -15,6 +15,11 @@ declare interface StudentProfileI {
 	preferences: PreferencesI;
 	level: levelsEnumT;
 	specialty?: SecondarySpecialtiesT;
+	optionals: {
+		sports: boolean;
+		amazight: boolean;
+		// music: boolean;
+	};
 }
 declare interface StudentProfileDocumentI<T = string> extends StudentProfileI, ProfileI<T> {}
 declare interface PublicStudentProfileI<IDS = string> extends StudentProfileDocumentI<IDS> {

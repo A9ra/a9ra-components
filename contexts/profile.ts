@@ -36,6 +36,11 @@ const defaultProfile: PublicStudentProfileI = {
 	},
 	level: 'S3',
 	specialty: 'M',
+	optionals: {
+		sports: true,
+		amazight: true,
+		// music: boolean;
+	},
 };
 
 interface StudentProfileSliceI {

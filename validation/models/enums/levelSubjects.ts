@@ -283,7 +283,7 @@ export const levelsSubjects: Record<
 		},
 		Fl: {
 			optionalSubjects: ['Pe', 'Am'],
-			subjects: ['Ar', 'Fr', 'En', 'M', 'HG', 'S', 'P', 'I', 'Fl', 'Ph'],
+			subjects: ['Ar', 'Fr', 'En', 'M', 'HG', 'I', 'Fl', 'Ph'],
 			subjectsCof: {
 				optionals: { Pe: 1, Am: 2 },
 				mandatory: {
