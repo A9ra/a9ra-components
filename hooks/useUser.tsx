@@ -3,8 +3,10 @@ import { removeUser, setProfilePicture, setUser } from '@common/contexts/user';
 
 function useUser<T extends PublicUserI | null = PublicUserI | null>() {
 	const dispatch = useAppDispatch();
+	const U = useAppSelector((state) => state.user);
 	return {
-		user: useAppSelector((state) => state.user).user as T,
+		user: U.user as T,
+		loadedUser: U.loadedUser,
 		setUser: (user: PublicUserI) => {
 			dispatch(setUser(user));
 		},

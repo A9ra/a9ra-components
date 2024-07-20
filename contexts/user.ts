@@ -22,8 +22,9 @@ const defaultUser: PublicUserI = {
 		},
 	},
 };
-const initial_state: { user: PublicUserI | null } = {
+const initial_state: { user: PublicUserI | null; loadedUser: boolean } = {
 	user: DISABLE_AUTH ? processUser(defaultUser) : JSON.parse(localStorage.getItem('User') || 'null'),
+	loadedUser: false,
 };
 function processUser(user: PublicUserI): PublicUserI {
 	return {
@@ -44,6 +45,7 @@ const user = createSlice({
 			const user: PublicUserI = processUser(action.payload);
 			localStorage.setItem('User', JSON.stringify(user));
 			state.user = user;
+			state.loadedUser = true;
 			return state;
 		},
 		removeUser: (state) => {
