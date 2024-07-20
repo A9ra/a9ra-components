@@ -2,12 +2,16 @@ import { z } from '^common/defaultZod';
 
 import { generateRandomColor } from './tools';
 
-export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basicSubjectsEnumT, K12LevelsT>> = {
+export const basicSubjectsMap: Record<
+	basicSubjectsEnumT,
+	ForLevelsDetailsI<basicSubjectsEnumT, K12LevelsT> & { color: string }
+> = {
 	M: {
 		id: 'M',
 		name: { EN: 'Math', FR: 'Mathématiques', AR: 'رياضيات' },
-		icon: 'icon-[mdi--book]',
+		icon: 'icon-[mynaui--math-square]',
 		levels: ['P1', 'P2', 'P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
+		color: '#3B82F6',
 	},
 	P: {
 		id: 'P',
@@ -16,8 +20,9 @@ export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basi
 			FR: 'Physique',
 			AR: 'فيزياء',
 		},
-		icon: 'icon-[mdi--atom]',
+		icon: 'icon-[hugeicons--physics]',
 		levels: ['M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
+		color: '#A855F7',
 	},
 	S: {
 		id: 'S',
@@ -26,8 +31,9 @@ export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basi
 			FR: 'Science',
 			AR: 'علوم',
 		},
-		icon: 'icon-[mdi--flask]',
+		icon: 'icon-[streamline--ecology-science-dna-biology-experiment-lab-science]',
 		levels: ['P1', 'P2', 'P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
+		color: '#22C55E',
 	},
 
 	HG: {
@@ -37,8 +43,9 @@ export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basi
 			FR: 'Histoire et géographie',
 			AR: 'تاريخ وجغرافيا',
 		},
-		icon: 'icon-[mdi--history]',
+		icon: 'icon-[ion--earth]',
 		levels: ['P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
+		color: '#EC4899',
 	},
 	I: {
 		id: 'I',
@@ -47,8 +54,9 @@ export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basi
 			FR: 'Études islamiques',
 			AR: 'دراسات إسلامية',
 		},
-		icon: 'icon-[mdi--moon-and-stars]',
+		icon: 'icon-[streamline--islam-solid]',
 		levels: ['P1', 'P2', 'P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
+		color: '#22C55E',
 	},
 	A: {
 		id: 'A',
@@ -57,8 +65,9 @@ export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basi
 			FR: 'Art',
 			AR: 'فن',
 		},
-		icon: 'icon-[mdi--palette]',
+		icon: 'icon-[material-symbols--wall-art-outline]',
 		levels: ['P1', 'P2', 'P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
+		color: '#EC4899',
 	},
 	Mu: {
 		id: 'Mu',
@@ -67,8 +76,9 @@ export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basi
 			FR: 'Musique',
 			AR: 'موسيقى',
 		},
-		icon: 'icon-[mdi--music]',
+		icon: 'icon-[mingcute--music-fill]',
 		levels: ['P1', 'P2', 'P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
+		color: '#F97316',
 	},
 	Pe: {
 		id: 'Pe',
@@ -77,8 +87,9 @@ export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basi
 			FR: 'Éducation physique',
 			AR: 'تربية رياضية',
 		},
-		icon: 'icon-[mdi--dumbbell]',
+		icon: 'icon-[icon-park-solid--sport]',
 		levels: ['P1', 'P2', 'P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
+		color: '#3B82F6',
 	},
 	Cs: {
 		id: 'Cs',
@@ -87,8 +98,9 @@ export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basi
 			FR: 'Informatique',
 			AR: 'علوم الحاسوب',
 		},
-		icon: 'icon-[mdi--laptop]',
+		icon: 'icon-[material-symbols--computer-outline]',
 		levels: ['M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
+		color: '#3B82F6',
 	},
 	Ss: {
 		id: 'Ss',
@@ -99,6 +111,7 @@ export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basi
 		},
 		icon: 'icon-[mdi--earth]',
 		levels: ['P1', 'P2', 'P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4'],
+		color: '#3B82F6',
 	},
 
 	Ph: {
@@ -108,8 +121,9 @@ export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basi
 			FR: 'Philosophie',
 			AR: 'فلسفة',
 		},
-		icon: 'icon-[mdi--book]',
+		icon: 'icon-[mdi--yin-yang]',
 		levels: ['S2', 'S3'],
+		color: '#A855F7',
 	},
 	Ar: {
 		id: 'Ar',
@@ -118,8 +132,9 @@ export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basi
 			FR: 'Arabe',
 			AR: 'العربية',
 		},
-		icon: 'icon-[mdi--translate]',
+		icon: 'icon-[twemoji--flag-algeria]',
 		levels: ['P1', 'P2', 'P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
+		color: '#6B7280',
 	},
 	Am: {
 		id: 'Am',
@@ -128,8 +143,9 @@ export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basi
 			FR: 'Amazight',
 			AR: 'الأمازيغية',
 		},
-		icon: 'icon-[mdi--translate]',
+		icon: 'icon-[openmoji--berber-flag]',
 		levels: ['P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
+		color: '#3B82F6',
 	},
 	Fr: {
 		id: 'Fr',
@@ -138,8 +154,9 @@ export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basi
 			FR: 'Français',
 			AR: 'الفرنسية',
 		},
-		icon: 'icon-[mdi--translate]',
+		icon: 'icon-[twemoji--flag-france]',
 		levels: ['P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
+		color: '#0EA5E9',
 	},
 	En: {
 		id: 'En',
@@ -148,10 +165,10 @@ export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basi
 			FR: 'Anglais',
 			AR: 'الإنجليزية',
 		},
-		icon: 'icon-[mdi--translate]',
+		icon: 'icon-[twemoji--flag-united-kingdom]',
 		levels: ['P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
+		color: '#EAB308',
 	},
-
 	Em: {
 		id: 'Em',
 		name: {
@@ -161,26 +178,29 @@ export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basi
 		},
 		icon: 'icon-[mdi--account-cash]',
 		levels: ['S1'],
+		color: '#6B7280',
 	},
 	Mg: {
 		id: 'Mg',
 		name: {
-			EN: 'Management',
-			FR: 'Gestion',
-			AR: 'تسيير',
+			EN: 'Accounting and Financial Management',
+			FR: 'Gestion Comptable et Financière',
+			AR: 'تسيير المحاسبي والمالي',
 		},
-		icon: 'icon-[mdi--account-cash]',
+		icon: 'icon-[tdesign--money]',
 		levels: ['S2', 'S3'],
+		color: '#EAB308',
 	},
 	Eco: {
 		id: 'Eco',
 		name: {
-			EN: 'Economy',
-			FR: 'Économie',
-			AR: 'اقتصاد',
+			EN: 'Economics and Management',
+			FR: 'Économie et Management',
+			AR: 'الإقتصاد و الماناجمنت',
 		},
 		icon: 'icon-[mdi--account-cash]',
 		levels: ['S2', 'S3'],
+		color: '#6B7280',
 	},
 	La: {
 		id: 'La',
@@ -191,6 +211,7 @@ export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basi
 		},
 		icon: 'icon-[mdi--account-cash]',
 		levels: ['S2', 'S3'],
+		color: '#6B7280',
 	},
 	Tec: {
 		id: 'Tec',
@@ -201,6 +222,7 @@ export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basi
 		},
 		icon: 'icon-[mdi--engine]',
 		levels: ['S1', 'S2', 'S3'],
+		color: '#0EA5E9',
 	},
 	Fl: {
 		id: 'Fl',
@@ -211,6 +233,7 @@ export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basi
 		},
 		icon: 'icon-[mdi--translate]',
 		levels: ['S2', 'S3'],
+		color: '#F97316',
 	},
 	A1: {
 		id: 'A1',
@@ -221,6 +244,7 @@ export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basi
 		},
 		icon: 'icon-[mdi--palette]',
 		levels: ['S2', 'S3'],
+		color: '#EC4899',
 	},
 	A2: {
 		id: 'A2',
@@ -231,6 +255,7 @@ export const basicSubjectsMap: Record<basicSubjectsEnumT, ForLevelsDetailsI<basi
 		},
 		icon: 'icon-[mdi--palette]',
 		levels: ['S2', 'S3'],
+		color: '#EC4899',
 	},
 };
 export const basicSubjectsList = Object.keys(basicSubjectsMap) as unknown as MyEnum<basicSubjectsEnumT>;
@@ -245,14 +270,20 @@ const {
 	Tec,
 	...restSubjects
 } = basicSubjectsMap;
-export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsWithCommonSubjectsI<subjectsEnumT, K12LevelsT>> = {
+export const subjectsMap: Record<
+	subjectsEnumT,
+	ForLevelsDetailsWithCommonSubjectsI<subjectsEnumT, K12LevelsT> & { color: string }
+> = {
 	...Object.entries(restSubjects)
 		.map(([, elm]) => ({ ...elm, mainSubject: elm.id }))
 		.reduce(
 			(acc, elm) => ({ ...acc, [elm.id]: elm }),
 			{} as Record<
 				Exclude<basicSubjectsEnumT, 'A1' | 'A2' | 'Tec' | 'Fl'>,
-				ForLevelsDetailsWithCommonSubjectsI<Exclude<basicSubjectsEnumT, 'A1' | 'A2' | 'Tec' | 'Fl'>, K12LevelsT>
+				ForLevelsDetailsWithCommonSubjectsI<
+					Exclude<basicSubjectsEnumT, 'A1' | 'A2' | 'Tec' | 'Fl'>,
+					K12LevelsT
+				> & { color: string }
 			>
 		),
 	Ge: {
@@ -265,6 +296,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsWithCommonSubjec
 		icon: 'icon-[mdi--translate]',
 		levels: ['P1', 'P2', 'P3', 'P4', 'P5', 'M1', 'M2', 'M3', 'M4', 'S1', 'S2', 'S3'],
 		mainSubject: 'Fl',
+		color: '#F97316',
 	},
 	Sp: {
 		id: 'Sp',
@@ -276,6 +308,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsWithCommonSubjec
 		icon: 'icon-[mdi--translate]',
 		levels: ['S2', 'S3'],
 		mainSubject: 'Fl',
+		color: '#F97316',
 	},
 	It: {
 		id: 'It',
@@ -287,6 +320,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsWithCommonSubjec
 		icon: 'icon-[mdi--translate]',
 		levels: ['S2', 'S3'],
 		mainSubject: 'Fl',
+		color: '#22C55E',
 	},
 	/* Technology */
 	Ce: {
@@ -299,6 +333,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsWithCommonSubjec
 		icon: 'icon-[mdi--engine]',
 		levels: ['S1', 'S2', 'S3'],
 		mainSubject: 'Tec',
+		color: '#0EA5E9',
 	},
 	Mc: {
 		id: 'Mc',
@@ -310,6 +345,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsWithCommonSubjec
 		icon: 'icon-[mdi--engine]',
 		levels: ['S1', 'S2', 'S3'],
 		mainSubject: 'Tec',
+		color: '#0EA5E9',
 	},
 	Ee: {
 		id: 'Ee',
@@ -321,6 +357,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsWithCommonSubjec
 		icon: 'icon-[mdi--engine]',
 		levels: ['S1', 'S2', 'S3'],
 		mainSubject: 'Tec',
+		color: '#0EA5E9',
 	},
 	Me: {
 		id: 'Me',
@@ -332,6 +369,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsWithCommonSubjec
 		icon: 'icon-[mdi--engine]',
 		levels: ['S1', 'S2', 'S3'],
 		mainSubject: 'Tec',
+		color: '#0EA5E9',
 	},
 	/* Arts */
 	Adf: {
@@ -344,6 +382,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsWithCommonSubjec
 		icon: 'icon-[mdi--palette]',
 		levels: ['S2', 'S3'],
 		mainSubject: 'A1',
+		color: '#6B7280',
 	},
 	Ade: {
 		id: 'Ade',
@@ -355,6 +394,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsWithCommonSubjec
 		icon: 'icon-[mdi--palette]',
 		levels: ['S2', 'S3'],
 		mainSubject: 'A2',
+		color: '#EAB308',
 	},
 	Amt: {
 		id: 'Amt',
@@ -366,6 +406,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsWithCommonSubjec
 		icon: 'icon-[mdi--music]',
 		levels: ['S2', 'S3'],
 		mainSubject: 'A1',
+		color: '#3B82F6',
 	},
 	Ami: {
 		id: 'Ami',
@@ -377,6 +418,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsWithCommonSubjec
 		icon: 'icon-[mdi--music]',
 		levels: ['S2', 'S3'],
 		mainSubject: 'A2',
+		color: '#F97316',
 	},
 	Aac: {
 		id: 'Aac',
@@ -388,6 +430,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsWithCommonSubjec
 		icon: 'icon-[mdi--theater]',
 		levels: ['S2', 'S3'],
 		mainSubject: 'A1',
+		color: '#A855F7',
 	},
 	Apr: {
 		id: 'Apr',
@@ -399,6 +442,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsWithCommonSubjec
 		icon: 'icon-[mdi--theater]',
 		levels: ['S2', 'S3'],
 		mainSubject: 'A2',
+		color: '#0EA5E9',
 	},
 	Avt: {
 		id: 'Avt',
@@ -410,6 +454,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsWithCommonSubjec
 		icon: 'icon-[mdi--camera]',
 		levels: ['S2', 'S3'],
 		mainSubject: 'A1',
+		color: '#A855F7',
 	},
 	Acc: {
 		id: 'Acc',
@@ -421,6 +466,7 @@ export const subjectsMap: Record<subjectsEnumT, ForLevelsDetailsWithCommonSubjec
 		icon: 'icon-[mdi--camera]',
 		levels: ['S2', 'S3'],
 		mainSubject: 'A2',
+		color: '#6B7280',
 	},
 };
 
