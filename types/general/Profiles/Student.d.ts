@@ -9,17 +9,18 @@ declare interface PreferencesI {
 	learningTimes: FocusedChoiceI<learningTimesEnumT>;
 	learningDuration: FocusedChoiceI<learningDurationEnumT>;
 }
+declare interface OptionalSubjectsI {
+	sports?: boolean;
+	amazight?: boolean;
+	// music: boolean;
+}
 
 declare interface StudentProfileI {
 	interests: InterestsI;
 	preferences: PreferencesI;
 	level: levelsEnumT;
 	specialty?: SecondarySpecialtiesT;
-	optionals: {
-		sports: boolean;
-		amazight: boolean;
-		// music: boolean;
-	};
+	optionals: OptionalSubjectsI;
 }
 declare interface StudentProfileDocumentI<T = string> extends StudentProfileI, ProfileI<T> {}
 declare interface PublicStudentProfileI<IDS = string> extends StudentProfileDocumentI<IDS> {

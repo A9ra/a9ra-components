@@ -5,9 +5,13 @@ export default function useProfile<
 	Grades extends StudentGradesI | null = StudentGradesI | null,
 >() {
 	const dispatch = useAppDispatch();
+	const P = useAppSelector((state) => state.profile);
 	return {
-		profile: useAppSelector((state) => state.profile).profile as Profile,
-		grades: useAppSelector((state) => state.profile).grades as Grades,
+		profile: P.profile as Profile,
+		grades: P.grades as Grades,
+		loadedProfile: P.loadedProfile,
+		loadedGrades: P.loadedGrades,
+
 		setProfile: (profile: PublicStudentProfileI) => {
 			dispatch(setProfile(profile));
 		},

@@ -1,4 +1,4 @@
-import { z } from '^common/defaultZod';
+import { MyZodType, z } from '^common/defaultZod';
 
 export const kindergartenLevels: Record<KindergartenLevelsT, LevelDetailsI> = {
 	K1: {
@@ -608,7 +608,12 @@ export const levelsList = Object.keys(levelsMap) as unknown as MyEnum<levelsEnum
 
 export const levelsEnumSchema = (error?: ErrorsSchemaMsgI) =>
 	z.enum<levelsEnumT, MyEnum<levelsEnumT>>(levelsList, error).openapi('LevelsEnum', { description: 'Levels Enum' });
-
+export const optionalsSubjectsSchema = () =>
+	z.object<MyZodType<OptionalSubjectsI>>({
+		sports: z.boolean().optional(),
+		amazight: z.boolean().optional(),
+		/* music: z.boolean(), */
+	});
 export const secondarySpecialtiesSchema = (error?: ErrorsSchemaMsgI) =>
 	z
 		.enum<SecondarySpecialtiesT, MyEnum<SecondarySpecialtiesT>>(secondarySpecialtiesList, error)

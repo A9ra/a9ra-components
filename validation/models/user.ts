@@ -11,7 +11,7 @@ import {
 	usernameSchema,
 } from '../elements';
 
-import { levelsEnumSchema, secondarySpecialtiesSchema } from './enums/levels';
+import { levelsEnumSchema, optionalsSubjectsSchema, secondarySpecialtiesSchema } from './enums/levels';
 import { ContactInformationSchema } from './generals/ContactInformation';
 import { PersonalInformationSchema } from './generals/PersonalInformation';
 import { InterestsSchema, PreferencesSchema } from './profiles/students';
@@ -227,6 +227,7 @@ export const userRegisterSchema = ({
 				preferences: PreferencesSchema(),
 				level: levelsEnumSchema(),
 				specialty: secondarySpecialtiesSchema().optional(),
+				optionals: optionalsSubjectsSchema(),
 			},
 			{
 				description: 'User Registration Schema',

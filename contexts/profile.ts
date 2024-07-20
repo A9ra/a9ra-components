@@ -46,10 +46,14 @@ const defaultProfile: PublicStudentProfileI = {
 interface StudentProfileSliceI {
 	profile: PublicStudentProfileI | null;
 	grades: StudentGradesI | null;
+	loadedProfile: boolean;
+	loadedGrades: boolean;
 }
 const initial_state: StudentProfileSliceI = {
 	profile: DISABLE_AUTH ? defaultProfile : JSON.parse(localStorage.getItem('Profile') || 'null'),
 	grades: null,
+	loadedProfile: false,
+	loadedGrades: false,
 };
 
 const profile = createSlice({
@@ -60,6 +64,7 @@ const profile = createSlice({
 			const profile: PublicStudentProfileI = action.payload;
 			localStorage.setItem('Profile', JSON.stringify(profile));
 			state.profile = profile;
+			state.loadedProfile = true;
 			return state;
 		},
 		removeProfile: (state) => {
@@ -69,6 +74,7 @@ const profile = createSlice({
 		},
 		setGrades: (state, action: { type: string; payload: StudentGradesI }) => {
 			state.grades = action.payload;
+			state.loadedGrades = true;
 			return state;
 		},
 		clearGrades: (state) => {
