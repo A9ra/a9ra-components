@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from ':common/redux';
-import { clearGrades, removeProfile, setGrades, setProfile } from '@common/contexts/profile';
+import { clearGrades, removeProfile, setGrades, setLoadedGrades, setProfile } from '@common/contexts/profile';
 export default function useProfile<
 	Profile extends PublicStudentProfileI | null = PublicStudentProfileI | null,
 	Grades extends StudentGradesI | null = StudentGradesI | null,
@@ -20,6 +20,9 @@ export default function useProfile<
 		},
 		setGrades: (grades: StudentGradesI) => {
 			dispatch(setGrades(grades));
+		},
+		setLoadedGrades: () => {
+			dispatch(setLoadedGrades());
 		},
 		clearGrades: () => {
 			dispatch(clearGrades());

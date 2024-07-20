@@ -81,9 +81,13 @@ const profile = createSlice({
 			state.grades = null;
 			return state;
 		},
+		setLoadedGrades: (state) => {
+			state.loadedGrades = true;
+			return state;
+		},
 	},
 });
 
-export const { setProfile, removeProfile, setGrades, clearGrades } = profile.actions;
+export const { setProfile, removeProfile, setGrades, clearGrades, setLoadedGrades } = profile.actions;
 
 export default profile.reducer;
