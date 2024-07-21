@@ -19,6 +19,7 @@ declare interface ListResponse<T extends NonNullable<object>> {
 declare interface MajorQueryT {
 	search?: string;
 	average?: number;
-	provinces?: ProvinceI['id'][];
-	universities?: PublicUniversityI['id'][];
+	provinces?: ProvinceI['id'][] | ProvinceI['id'];
+	universities?: PublicUniversityI['id'][] | PublicUniversityI['id'];
+	specialty: SecondaryBasicSpecialtiesT;
 }
