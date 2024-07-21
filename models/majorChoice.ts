@@ -16,7 +16,7 @@ const acceptanceSchema = new Schema<PriorityMinimumI>(
 		priority: { type: Number, required },
 		average: { type: Number, required },
 	},
-	{ timestamps: true, _id: false }
+	{ _id: false }
 );
 const priorityAcceptanceSchema = new Schema<PriorityAcceptanceI>(
 	{
@@ -29,7 +29,7 @@ const priorityAcceptanceSchema = new Schema<PriorityAcceptanceI>(
 		S: { type: acceptanceSchema },
 		Tec: { type: acceptanceSchema },
 	},
-	{ timestamps: true, _id: false }
+	{ _id: false }
 );
 const majorChoiceSchema = new Schema<
 	MajorChoiceI<Types.ObjectId>,

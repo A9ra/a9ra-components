@@ -15,5 +15,5 @@ export const languageContentSchema = new Schema<LanguagesContentI>(
 			type: String,
 		},
 	},
-	{ timestamps: true, _id: false }
+	{ _id: false }
 );
