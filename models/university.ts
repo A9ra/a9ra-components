@@ -1,4 +1,4 @@
-import { model, Schema, Types } from 'mongoose';
+import { model, Schema } from 'mongoose';
 
 import {
 	UniversityInstanceMethods,
@@ -26,7 +26,7 @@ const universitySchema = new Schema<
 		name: { type: languageContentSchema, required },
 		website: { type: String },
 		logo: { type: String },
-		article: { type: Types.ObjectId, ref: 'Article' },
+		article: { type: Schema.Types.ObjectId, ref: 'Article' },
 		isNational: { type: Boolean, default: false },
 		province: { type: Number },
 	},

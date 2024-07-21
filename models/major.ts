@@ -25,11 +25,35 @@ const majorSchema = new Schema<
 		name: { type: languageContentSchema, required },
 		description: { type: languageContentSchema, required },
 		cover: { type: String },
-		article: { type: Types.ObjectId, ref: 'Article' },
+		article: { type: Schema.Types.ObjectId, ref: 'Article', required },
 		characters: [{ type: String }],
 		uuid: { type: String, required, unique: true },
 	},
 	{ timestamps: true }
+);
+/* --------------------- Indexs ---------------------  */
+majorSchema.index(
+	{
+		uuid: 'text',
+		'name.AR': 'text',
+		'name.FR': 'text',
+		'name.EN': 'text',
+		'description.AR': 'text',
+		'description.FR': 'text',
+		'description.EN': 'text',
+	},
+	{
+		weights: {
+			uuid: 5,
+			'name.AR': 4,
+			'name.FR': 3,
+			'name.EN': 2,
+			'description.AR': 4,
+			'description.FR': 3,
+			'description.EN': 2,
+		},
+		name: 'major_search_index',
+	}
 );
 /* --------------------- Virtual ---------------------  */
 
@@ -47,7 +71,7 @@ majorSchema.methods.toOptimizedObject = function () {
 		description: this.description,
 		cover: this.cover,
 		characters: this.characters,
-		article: this.article?.toString(),
+		article: this.article.toString(),
 	};
 };
 
