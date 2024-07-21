@@ -1,4 +1,4 @@
-import { model, Schema } from 'mongoose';
+import { /* model, */ Schema } from 'mongoose';
 
 import {
 	SocialMediaUrlsInstanceMethods,
@@ -42,9 +42,9 @@ socialMediaUrlsSchema.methods.toOptimizedObject = function () {
 /* --------------------- static methods --------------------- */
 
 /* --------------------- Generate Model --------------------- */
-const socialMediaUrlsModel = model<SocialMediaUrlsI, SocialMediaUrlsModel, SocialMediaUrlsQueryHelpers>(
+/* const socialMediaUrlsModel = model<SocialMediaUrlsI, SocialMediaUrlsModel, SocialMediaUrlsQueryHelpers>(
 	'SocialMediaUrls',
 	socialMediaUrlsSchema
 );
-export default socialMediaUrlsModel;
+export default socialMediaUrlsModel; */
 export { socialMediaUrlsSchema };

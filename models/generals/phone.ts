@@ -1,4 +1,4 @@
-import { model, Schema } from 'mongoose';
+import { /*  model, */ Schema } from 'mongoose';
 
 import {
 	PhoneInstanceMethods,
@@ -45,6 +45,6 @@ phoneSchema.methods.toOptimizedObject = function () {
 /* --------------------- static methods --------------------- */
 
 /* --------------------- Generate Model --------------------- */
-const phoneModel = model<PhoneI, PhoneModel, PhoneQueryHelpers>('Phone', phoneSchema);
-export default phoneModel;
+/* const phoneModel = model<PhoneI, PhoneModel, PhoneQueryHelpers>('Phone', phoneSchema);
+export default phoneModel; */
 export { phoneSchema };

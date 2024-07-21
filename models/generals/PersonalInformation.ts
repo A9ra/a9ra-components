@@ -1,4 +1,4 @@
-import { model, Schema } from 'mongoose';
+import { /* model, */ Schema } from 'mongoose';
 
 import {
 	PersonalInformationInstanceMethods,
@@ -46,9 +46,9 @@ personalInformationSchema.methods.toOptimizedObject = function () {
 /* --------------------- static methods --------------------- */
 
 /* --------------------- Generate Model --------------------- */
-const personalInformationModel = model<PersonalInformationI, PersonalInformationModel, PersonalInformationQueryHelpers>(
+/* const personalInformationModel = model<PersonalInformationI, PersonalInformationModel, PersonalInformationQueryHelpers>(
 	'PersonalInformation',
 	personalInformationSchema
 );
-export default personalInformationModel;
+export default personalInformationModel; */
 export { personalInformationSchema };

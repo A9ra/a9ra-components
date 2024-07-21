@@ -1,4 +1,4 @@
-import { model, Schema } from 'mongoose';
+import { /*  model, */ Schema } from 'mongoose';
 
 import {
 	ContactInformationInstanceMethods,
@@ -61,9 +61,9 @@ contactInformationSchema.methods.toOptimizedObject = function () {
 /* --------------------- static methods --------------------- */
 
 /* --------------------- Generate Model --------------------- */
-const contactInformationModel = model<ContactInformationI, ContactInformationModel, ContactInformationQueryHelpers>(
+/* const contactInformationModel = model<ContactInformationI, ContactInformationModel, ContactInformationQueryHelpers>(
 	'ContactInformation',
 	contactInformationSchema
 );
-export default contactInformationModel;
+export default contactInformationModel; */
 export { contactInformationSchema };

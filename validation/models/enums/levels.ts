@@ -235,9 +235,12 @@ export const secondarySchoolLevels: Record<SecondarySchoolLevelsT, LevelDetailsI
 export const secondarySchoolLevelsList = Object.keys(
 	secondarySchoolLevels
 ) as unknown as MyEnum<SecondarySchoolLevelsT>;
-export const secondarySpecialties: Record<
-	SecondarySpecialtiesT,
-	ForLevelsDetailsWithCommonSpecialtyI<SecondarySpecialtiesT, SecondarySchoolLevelsT>
+export const secondaryBasicWithoutChangeableSpecialties: Record<
+	Exclude<SecondaryBasicSpecialtiesT, 'Tec' | 'Fl' | 'A'>,
+	ForLevelsDetailsWithCommonSpecialtyI<
+		Exclude<SecondaryBasicSpecialtiesT, 'Tec' | 'Fl' | 'A'>,
+		SecondarySchoolLevelsT
+	>
 > = {
 	M: {
 		id: 'M',
@@ -251,6 +254,101 @@ export const secondarySpecialties: Record<
 		commonSpecialty: 's',
 		mainSpecialty: 'M',
 	},
+	S: {
+		id: 'S',
+		name: {
+			AR: 'علوم الطبيعة و الحياة',
+			EN: 'Science of nature and life',
+			FR: 'Science de la nature et de la vie',
+		},
+		icon: 'icon-[mdi--leaf]',
+		levels: ['S2', 'S3'],
+		commonSpecialty: 's',
+		mainSpecialty: 'S',
+	},
+	F: {
+		id: 'F',
+		name: { EN: 'Management and economics', FR: 'Gestion et économie', AR: 'تسيير واقتصاد' },
+		icon: 'icon-[mdi--finance]',
+		levels: ['S2', 'S3'],
+		commonSpecialty: 's',
+		mainSpecialty: 'F',
+	},
+	P: {
+		id: 'P',
+		name: {
+			EN: 'Philosophy and literature',
+			AR: 'فلسفة وأداب',
+			FR: 'Philosophie et littérature',
+		},
+		icon: 'icon-[mdi--brain]',
+		levels: ['S2', 'S3'],
+		commonSpecialty: 'l',
+		mainSpecialty: 'P',
+	},
+	Km: {
+		id: 'Km',
+		name: {
+			EN: 'Kouba secondary school of math',
+			AR: 'ثانوية الرياضيات القبة',
+			FR: 'Lycée des mathématiques de Kouba',
+		},
+		icon: 'icon-[mdi--math-compass]',
+		levels: ['S1', 'S2', 'S3'],
+		commonSpecialty: 's',
+		mainSpecialty: 'Km',
+	},
+};
+export const secondaryBasicSpecialties: Record<
+	SecondaryBasicSpecialtiesT,
+	ForLevelsDetailsWithCommonSpecialtyI<SecondaryBasicSpecialtiesT, SecondarySchoolLevelsT>
+> = {
+	...secondaryBasicWithoutChangeableSpecialties,
+	A: {
+		id: 'A',
+		name: {
+			EN: 'Arts',
+			AR: 'فنون',
+			FR: 'Arts',
+		},
+		icon: 'icon-[mdi--palette]',
+		levels: ['S2', 'S3'],
+		commonSpecialty: 'l',
+		mainSpecialty: 'A',
+	},
+	Fl: {
+		id: 'Fl',
+		name: {
+			EN: 'Foreign languages',
+			AR: 'لغات أجنبية',
+			FR: 'Langues étrangères',
+		},
+		icon: 'icon-[mdi--translate]',
+		levels: ['S2', 'S3'],
+		commonSpecialty: 'l',
+		mainSpecialty: 'Fl',
+	},
+	Tec: {
+		id: 'Tec',
+		name: {
+			EN: 'Technology',
+			AR: 'تكنولوجيا',
+			FR: 'Technologie',
+		},
+		icon: 'icon-[mdi--cog]',
+		levels: ['S2', 'S3'],
+		commonSpecialty: 's',
+		mainSpecialty: 'Tec',
+	},
+};
+export const secondaryBasicSpecialtiesList = Object.keys(
+	secondaryBasicSpecialties
+) as unknown as MyEnum<SecondaryBasicSpecialtiesT>;
+export const secondarySpecialties: Record<
+	SecondarySpecialtiesT,
+	ForLevelsDetailsWithCommonSpecialtyI<SecondarySpecialtiesT, SecondarySchoolLevelsT>
+> = {
+	...secondaryBasicWithoutChangeableSpecialties,
 	TCe: {
 		id: 'TCe',
 		name: {
@@ -311,26 +409,7 @@ export const secondarySpecialties: Record<
 		commonSpecialty: 's',
 		mainSpecialty: 's',
 	},
-	S: {
-		id: 'S',
-		name: {
-			AR: 'علوم الطبيعة و الحياة',
-			EN: 'Science of nature and life',
-			FR: 'Science de la nature et de la vie',
-		},
-		icon: 'icon-[mdi--leaf]',
-		levels: ['S2', 'S3'],
-		commonSpecialty: 's',
-		mainSpecialty: 'S',
-	},
-	F: {
-		id: 'F',
-		name: { EN: 'Management and economics', FR: 'Gestion et économie', AR: 'تسيير واقتصاد' },
-		icon: 'icon-[mdi--finance]',
-		levels: ['S2', 'S3'],
-		commonSpecialty: 's',
-		mainSpecialty: 'F',
-	},
+
 	Af: {
 		id: 'Af',
 		name: {
@@ -391,18 +470,7 @@ export const secondarySpecialties: Record<
 		commonSpecialty: 'l',
 		mainSpecialty: 'l',
 	},
-	P: {
-		id: 'P',
-		name: {
-			EN: 'Philosophy and literature',
-			AR: 'فلسفة وأداب',
-			FR: 'Philosophie et littérature',
-		},
-		icon: 'icon-[mdi--brain]',
-		levels: ['S2', 'S3'],
-		commonSpecialty: 'l',
-		mainSpecialty: 'P',
-	},
+
 	Fs: {
 		id: 'Fs',
 		name: {

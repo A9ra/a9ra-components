@@ -7,6 +7,7 @@ declare type SecondaryBasicSpecialtiesT =
 	| 'S' // Science of nature and life
 	| 'F' // Finance
 	| 'Tec' // Technology
+	| 'Km' // Kouba secondary school of math
 	/*  Literary fields */
 	| 'A' // Arts
 	| 'P' // Philosophy
