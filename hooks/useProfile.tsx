@@ -27,7 +27,7 @@ export default function useProfile<
 			const specialtyD = secondarySpecialties[specialty];
 			const subjectsCofs = S2LevelSubjects[specialtyD.mainSpecialty];
 			if (!subjectsCofs) {
-				console.error('This specialty is not supported yet');
+				// console.error('This specialty is not supported yet');
 				return 0;
 			}
 			const result = (Object.entries(grades) as [subjectsEnumT, number][]).reduce(
@@ -46,7 +46,7 @@ export default function useProfile<
 							cof: acc.cof + cof,
 						};
 					} else {
-						console.error('This subject is not supported yet');
+						// console.error('This subject is not supported yet');
 						return acc;
 					}
 				},
