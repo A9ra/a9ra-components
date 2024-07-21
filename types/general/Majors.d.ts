@@ -11,4 +11,5 @@ declare interface PublicMajorI<IDS = string> extends MajorI<IDS> {
 }
 declare interface MajorWithArticleI<IDS = string> extends PublicMajorI<IDS> {
 	article: PublicArticleI<IDS>;
+	universitiesThatAdapts: number;
 }
