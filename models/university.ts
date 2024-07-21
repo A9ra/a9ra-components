@@ -32,6 +32,28 @@ const universitySchema = new Schema<
 	},
 	{ timestamps: true }
 );
+/* --------------------- index ---------------------  */
+universitySchema.index(
+	{
+		uuid: 'text',
+		'name.AR': 'text',
+		'name.FR': 'text',
+		'name.EN': 'text',
+		province: 'text',
+	},
+	{
+		weights: {
+			uuid: 5,
+			'name.AR': 4,
+			'name.FR': 3,
+			'name.EN': 2,
+			'description.AR': 4,
+			'description.FR': 3,
+			'description.EN': 2,
+		},
+		name: 'major_search_index',
+	}
+);
 /* --------------------- Virtual ---------------------  */
 
 /* --------------------- Hooks ---------------------  */

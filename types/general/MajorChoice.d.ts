@@ -13,6 +13,6 @@ declare interface PublicMajorChoiceI<IDS = string> extends MajorsAcceptanceI<IDS
 	id: IDS;
 }
 declare interface PopulatedMajorChoiceI<IDS = string> extends PublicMajorChoiceI<IDS> {
-	major: MajorI & { _id: string };
-	university: UniversityI & { _id: string };
+	major: PublicMajorI<IDS>;
+	university: PublicUniversityI<IDS>;
 }

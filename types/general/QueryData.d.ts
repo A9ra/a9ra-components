@@ -3,6 +3,7 @@ declare interface BasicQuerySearchI<T extends NonNullable<object> = object> {
 	page?: number;
 	limit?: number;
 	sort?: Record<keyof T, 1 | -1>;
+	select?: string | Record<keyof T, 1 | -1>;
 }
 declare type QuerySearchI<
 	T extends NonNullable<object>,
