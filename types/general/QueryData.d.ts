@@ -15,3 +15,10 @@ declare interface ListResponse<T extends NonNullable<object>> {
 	page?: number;
 	limit?: number;
 }
+
+declare interface MajorQueryT {
+	search?: string;
+	average?: number;
+	wilayas?: ProvinceI['id'][];
+	universities?: PublicUniversityI['id'][];
+}
