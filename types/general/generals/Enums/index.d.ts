@@ -2,6 +2,7 @@ declare interface EnumsDetailsI<ID, ICON = string> {
 	id: ID;
 	name: LanguagesContentI;
 	icon: ICON;
+	image?: string;
 	description?: LanguagesContentI;
 }
 declare interface EnumsDetailsWithColorI<ID, ICON = string> extends EnumsDetailsI<ID, ICON> {
