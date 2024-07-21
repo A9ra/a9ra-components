@@ -9,7 +9,7 @@ declare interface MajorChoiceI<IDS = string> {
 	priorities: PriorityAcceptanceI;
 	undetermined?: boolean;
 }
-declare interface PublicMajorChoiceI<IDS = string> extends MajorsAcceptanceI<IDS> {
+declare interface PublicMajorChoiceI<IDS = string> extends MajorChoiceI<IDS> {
 	id: IDS;
 }
 declare interface PopulatedMajorChoiceI<IDS = string> extends PublicMajorChoiceI<IDS> {
