@@ -57,15 +57,7 @@ export const interestsMap: Record<interestsEnumT, EnumsDetailsI<interestsEnumT>>
 		},
 		icon: 'icon-[mdi--microphone]',
 	},
-	Dancing: {
-		id: 'Dancing',
-		name: {
-			EN: 'Dancing',
-			AR: 'الرقص',
-			FR: 'Danse',
-		},
-		icon: 'icon-[mdi--dance-ballroom]',
-	},
+
 	Cooking: {
 		id: 'Cooking',
 		name: {
@@ -219,15 +211,7 @@ export const interestsMap: Record<interestsEnumT, EnumsDetailsI<interestsEnumT>>
 		},
 		icon: 'icon-[mdi--soccer]',
 	},
-	Exercise: {
-		id: 'Exercise',
-		name: {
-			EN: 'Exercise',
-			AR: 'ممارسة التمارين الرياضية',
-			FR: 'Exercice',
-		},
-		icon: 'icon-[mdi--dumbbell]',
-	},
+
 	Yoga: {
 		id: 'Yoga',
 		name: {
@@ -480,15 +464,7 @@ export const interestsMap: Record<interestsEnumT, EnumsDetailsI<interestsEnumT>>
 		},
 		icon: 'icon-[mdi--ski]',
 	},
-	Snowboarding: {
-		id: 'Snowboarding',
-		name: {
-			EN: 'Snowboarding',
-			AR: 'ركوب الثلج',
-			FR: 'Snowboard',
-		},
-		icon: 'icon-[mdi--snowboard]',
-	},
+
 	Skating: {
 		id: 'Skating',
 		name: {
@@ -561,15 +537,7 @@ export const interestsMap: Record<interestsEnumT, EnumsDetailsI<interestsEnumT>>
 		},
 		icon: 'icon-[mdi--football]',
 	},
-	Soccer: {
-		id: 'Soccer',
-		name: {
-			EN: 'Soccer',
-			AR: 'كرة القدم',
-			FR: 'Football',
-		},
-		icon: 'icon-[mdi--soccer]',
-	},
+
 	Rugby: {
 		id: 'Rugby',
 		name: {
@@ -588,15 +556,7 @@ export const interestsMap: Record<interestsEnumT, EnumsDetailsI<interestsEnumT>>
 		},
 		icon: 'icon-[mdi--hockey-sticks]',
 	},
-	Cricket: {
-		id: 'Cricket',
-		name: {
-			EN: 'Cricket',
-			AR: 'الكريكيت',
-			FR: 'Cricket',
-		},
-		icon: 'icon-[mdi--cricket]',
-	},
+
 	Baseball: {
 		id: 'Baseball',
 		name: {
@@ -704,16 +664,6 @@ export const interestsMap: Record<interestsEnumT, EnumsDetailsI<interestsEnumT>>
 			FR: 'Ballet',
 		},
 		icon: 'icon-[mdi--ballet]',
-	},
-
-	Ballroom: {
-		id: 'Ballroom',
-		name: {
-			EN: 'Ballroom',
-			AR: 'الرقص الباليه',
-			FR: 'Danse de salon',
-		},
-		icon: 'icon-[mdi--dance-ballroom]',
 	},
 };
 export const interestsList = Object.keys(interestsMap) as unknown as MyEnum<interestsEnumT>;
