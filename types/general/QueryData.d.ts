@@ -21,5 +21,5 @@ declare interface MajorQueryT {
 	average?: number;
 	provinces?: ProvinceI['id'][] | ProvinceI['id'];
 	universities?: PublicUniversityI['id'][] | PublicUniversityI['id'];
-	specialty: SecondaryBasicSpecialtiesT;
+	specialty?: SecondaryBasicSpecialtiesT;
 }
