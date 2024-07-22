@@ -1,4 +1,4 @@
-import { model, Schema } from 'mongoose';
+import { /* model, */ Schema } from 'mongoose';
 
 import {
 	AddressInstanceMethods,
@@ -58,6 +58,6 @@ addressSchema.methods.toOptimizedObject = function () {
 /* --------------------- static methods --------------------- */
 
 /* --------------------- Generate Model --------------------- */
-const addressModel = model<AddressI, AddressModel, AddressQueryHelpers>('Address', addressSchema);
-export default addressModel;
+/* const addressModel = model<AddressI, AddressModel, AddressQueryHelpers>('Address', addressSchema);
+export default addressModel; */
 export { addressSchema };

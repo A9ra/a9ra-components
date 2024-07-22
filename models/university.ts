@@ -51,7 +51,7 @@ universitySchema.index(
 			'description.FR': 3,
 			'description.EN': 2,
 		},
-		name: 'major_search_index',
+		name: 'university_search_index',
 	}
 );
 /* --------------------- Virtual ---------------------  */
