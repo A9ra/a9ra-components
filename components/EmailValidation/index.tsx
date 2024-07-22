@@ -8,7 +8,7 @@ import { resendValidation } from '$client/endpoints/auth';
 import useUser from ':common/useUser';
 
 import CountDownValidationButton from './CountDownValidationButton';
-export default function EmailValidation() {
+export default function EmailValidation({ canNavigate = false }: { canNavigate?: boolean }) {
 	const [sentAt, setSentAt] = React.useState(new Date(1));
 	const { user } = useUser();
 	const navigate = useNavigate();
@@ -17,9 +17,10 @@ export default function EmailValidation() {
 		onSuccess: (res) => {
 			toast.success('Email sent');
 			setSentAt(new Date());
-			navigate('/validate/email?sessionId=' + res.data);
+			if (canNavigate) navigate('/validate/email?sessionId=' + res.data);
 		},
-		onError: () => {
+		onError: (e) => {
+			console.log(e);
 			toast.error('Failed to send email');
 		},
 		mutationKey: ['resendValidation'],
