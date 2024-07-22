@@ -1,6 +1,7 @@
-import { model, Schema, Types } from 'mongoose';
+import { model, Schema } from 'mongoose';
 
 import {
+	MajorDocumentI,
 	MajorInstanceMethods,
 	MajorModel,
 	MajorQueryHelpers,
@@ -13,7 +14,7 @@ import { languageContentSchema } from './generals/languageContent';
 const required = true;
 /* --------------------- Schema --------------------- */
 const majorSchema = new Schema<
-	MajorI<Types.ObjectId>,
+	MajorDocumentI,
 	MajorModel,
 	MajorInstanceMethods,
 	MajorQueryHelpers,
@@ -28,6 +29,8 @@ const majorSchema = new Schema<
 		article: { type: Schema.Types.ObjectId, ref: 'Article', required },
 		characters: [{ type: String }],
 		uuid: { type: String, required, unique: true },
+		likes: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+		dislikes: [{ type: Schema.Types.ObjectId, ref: 'User' }],
 	},
 	{ timestamps: true }
 );
@@ -63,7 +66,17 @@ majorSchema.index(
 }); */
 
 /* --------------------- Methods ---------------------  */
-majorSchema.methods.toOptimizedObject = function () {
+majorSchema.methods.toOptimizedObject = function (id) {
+	const you: PublicMajorI['you'] = id
+		? this.likes.some((v) => v.equals(id))
+			? { liked: true, disliked: false }
+			: this.dislikes.some((v) => v.equals(id))
+				? { liked: false, disliked: true }
+				: {
+						liked: false,
+						disliked: false,
+					}
+		: undefined;
 	return {
 		id: this._id.toString(),
 		uuid: this.uuid,
@@ -72,6 +85,8 @@ majorSchema.methods.toOptimizedObject = function () {
 		cover: this.cover,
 		characters: this.characters,
 		article: this.article.toString(),
+		likes: this.likes.length,
+		you,
 	};
 };
 
@@ -80,5 +95,5 @@ majorSchema.methods.toOptimizedObject = function () {
 /* --------------------- static methods --------------------- */
 
 /* --------------------- Generate Model --------------------- */
-const majorModel = model<MajorI<Types.ObjectId>, MajorModel, MajorQueryHelpers>('Major', majorSchema);
+const majorModel = model<MajorDocumentI, MajorModel, MajorQueryHelpers>('Major', majorSchema);
 export default majorModel;

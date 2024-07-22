@@ -10,15 +10,19 @@ import {
 } from 'mongoose';
 
 export interface MajorVirtual {}
+export interface MajorDocumentI extends MajorI<Types.ObjectId> {
+	likes: Types.ObjectId[];
+	dislikes: Types.ObjectId[];
+}
 
 export interface MajorInstanceMethods {
-	toOptimizedObject(): PublicMajorI;
+	toOptimizedObject(id?: Types.ObjectId | string): PublicMajorI;
 }
-/* QueryWithHelpers<MajorHydratedDocument | null, MajorHydratedDocument, MajorQueryHelpers, MajorI<Types.ObjectId>,'findOne' >; */
+/* QueryWithHelpers<MajorHydratedDocument | null, MajorHydratedDocument, MajorQueryHelpers, MajorDocumentI,'findOne' >; */
 export interface MajorQueryHelpers {}
 export interface MajorDocument
 	extends ApplySchemaOptions<
-		ObtainDocumentType<MajorDocument, MajorI<Types.ObjectId>, ResolveSchemaOptions<MajorSchemaOptions>>,
+		ObtainDocumentType<MajorDocument, MajorDocumentI, ResolveSchemaOptions<MajorSchemaOptions>>,
 		ResolveSchemaOptions<MajorSchemaOptions>
 	> {}
 export interface MajorHydratedDocument
@@ -29,5 +33,5 @@ export interface MajorSchemaOptions {
 	timestamps: true;
 }
 export interface MajorModel
-	extends Model<MajorI<Types.ObjectId>, MajorQueryHelpers, MajorInstanceMethods, MajorVirtual, MajorHydratedDocument>,
+	extends Model<MajorDocumentI, MajorQueryHelpers, MajorInstanceMethods, MajorVirtual, MajorHydratedDocument>,
 		MajorStaticMethods {}
