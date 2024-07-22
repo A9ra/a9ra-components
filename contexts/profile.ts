@@ -1,48 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { DISABLE_AUTH } from '&client/web';
-const defaultProfile: PublicStudentProfileI = {
-	id: '6699638ef25ccc04551ac244',
-	user: '6699638ef25ccc04551ac242',
-
-	kind: 'S',
-	interests: {
-		interests: {
-			main: 'Photography',
-			others: ['Baking', 'Gardening', 'Writing', 'Drawing', 'Videography'],
-		},
-		subjects: {
-			main: 'Ar',
-			others: ['Mu', 'P', 'S', 'Cs'],
-		},
-		careers: {
-			main: 'Engineer',
-			others: [],
-		},
-	},
-	preferences: {
-		learningStyle: {
-			main: 'Visual',
-			others: ['R/W', 'Kinesthetic'],
-		},
-		learningTimes: {
-			main: 'E',
-			others: [],
-		},
-		learningDuration: {
-			main: '<1',
-			others: [],
-		},
-	},
-	level: 'S3',
-	specialty: 'M',
-	optionals: {
-		sports: true,
-		amazight: true,
-		// music: boolean;
-	},
-};
-
 interface StudentProfileSliceI {
 	profile: PublicStudentProfileI | null;
 	grades: StudentGradesI | null;
@@ -50,7 +7,7 @@ interface StudentProfileSliceI {
 	loadedGrades: boolean;
 }
 const initial_state: StudentProfileSliceI = {
-	profile: DISABLE_AUTH ? defaultProfile : JSON.parse(localStorage.getItem('Profile') || 'null'),
+	profile: JSON.parse(localStorage.getItem('Profile') || 'null'),
 	grades: null,
 	loadedProfile: false,
 	loadedGrades: false,

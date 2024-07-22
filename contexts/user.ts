@@ -1,29 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { format } from 'date-fns';
 
-import { DISABLE_AUTH } from '&client/web';
-const defaultUser: PublicUserI = {
-	id: '6699638ef25ccc04551ac242',
-	email: 'mail@mail.com',
-	emailValidated: true,
-	phone: '0000000000',
-	username: 'xemox',
-	profilePicture: '',
-	personalInformation: {
-		firstName: 'Abdelhak',
-		lastName: 'Ihadjadene',
-		birthday: new Date(),
-		gender: 'M',
-		note: '',
-		residence: {
-			addresses: ['default'],
-			city: 1,
-			province: 1,
-		},
-	},
-};
 const initial_state: { user: PublicUserI | null; loadedUser: boolean } = {
-	user: DISABLE_AUTH ? processUser(defaultUser) : JSON.parse(localStorage.getItem('User') || 'null'),
+	user: JSON.parse(localStorage.getItem('User') || 'null'),
 	loadedUser: false,
 };
 function processUser(user: PublicUserI): PublicUserI {
