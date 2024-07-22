@@ -19,7 +19,7 @@ export default function EmailValidation({ canNavigate = false }: { canNavigate?:
 			setSentAt(new Date());
 			if (canNavigate) navigate('/validate/email?sessionId=' + res.data);
 		},
-		onError: (e) => {
+		onError: () => {
 			toast.error('Failed to send email');
 		},
 		mutationKey: ['resendValidation'],
