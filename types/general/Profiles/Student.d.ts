@@ -27,3 +27,4 @@ declare interface PublicStudentProfileI<IDS = string> extends StudentProfileDocu
 	id: IDS;
 }
 declare type StudentGradesI = Optional<Record<basicSubjectsEnumT, number>>;
+declare type StudentFullGradesI = Optional<Record<subjectsEnumT, number>>;
