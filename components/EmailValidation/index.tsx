@@ -20,7 +20,6 @@ export default function EmailValidation({ canNavigate = false }: { canNavigate?:
 			if (canNavigate) navigate('/validate/email?sessionId=' + res.data);
 		},
 		onError: (e) => {
-			console.log(e);
 			toast.error('Failed to send email');
 		},
 		mutationKey: ['resendValidation'],
