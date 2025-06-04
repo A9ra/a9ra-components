@@ -36,8 +36,8 @@ export function generateFocusedChoiceSchema<T extends string = string>(enums: My
 	/* --------------------- Hooks ---------------------  */
 
 	/* --------------------- Methods ---------------------  */
-	focusedChoiceSchema.methods.toOptimizedObject = function () {
-		return this.toObject();
+	focusedChoiceSchema.methods.toOptimizedObject = function <T extends string = string>() {
+		return this.toObject() as FocusedChoiceI<T>;
 	};
 
 	/* --------------------- Query Helpers --------------------- */

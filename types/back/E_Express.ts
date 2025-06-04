@@ -1,5 +1,4 @@
 import { Request } from 'express';
-import * as core from 'express-serve-static-core';
 import { ParsedQs } from 'qs';
 
 import { UserHydratedDocument } from '!common/models/user';
@@ -12,10 +11,10 @@ interface RequestExtendsMap<T extends RequestExtends | null = null> {
 
 export interface ERequest<
 	Req extends RequestExtends | null = null,
-	Params = core.ParamsDictionary,
+	Params = {},
 	ResBody = any,
 	ReqBody = any,
-	ReqQuery = core.Query,
+	ReqQuery = {},
 	Locals extends Record<string, any> = Record<string, any>,
 > extends Request<Params, ResBody, ReqBody, ReqQuery & ParsedQs, Locals>,
 		RequestExtendsMap<Req> {}
