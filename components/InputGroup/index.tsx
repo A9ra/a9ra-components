@@ -199,17 +199,10 @@ export default function InputGroup<InputType extends InputTypesKeysI>({
 		);
 	}
 	return (
-		<div className={`form-control ${className || 'w-full'} text-gray-900`}>
-			{label &&
-				(typeof label === 'string' ? (
-					<label htmlFor={id} className={'label'}>
-						{label}
-					</label>
-				) : (
-					label
-				))}
+		<fieldset className={`fieldset ${className || 'w-full'} text-gray-900`}>
+			{label && (typeof label === 'string' ? <legend className={'label'}>{label}</legend> : label)}
 			<Input id={id} type={type} inputProps={inputProps} enums={enums} fixes={fixes} {...formikProps} />
 			<ErrorMessage name={formikProps.name} className="label text-sm" />
-		</div>
+		</fieldset>
 	);
 }
