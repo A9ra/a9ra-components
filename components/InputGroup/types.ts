@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes, JSX } from 'react';
 import { FieldConfig, FieldInputProps, FormikValues } from 'formik';
 
 interface SelectOptionI {
