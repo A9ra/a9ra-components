@@ -1,11 +1,12 @@
 declare interface MyFile {
-	fieldname: string;
-	originalname: string;
-	encoding: string;
-	mimetype: string;
-	path: string;
+	fileName: string;
+	src: string;
 	size: number;
-	filename: string;
+	mimetype: string;
+}
+declare interface MyImageFile extends MyFile {
+	width: number;
+	height: number;
 }
 
 type MyEnum<U extends string> = Readonly<[U, ...U[]]>;
