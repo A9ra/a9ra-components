@@ -1,6 +1,6 @@
-import { model, Schema, Types } from 'mongoose';
+import { model, Schema, type Types } from 'mongoose';
 
-import {
+import type {
 	MajorChoiceInstanceMethods,
 	MajorChoiceModel,
 	MajorChoiceQueryHelpers,

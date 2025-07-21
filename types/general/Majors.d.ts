@@ -7,7 +7,7 @@ declare interface MajorI<IDS = string> {
 	characters: string[];
 }
 declare interface PublicMajorI<IDS = string> extends MajorI<IDS> {
-	id: IDS;
+	_id: IDS;
 	likes: number;
 	you?: {
 		liked: boolean;
