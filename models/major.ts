@@ -1,6 +1,6 @@
 import { model, Schema } from 'mongoose';
 
-import {
+import type {
 	MajorDocumentI,
 	MajorInstanceMethods,
 	MajorModel,
@@ -78,7 +78,7 @@ majorSchema.methods.toOptimizedObject = function (id) {
 					}
 		: undefined;
 	return {
-		id: this._id.toString(),
+		_id: this._id.toString(),
 		uuid: this.uuid,
 		name: this.name,
 		description: this.description,
