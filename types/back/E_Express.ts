@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import { Request } from 'express';
 import { ParsedQs } from 'qs';
 
