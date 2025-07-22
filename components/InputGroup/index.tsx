@@ -170,7 +170,7 @@ function Input<InputType extends InputTypesKeysI>({
 }
 
 export default function InputGroup<InputType extends InputTypesKeysI>({
-	className = 'w-full max-w-sm',
+	className = 'w-full',
 	id: passedId,
 	label,
 	enums,
@@ -183,7 +183,7 @@ export default function InputGroup<InputType extends InputTypesKeysI>({
 	if (type === 'checkbox' || type === 'radio') {
 		return (
 			<div className={`${className} flex flex-col gap-2 text-gray-900`}>
-				<div className="flex gap-4">
+				<div className="flex gap-2">
 					<Input id={id} type={type} inputProps={inputProps} enums={enums} fixes={fixes} {...formikProps} />
 					{label &&
 						(typeof label === 'string' ? (
@@ -200,7 +200,7 @@ export default function InputGroup<InputType extends InputTypesKeysI>({
 	}
 	return (
 		<fieldset className={`fieldset ${className || 'w-full'} text-gray-900`}>
-			{label && (typeof label === 'string' ? <legend className={'label'}>{label}</legend> : label)}
+			{label && (typeof label === 'string' ? <legend className={'label text-base'}>{label}</legend> : label)}
 			<Input id={id} type={type} inputProps={inputProps} enums={enums} fixes={fixes} {...formikProps} />
 			<ErrorMessage name={formikProps.name} className="label text-sm" />
 		</fieldset>
