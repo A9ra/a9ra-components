@@ -29,7 +29,7 @@ export default function CountDownValidationButton({
 			disabled={countDown !== 0}
 			onClick={onClick}
 		>
-			<span className="group-hover:bg-opacity-0 relative flex items-center gap-2 rounded-md bg-white px-5 py-1 transition-all duration-75 ease-in dark:bg-gray-900">
+			<span className="relative flex items-center gap-2 rounded-md bg-white px-5 py-1 transition-all duration-75 ease-in group-hover:bg-transparent">
 				{isLoading ? (
 					<>
 						<Loading className="w-4" />

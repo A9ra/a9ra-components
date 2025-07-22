@@ -170,7 +170,7 @@ function Input<InputType extends InputTypesKeysI>({
 }
 
 export default function InputGroup<InputType extends InputTypesKeysI>({
-	className = 'w-full',
+	className = 'w-full max-w-sm',
 	id: passedId,
 	label,
 	enums,
